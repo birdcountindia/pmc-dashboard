@@ -86,16 +86,15 @@
   // are committed in this same repo next to index.html, so plain relative fetches work.
   const BASE_URL = '';
 
-  // Gujarat framing: full state = panning limit, upper half = default view on load
-  const GUJARAT_BOUNDS       = L.latLngBounds([20.0, 68.0], [24.9, 74.6]);
-  const GUJARAT_UPPER_BOUNDS = L.latLngBounds([22.4, 68.0], [24.9, 73.2]);
+  // Kachchh district, Gujarat: panning limit + default view on load
+  const KACHCHH_BOUNDS = L.latLngBounds([22.7, 68.1], [24.4, 70.9]);
 
   const map = L.map('map', {
     zoomControl: false,
-    minZoom: 6,
-    maxBounds: GUJARAT_BOUNDS,
+    minZoom: 7,
+    maxBounds: KACHCHH_BOUNDS.pad(0.15),
     maxBoundsViscosity: 1.0
-  }).fitBounds(GUJARAT_UPPER_BOUNDS);
+  }).fitBounds(KACHCHH_BOUNDS);
   L.control.zoom({ position: 'topright' }).addTo(map);
   // Google Maps (India edition: renders the India-mandated border/labels for J&K etc.)
   L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&apistyle=s.t:2|s.e:g|p.v:off&gl=in', {
