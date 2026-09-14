@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Passage Migrant Count Dashboard</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  html, body, #map { width: 100%; height: 100%; margin: 0; padding: 0; }
+  body { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; }
+
+  .stats-dashboard {
+    background: rgba(255,255,255,0.96);
+    padding: 10px 14px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    min-width: 260px;
+  }
+  .stats-row { display: flex; gap: 10px; }
+  .stat-item { flex: 1; text-align: center; border-right: 1px solid #eee; padding-right: 8px; }
+  .stat-item:last-child { border-right: none; }
+  .stat-value { font-size: 24px; font-weight: 800; color: #d35400; line-height: 1; }
+  .stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; color: #666; margin-top: 3px; }
+  .stats-updated { font-size: 10px; color: #999; text-align: center; margin-top: 8px; }
+
+  .legend {
+    background: rgba(255,255,255,0.96);
+    padding: 8px 12px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .legend .thumb { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 6px; vertical-align: middle; object-fit: cover; border: 1px solid #fff; box-shadow: 0 0 0 1px #e74c3c; }
+
+  .pmc-popup { font-size: 13px; min-width: 190px; }
+  .pmc-popup .pp-title { font-weight: 700; margin-bottom: 4px; }
+  .pmc-popup .pp-row { color: #444; margin: 2px 0; }
+  .pmc-popup .pp-focal { color: #c0392b; font-weight: 600; margin-top: 4px; }
+  .pmc-popup .pp-focal-imgs { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
+  .pmc-popup .pp-focal-imgs img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #e74c3c; }
+  .pmc-popup a { color: #2980b9; }
+
+  .focal-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    object-fit: cover; border: 2px solid #e74c3c;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+  .checklist-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #2980b9; border: 1.5px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  }
+
+  .species-panel {
+    background: rgba(255,255,255,0.97);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    max-width: 300px;
+  }
+  .species-panel .sp-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: #666; margin-bottom: 6px; }
+  .species-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+  .sp-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: #f7f7f7; border: 1.5px solid transparent; border-radius: 20px;
+    padding: 3px 10px 3px 3px; cursor: pointer; font-size: 11px; color: #333;
+    transition: all .12s ease;
+  }
+  .sp-btn img { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; }
+  .sp-btn.active { border-color: #e74c3c; background: #fdecea; color: #c0392b; font-weight: 700; }
+  .sp-btn:hover { border-color: #e74c3c; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<script>
+  // data files (stats.json, checklists.geojson, species.json, www/species/*.jpg)
+  // are committed in this same repo next to index.html, so plain relative fetches work.
+  const BASE_URL = '';
+
+  const map = L.map('map', { zoomControl: false, minZoom: 3 }).setView([22.5937, 78.9629], 5);
+  L.control.zoom({ position: 'topright' }).addTo(map);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 19
+  }).addTo(map);
+
+  const dashboard = L.control({ position: 'topleft' });
+  dashboard.onAdd = function () {
+    const div = L.DomUtil.create('div', 'stats-dashboard');
+    div.innerHTML =
+      '<div class="stats-row">' +
+        '<div class="stat-item"><div class="stat-value" id="dash-lists">--</div><div class="stat-label">Lists</div></div>' +
+        '<div class="stat-item"><div class="stat-value" id="dash-birders">--</div><div class="stat-label">Birders</div></div>' +
+        '<div class="stat-item"><div class="stat-value" id="dash-species">--</div><div class="stat-label">Species</div></div>' +
+      '</div>' +
+      '<div class="stats-updated" id="dash-updated"></div>';
+    return div;
+  };
+  dashboard.addTo(map);
+
+  const legend = L.control({ position: 'bottomleft' });
+  legend.onAdd = function () {
+    const div = L.DomUtil.create('div', 'legend');
+    div.innerHTML =
+      '<div><span class="dot" style="background:#2980b9"></span>Checklist</div>' +
+      '<div><span class="thumb" style="background:#e74c3c"></span>Focal species seen (photo marker)</div>';
+    return div;
+  };
+  legend.addTo(map);
+
+  function esc(s) {
+    if (s === null || s === undefined) return '';
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  fetch(BASE_URL + 'stats.json')
+    .then(r => r.json())
+    .then(s => {
+      document.getElementById('dash-lists').innerText = s.lists;
+      document.getElementById('dash-birders').innerText = s.birders;
+      document.getElementById('dash-species').innerText = s.species;
+      document.getElementById('dash-updated').innerText = 'Updated ' + s.last_updated;
+    });
+
+  let activeSpeciesSlug = null;   // null = show all checklists
+  let checklistLayer = null;
+  let allFeatures = null;
+  let didInitialFit = false;
+
+  function focalIcon(slug) {
+    return L.divIcon({
+      className: '',
+      html: '<img class="focal-icon" src="' + BASE_URL + 'www/species/' + slug + '.jpg">',
+      iconSize: [28, 28],
+      iconAnchor: [14, 14]
+    });
+  }
+  const dotIcon = L.divIcon({ className: '', html: '<div class="checklist-dot"></div>', iconSize: [10, 10], iconAnchor: [5, 5] });
+
+  function makeLayer(features) {
+    const cluster = L.markerClusterGroup({ maxClusterRadius: 45, spiderfyOnMaxZoom: true });
+    const geo = L.geoJSON({ type: 'FeatureCollection', features: features }, {
+      pointToLayer: function (feature, latlng) {
+        const p = feature.properties;
+        if (p.has_focal) {
+          const slug = (p.focal_species_slugs || '').split(';')[0];
+          return L.marker(latlng, { icon: focalIcon(slug) });
+        }
+        return L.marker(latlng, { icon: dotIcon });
+      },
+      onEachFeature: function (f, layer) {
+        const p = f.properties;
+        let html = '<div class="pmc-popup">';
+        html += '<div class="pp-title">' + esc(p.LOCALITY) + '</div>';
+        html += '<div class="pp-row">' + esc(p['OBSERVATION.DATE']) + '</div>';
+        html += '<div class="pp-row">' + (p.n_species || 0) + ' species</div>';
+        if (p.has_focal && p.focal_species_seen) {
+          html += '<div class="pp-row pp-focal">Focal: ' + esc(p.focal_species_seen) + '</div>';
+          const slugs = (p.focal_species_slugs || '').split(';').filter(Boolean);
+          html += '<div class="pp-focal-imgs">' + slugs.map(sl =>
+            '<img src="' + BASE_URL + 'www/species/' + sl + '.jpg" title="' + esc(sl) + '">'
+          ).join('') + '</div>';
+        }
+        const sei = p['SAMPLING.EVENT.IDENTIFIER'];
+        if (sei) {
+          html += '<div class="pp-row"><a href="https://ebird.org/checklist/' + esc(sei) + '" target="_blank" rel="noopener">View checklist</a></div>';
+        }
+        html += '</div>';
+        layer.bindPopup(html, { maxWidth: 260 });
+      }
+    });
+    cluster.addLayer(geo);
+    return cluster;
+  }
+
+  function renderChecklists() {
+    if (checklistLayer) map.removeLayer(checklistLayer);
+    const features = activeSpeciesSlug
+      ? allFeatures.filter(f => (f.properties.focal_species_slugs || '').split(';').includes(activeSpeciesSlug))
+      : allFeatures;
+    checklistLayer = makeLayer(features).addTo(map);
+    if (!didInitialFit && features.length) {
+      map.fitBounds(checklistLayer.getBounds(), { padding: [30, 30], maxZoom: 11 });
+      didInitialFit = true;
+    }
+  }
+
+  fetch(BASE_URL + 'checklists.geojson')
+    .then(r => r.json())
+    .then(geo => {
+      allFeatures = geo.features;
+      renderChecklists();
+    });
+
+  // ---- focal species gallery / filter panel ----
+  const speciesPanel = L.control({ position: 'topright' });
+  speciesPanel.onAdd = function () {
+    const div = L.DomUtil.create('div', 'species-panel');
+    div.innerHTML = '<div class="sp-title">Focal species</div><div class="species-grid" id="species-grid"></div>';
+    L.DomEvent.disableClickPropagation(div);
+    return div;
+  };
+  speciesPanel.addTo(map);
+
+  fetch(BASE_URL + 'species.json')
+    .then(r => r.json())
+    .then(list => {
+      const grid = document.getElementById('species-grid');
+      const allBtn = document.createElement('div');
+      allBtn.className = 'sp-btn active';
+      allBtn.innerText = 'All';
+      allBtn.onclick = () => setActive(null, allBtn);
+      grid.appendChild(allBtn);
+
+      list.forEach(sp => {
+        const btn = document.createElement('div');
+        btn.className = 'sp-btn';
+        btn.innerHTML = '<img src="' + BASE_URL + sp.image + '"><span>' + esc(sp.name) + ' (' + sp.checklists + ')</span>';
+        btn.onclick = () => setActive(sp.slug, btn);
+        grid.appendChild(btn);
+      });
+
+      function setActive(slug, btn) {
+        activeSpeciesSlug = slug;
+        grid.querySelectorAll('.sp-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (allFeatures) renderChecklists();
+      }
+    });
+</script>
+</body>
+</html>
