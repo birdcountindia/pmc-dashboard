@@ -14,7 +14,7 @@ suppressMessages({
 })
 
 PMC_DATA_DIR <- "E:/Abhinandan/BCI/eBird-projects/PMC/data"
-OUT_DIR      <- "E:/Abhinandan/BCI/PMC-dashboard"
+OUT_DIR      <- "E:/Abhinandan/BCI/eBird-projects/PMC/PMC-dashboard"
 
 # ---- focal species to highlight on the map (common names, must match COMMON.NAME) ----
 FOCAL_SPECIES <- c(
