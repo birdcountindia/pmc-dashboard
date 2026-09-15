@@ -68,11 +68,11 @@
   .pmc-popup .pp-row { color: #444; margin: 2px 0; }
   .pmc-popup .pp-focal { color: #c0392b; font-weight: 600; margin-top: 4px; }
   .pmc-popup .pp-focal-imgs { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
-  .pmc-popup .pp-focal-imgs img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #e74c3c; }
+  .pmc-popup .pp-focal-imgs img { width: 41px; height: 41px; border-radius: 50%; object-fit: cover; border: 2px solid #e74c3c; }
   .pmc-popup a { color: #2980b9; }
 
   .focal-icon {
-    width: 28px; height: 28px; border-radius: 50%;
+    border-radius: 50%;
     object-fit: cover; border: 2px solid #e74c3c;
     box-shadow: 0 1px 4px rgba(0,0,0,0.4);
   }
@@ -209,6 +209,9 @@
     .species-panel .sp-title { font-size: 10px; }
     .sp-btn { font-size: 12px; padding: 5px 8px; gap: 8px; }
     .sp-btn img { width: 34px; height: 34px; }
+
+    /* bird icons on the map stay at their original (pre-20%) size on mobile */
+    .pmc-popup .pp-focal-imgs img { width: 34px; height: 34px; }
 
     #species-view { padding: 92px 12px 20px; }
     table.sv-table th, table.sv-table td { padding: 7px 8px; font-size: 12px; }
@@ -389,11 +392,13 @@
   let allFeatures = null;
 
   function focalIcon(slug) {
+    // 20% bigger than the original 28px on desktop; unchanged on mobile.
+    const size = window.innerWidth <= 640 ? 28 : 34;
     return L.divIcon({
       className: '',
-      html: '<img class="focal-icon" src="' + BASE_URL + 'www/species/' + slug + '.svg">',
-      iconSize: [28, 28],
-      iconAnchor: [14, 14]
+      html: '<img class="focal-icon" style="width:' + size + 'px;height:' + size + 'px" src="' + BASE_URL + 'www/species/' + slug + '.svg">',
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2]
     });
   }
   const dotIcon = L.divIcon({ className: '', html: '<div class="checklist-dot"></div>', iconSize: [16, 16], iconAnchor: [8, 8] });
