@@ -56,7 +56,7 @@
   .legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
   .legend .thumb { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 6px; vertical-align: middle; object-fit: cover; border: 1px solid #fff; box-shadow: 0 0 0 1px #e74c3c; }
 
-  .pmc-popup { font-size: 13px; min-width: 190px; }
+  .pmc-popup { font-size: 13px; min-width: 190px; max-width: 260px; }
   .pmc-popup .pp-title { font-weight: 700; margin-bottom: 4px; }
   .pmc-popup .pp-row { color: #444; margin: 2px 0; }
   .pmc-popup .pp-focal { color: #c0392b; font-weight: 600; margin-top: 4px; }
@@ -317,7 +317,7 @@
           html += '<div class="pp-row"><a href="https://ebird.org/checklist/' + esc(sei) + '" target="_blank" rel="noopener">View checklist</a></div>';
         }
         html += '</div>';
-        layer.bindPopup(html, { maxWidth: 260 });
+        layer.bindTooltip(html, { sticky: true, direction: 'top', interactive: true });
       }
     });
     cluster.addLayer(geo);
