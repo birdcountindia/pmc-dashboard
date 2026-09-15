@@ -60,7 +60,7 @@
     font-size: 12px;
     line-height: 1.8;
   }
-  .legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; border: 1.5px solid #e74c3c; box-sizing: border-box; }
+  .legend .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 6px; vertical-align: middle; border: 1.5px solid #e74c3c; box-sizing: border-box; }
   .legend .thumb { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 6px; vertical-align: middle; object-fit: cover; border: 1px solid #fff; box-shadow: 0 0 0 1px #e74c3c; }
 
   .pmc-popup { font-size: 13px; min-width: 230px; max-width: 260px; white-space: normal; overflow-wrap: break-word; }
@@ -321,7 +321,7 @@
     const div = L.DomUtil.create('div', 'legend');
     div.innerHTML =
       '<div><span class="dot" style="background:#2980b9"></span>Checklist</div>' +
-      '<div><span class="thumb" style="background:#e74c3c"></span>Selected focal species</div>';
+      '<div><span class="thumb" style="background:#e74c3c"></span>Focal species</div>';
     return div;
   };
   legend.addTo(map);
