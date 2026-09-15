@@ -77,20 +77,36 @@
 
   .species-panel {
     background: rgba(255,255,255,0.97);
-    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.2);
-    max-width: 300px;
+    width: 260px;
+    max-width: calc(100vw - 20px);
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: height .2s ease;
   }
-  .species-panel .sp-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: #666; margin-bottom: 6px; }
-  .species-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+  .species-panel.collapsed { height: auto; }
+  .species-panel-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 14px; cursor: pointer; flex-shrink: 0;
+    border-bottom: 1px solid #eee;
+  }
+  .species-panel .sp-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: #666; }
+  .species-toggle-icon { font-size: 12px; color: #888; transition: transform .2s ease; }
+  .species-panel.collapsed .species-toggle-icon { transform: rotate(-90deg); }
+  .species-panel.collapsed .species-grid-wrap { display: none; }
+  .species-grid-wrap { flex: 1; overflow-y: auto; padding: 8px; }
+  .species-grid { display: flex; flex-direction: column; gap: 6px; }
   .sp-btn {
-    display: flex; align-items: center; gap: 6px;
-    background: #f7f7f7; border: 1.5px solid transparent; border-radius: 20px;
-    padding: 3px 10px 3px 3px; cursor: pointer; font-size: 11px; color: #333;
+    display: flex; align-items: center; gap: 12px; min-height: 44px; box-sizing: border-box;
+    background: #f7f7f7; border: 1.5px solid transparent; border-radius: 12px;
+    padding: 6px 12px; cursor: pointer; font-size: 14px; color: #333;
     transition: all .12s ease;
   }
-  .sp-btn img { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; }
+  .sp-btn img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .sp-btn span { flex: 1; }
   .sp-btn.active { border-color: #e74c3c; background: #fdecea; color: #c0392b; font-weight: 700; }
   .sp-btn:hover { border-color: #e74c3c; }
 
@@ -161,11 +177,11 @@
 
     .compare-panel { min-width: 0; width: 150px; padding: 8px 10px; font-size: 10px; }
 
-    .species-panel { max-width: 130px; padding: 8px; }
-    .species-panel .sp-title { font-size: 9px; }
-    .sp-btn span { display: none; }
-    .sp-btn { padding: 3px; border-radius: 50%; }
-    .sp-btn img { width: 22px; height: 22px; margin: 0; }
+    .species-panel { width: 190px; }
+    .species-panel-header { padding: 8px 10px; }
+    .species-panel .sp-title { font-size: 10px; }
+    .sp-btn { font-size: 12px; padding: 5px 8px; gap: 8px; }
+    .sp-btn img { width: 34px; height: 34px; }
 
     #species-view { padding: 92px 12px 20px; }
     table.sv-table th, table.sv-table td { padding: 7px 8px; font-size: 12px; }
@@ -377,8 +393,14 @@
   const speciesPanel = L.control({ position: 'topright' });
   speciesPanel.onAdd = function () {
     const div = L.DomUtil.create('div', 'species-panel');
-    div.innerHTML = '<div class="sp-title">Focal species</div><div class="species-grid" id="species-grid"></div>';
+    div.innerHTML =
+      '<div class="species-panel-header" id="species-panel-header">' +
+        '<span class="sp-title">Focal species</span>' +
+        '<span class="species-toggle-icon">&#9660;</span>' +
+      '</div>' +
+      '<div class="species-grid-wrap"><div class="species-grid" id="species-grid"></div></div>';
     L.DomEvent.disableClickPropagation(div);
+    div.querySelector('#species-panel-header').onclick = () => div.classList.toggle('collapsed');
     return div;
   };
   speciesPanel.addTo(map);
