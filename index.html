@@ -290,7 +290,7 @@
     const div = L.DomUtil.create('div', 'legend');
     div.innerHTML =
       '<div><span class="dot" style="background:#2980b9"></span>Checklist</div>' +
-      '<div><span class="thumb" style="background:#e74c3c"></span>Focal species</div>';
+      '<div><span class="thumb" style="background:#e74c3c"></span>Selected focal species</div>';
     return div;
   };
   legend.addTo(map);
@@ -373,10 +373,13 @@
     const geo = L.geoJSON({ type: 'FeatureCollection', features: features }, {
       pointToLayer: function (feature, latlng) {
         const p = feature.properties;
-        if (p.has_focal) {
+        // default "All" view: every checklist gets the same plain marker, focal or not.
+        // Photo markers only appear once a specific focal species is selected below.
+        if (activeSpeciesSlug) {
           const slugs = (p.focal_species_slugs || '').split(';').filter(Boolean);
-          const slug = (activeSpeciesSlug && slugs.includes(activeSpeciesSlug)) ? activeSpeciesSlug : slugs[0];
-          return L.marker(latlng, { icon: focalIcon(slug) });
+          if (slugs.includes(activeSpeciesSlug)) {
+            return L.marker(latlng, { icon: focalIcon(activeSpeciesSlug) });
+          }
         }
         return L.marker(latlng, { icon: dotIcon });
       },
