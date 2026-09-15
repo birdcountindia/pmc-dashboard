@@ -116,22 +116,22 @@
   .tabs {
     position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
     z-index: 1000;
-    background: rgba(255,255,255,0.97);
     border-radius: 10px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.2);
-    display: flex; align-items: center; overflow: hidden;
+    display: flex; align-items: stretch; overflow: hidden;
   }
+  .view-tabs { display: flex; background: #fdf1e8; }
   .tab-btn {
     border: none; background: transparent; cursor: pointer;
-    font-family: inherit; font-size: 13px; font-weight: 600; color: #555;
+    font-family: inherit; font-size: 13px; font-weight: 600; color: #7a4a29;
     padding: 10px 18px;
   }
   .tab-btn.active { background: #d35400; color: #fff; }
-  .tabs-divider { width: 1px; height: 22px; background: #e5e5e5; }
-  #year-bar { display: flex; }
+  .tabs-divider { width: 1px; align-self: center; height: 22px; background: rgba(0,0,0,0.12); }
+  #year-bar { display: flex; background: #eaf4fc; }
   .year-btn {
     border: none; background: transparent; cursor: pointer;
-    font-family: inherit; font-size: 13px; font-weight: 600; color: #555;
+    font-family: inherit; font-size: 13px; font-weight: 600; color: #1f5a80;
     padding: 10px 14px; display: flex; align-items: center; gap: 5px;
   }
   .year-btn.active { background: #2980b9; color: #fff; }
@@ -192,8 +192,10 @@
 <div class="tabs">
   <div id="year-bar"></div>
   <div class="tabs-divider"></div>
-  <button class="tab-btn active" id="tab-map">Map</button>
-  <button class="tab-btn" id="tab-species">All Species</button>
+  <div class="view-tabs">
+    <button class="tab-btn active" id="tab-map">Map</button>
+    <button class="tab-btn" id="tab-species">All Species</button>
+  </div>
 </div>
 <div id="map"></div>
 <div id="species-view" class="hidden">
@@ -222,7 +224,7 @@
     maxBounds: KACHCHH_BOUNDS.pad(0.15),
     maxBoundsViscosity: 1.0
   }).fitBounds(KACHCHH_BOUNDS);
-  L.control.zoom({ position: 'topright' }).addTo(map);
+  L.control.zoom({ position: 'bottomright' }).addTo(map);
   // Google Maps (India edition: renders the India-mandated border/labels for J&K etc.)
   L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&apistyle=s.t:2|s.e:g|p.v:off&gl=in', {
     subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -280,8 +282,8 @@
   function gridStyle(n) {
     return {
       color: '#999', weight: 0.6,
-      fillColor: n > 0 ? '#3498db' : '#ccc',
-      fillOpacity: n > 0 ? Math.min(0.1 + n * 0.03, 0.45) : 0.03
+      fillColor: n > 0 ? '#1f618d' : '#ccc',
+      fillOpacity: n > 0 ? Math.min(0.3 + n * 0.045, 0.75) : 0.03
     };
   }
 
