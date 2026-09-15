@@ -15,6 +15,13 @@
   body { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; }
   .hidden { display: none !important; }
 
+  .basemap-toggle a {
+    font-size: 16px; width: 30px; height: 30px;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; background: #fff;
+  }
+  .basemap-toggle a.active { background: #2980b9; }
+
   .stats-dashboard {
     background: rgba(255,255,255,0.96);
     padding: 10px 14px;
@@ -70,9 +77,9 @@
     box-shadow: 0 1px 4px rgba(0,0,0,0.4);
   }
   .checklist-dot {
-    width: 10px; height: 10px; border-radius: 50%;
-    background: #2980b9; border: 1.5px solid #fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    width: 16px; height: 16px; border-radius: 50%;
+    background: #2980b9; border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
   }
 
   .species-panel {
@@ -257,11 +264,32 @@
   }).fitBounds(KACHCHH_BOUNDS);
   L.control.zoom({ position: 'bottomright' }).addTo(map);
   // Google Maps (India edition: renders the India-mandated border/labels for J&K etc.)
-  L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&apistyle=s.t:2|s.e:g|p.v:off&gl=in', {
+  const roadLayer = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&apistyle=s.t:2|s.e:g|p.v:off&gl=in', {
     subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
     attribution: '&copy; Google Maps',
     maxZoom: 20
   }).addTo(map);
+  const satelliteLayer = L.tileLayer('https://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}&gl=in', {
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    attribution: '&copy; Google Maps',
+    maxZoom: 20
+  });
+
+  const basemapToggle = L.control({ position: 'bottomright' });
+  basemapToggle.onAdd = function () {
+    const div = L.DomUtil.create('div', 'leaflet-bar basemap-toggle');
+    div.innerHTML = '<a href="#" role="button" title="Toggle satellite view">\u{1F310}</a>';
+    L.DomEvent.disableClickPropagation(div);
+    L.DomEvent.on(div.querySelector('a'), 'click', function (e) {
+      L.DomEvent.preventDefault(e);
+      const link = div.querySelector('a');
+      const satelliteOn = link.classList.toggle('active');
+      if (satelliteOn) { map.removeLayer(roadLayer); satelliteLayer.addTo(map); }
+      else { map.removeLayer(satelliteLayer); roadLayer.addTo(map); }
+    });
+    return div;
+  };
+  basemapToggle.addTo(map);
 
   const dashboard = L.control({ position: 'topleft' });
   dashboard.onAdd = function () {
@@ -368,7 +396,7 @@
       iconAnchor: [14, 14]
     });
   }
-  const dotIcon = L.divIcon({ className: '', html: '<div class="checklist-dot"></div>', iconSize: [10, 10], iconAnchor: [5, 5] });
+  const dotIcon = L.divIcon({ className: '', html: '<div class="checklist-dot"></div>', iconSize: [16, 16], iconAnchor: [8, 8] });
 
   function makeLayer(features) {
     const cluster = L.markerClusterGroup({ maxClusterRadius: 45, spiderfyOnMaxZoom: true });
