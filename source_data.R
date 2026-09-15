@@ -40,7 +40,7 @@ FOCAL_SPECIES <- c(
   "Spotted Flycatcher"
 )
 
-# slug helper: "Blue-cheeked Bee-eater" -> "blue-cheeked-bee-eater" (matches www/species/*.jpg)
+# slug helper: "Blue-cheeked Bee-eater" -> "blue-cheeked-bee-eater" (matches www/species/*.svg)
 slugify <- function(x) {
   x %>% str_to_lower() %>% str_remove_all("'") %>% str_replace_all("[^a-z0-9]+", "-") %>% str_remove_all("^-|-$")
 }
@@ -70,7 +70,7 @@ process_year <- function(data_year, grid, year) {
     write_json(list(), file.path(year_dir, "grid_stats.json"), auto_unbox = TRUE)
     write_json(
       tibble(name = FOCAL_SPECIES, slug = slugify(FOCAL_SPECIES),
-             image = paste0("www/species/", slugify(FOCAL_SPECIES), ".jpg"), checklists = 0L),
+             image = paste0("www/species/", slugify(FOCAL_SPECIES), ".svg"), checklists = 0L),
       file.path(year_dir, "species.json"), auto_unbox = TRUE, pretty = TRUE
     )
     write_json(list(), file.path(year_dir, "all_species.json"), auto_unbox = TRUE)
@@ -129,7 +129,7 @@ process_year <- function(data_year, grid, year) {
   species_manifest <- tibble(
     name       = FOCAL_SPECIES,
     slug       = slugify(FOCAL_SPECIES),
-    image      = paste0("www/species/", slugify(FOCAL_SPECIES), ".jpg"),
+    image      = paste0("www/species/", slugify(FOCAL_SPECIES), ".svg"),
     checklists = as.integer(species_counts[FOCAL_SPECIES])
   )
   write_json(species_manifest, file.path(year_dir, "species.json"), auto_unbox = TRUE, pretty = TRUE)

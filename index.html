@@ -163,7 +163,7 @@
 </div>
 
 <script>
-  // data files (years.json, years/<year>/*.json, grids_geometry.geojson, www/species/*.jpg)
+  // data files (years.json, years/<year>/*.json, grids_geometry.geojson, www/species/*.svg)
   // are committed in this same repo next to index.html, so plain relative fetches work.
   const BASE_URL = '';
   let selectedYear = null;
@@ -281,7 +281,7 @@
   function focalIcon(slug) {
     return L.divIcon({
       className: '',
-      html: '<img class="focal-icon" src="' + BASE_URL + 'www/species/' + slug + '.jpg">',
+      html: '<img class="focal-icon" src="' + BASE_URL + 'www/species/' + slug + '.svg">',
       iconSize: [28, 28],
       iconAnchor: [14, 14]
     });
@@ -309,7 +309,7 @@
           html += '<div class="pp-row pp-focal">Focal: ' + esc(p.focal_species_seen) + '</div>';
           const slugs = (p.focal_species_slugs || '').split(';').filter(Boolean);
           html += '<div class="pp-focal-imgs">' + slugs.map(sl =>
-            '<img src="' + BASE_URL + 'www/species/' + sl + '.jpg" title="' + esc(sl) + '">'
+            '<img src="' + BASE_URL + 'www/species/' + sl + '.svg" title="' + esc(sl) + '">'
           ).join('') + '</div>';
         }
         const sei = p['SAMPLING.EVENT.IDENTIFIER'];
