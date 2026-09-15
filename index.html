@@ -330,8 +330,10 @@
           // popup, not tooltip: tooltips close the instant the cursor leaves the (tiny) shape,
           // which doesn't give enough time to read it. Popups stay open until dismissed, and
           // still open on hover here for a tooltip-like feel.
-          layer.bindPopup(gridTooltipHtml(f.properties), { closeButton: false, maxWidth: 220 });
-          layer.on('mouseover', function () { this.setStyle({ weight: 2, color: '#e74c3c' }); this.openPopup(); });
+          // click-to-open only: hover-opening this collided with the checklist markers'
+          // own hover popups when a grid cell sits right under a marker.
+          layer.bindPopup(gridTooltipHtml(f.properties), { maxWidth: 220 });
+          layer.on('mouseover', function () { this.setStyle({ weight: 2, color: '#e74c3c' }); });
           layer.on('mouseout', function () { this.setStyle(gridStyle(f.properties.n_lists || 0)); });
         }
       }).addTo(map);
