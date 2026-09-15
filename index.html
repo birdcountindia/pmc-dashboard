@@ -310,10 +310,12 @@
         style: () => gridStyle(0),
         onEachFeature: function (f, layer) {
           gridLayerByCode[f.properties.GRID_CODE] = layer;
-          layer.bindTooltip(gridTooltipHtml(f.properties), { sticky: true, direction: 'top' });
-          layer.on('mouseover', function () { this.setStyle({ weight: 2, color: '#e74c3c' }); });
+          // popup, not tooltip: tooltips close the instant the cursor leaves the (tiny) shape,
+          // which doesn't give enough time to read it. Popups stay open until dismissed, and
+          // still open on hover here for a tooltip-like feel.
+          layer.bindPopup(gridTooltipHtml(f.properties), { closeButton: false, maxWidth: 220 });
+          layer.on('mouseover', function () { this.setStyle({ weight: 2, color: '#e74c3c' }); this.openPopup(); });
           layer.on('mouseout', function () { this.setStyle(gridStyle(f.properties.n_lists || 0)); });
-          layer.on('click', function () { this.openTooltip(); });   // tap-to-show on touch screens (no hover there)
         }
       }).addTo(map);
     });
@@ -324,14 +326,14 @@
       const layer = gridLayerByCode[code];
       layer.feature.properties = Object.assign(layer.feature.properties, { n_lists: 0, n_birders: 0, n_species: 0, focal_lists: 0 });
       layer.setStyle(gridStyle(0));
-      layer.setTooltipContent(gridTooltipHtml(layer.feature.properties));
+      layer.setPopupContent(gridTooltipHtml(layer.feature.properties));
     });
     rows.forEach(row => {
       const layer = gridLayerByCode[row.GRID_CODE];
       if (!layer) return;
       layer.feature.properties = Object.assign(layer.feature.properties, row);
       layer.setStyle(gridStyle(row.n_lists || 0));
-      layer.setTooltipContent(gridTooltipHtml(layer.feature.properties));
+      layer.setPopupContent(gridTooltipHtml(layer.feature.properties));
     });
   }
 
@@ -379,8 +381,13 @@
           html += '<div class="pp-row"><a href="https://ebird.org/checklist/' + esc(sei) + '" target="_blank" rel="noopener">View checklist</a></div>';
         }
         html += '</div>';
-        layer.bindTooltip(html, { sticky: true, direction: 'top', interactive: true });
-        layer.on('click', function () { this.openTooltip(); });   // tap-to-show on touch screens (no hover there)
+        // popup, not tooltip: a hover tooltip closes the instant the cursor leaves the marker,
+        // which isn't enough time to reach the "View checklist" link. A popup stays open until
+        // dismissed (click elsewhere, or another marker opens) — opening it on hover keeps the
+        // tooltip-like feel while giving time to actually click the link. Click-to-open (for
+        // touch screens, which have no hover) is Leaflet's default behavior for bound popups.
+        layer.bindPopup(html, { maxWidth: 260 });
+        layer.on('mouseover', function () { this.openPopup(); });
       }
     });
     cluster.addLayer(geo);
