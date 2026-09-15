@@ -294,7 +294,8 @@
       pointToLayer: function (feature, latlng) {
         const p = feature.properties;
         if (p.has_focal) {
-          const slug = (p.focal_species_slugs || '').split(';')[0];
+          const slugs = (p.focal_species_slugs || '').split(';').filter(Boolean);
+          const slug = (activeSpeciesSlug && slugs.includes(activeSpeciesSlug)) ? activeSpeciesSlug : slugs[0];
           return L.marker(latlng, { icon: focalIcon(slug) });
         }
         return L.marker(latlng, { icon: dotIcon });
