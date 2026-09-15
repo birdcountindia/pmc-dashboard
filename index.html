@@ -76,10 +76,54 @@
   .sp-btn img { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; }
   .sp-btn.active { border-color: #e74c3c; background: #fdecea; color: #c0392b; font-weight: 700; }
   .sp-btn:hover { border-color: #e74c3c; }
+
+  .grid-tooltip { font-size: 12px; line-height: 1.6; }
+  .grid-tooltip .gt-title { font-weight: 700; margin-bottom: 2px; }
+
+  .tabs {
+    position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
+    z-index: 1000;
+    background: rgba(255,255,255,0.97);
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    display: flex; overflow: hidden;
+  }
+  .tab-btn {
+    border: none; background: transparent; cursor: pointer;
+    font-family: inherit; font-size: 13px; font-weight: 600; color: #555;
+    padding: 10px 18px;
+  }
+  .tab-btn.active { background: #d35400; color: #fff; }
+
+  #species-view { width: 100%; height: 100%; background: #fafafa; overflow-y: auto; box-sizing: border-box; padding: 70px 20px 20px; }
+  #species-view.hidden, #map.hidden { display: none; }
+  .sv-inner { max-width: 720px; margin: 0 auto; }
+  .sv-search {
+    width: 100%; box-sizing: border-box; padding: 10px 14px; font-size: 14px;
+    border: 1px solid #ddd; border-radius: 8px; margin-bottom: 12px; font-family: inherit;
+  }
+  table.sv-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  table.sv-table th, table.sv-table td { text-align: left; padding: 8px 12px; font-size: 13px; border-bottom: 1px solid #f0f0f0; }
+  table.sv-table th { background: #f7f7f7; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: #666; }
+  table.sv-table td.sv-count { text-align: right; font-weight: 700; color: #d35400; }
+  table.sv-table td.sv-cat { color: #999; text-transform: capitalize; }
 </style>
 </head>
 <body>
+<div class="tabs">
+  <button class="tab-btn active" id="tab-map">Map</button>
+  <button class="tab-btn" id="tab-species">All Species</button>
+</div>
 <div id="map"></div>
+<div id="species-view" class="hidden">
+  <div class="sv-inner">
+    <input class="sv-search" id="sv-search" type="text" placeholder="Search species...">
+    <table class="sv-table">
+      <thead><tr><th>Species</th><th>Category</th><th style="text-align:right">Checklists</th></tr></thead>
+      <tbody id="sv-tbody"></tbody>
+    </table>
+  </div>
+</div>
 
 <script>
   // data files (stats.json, checklists.geojson, species.json, www/species/*.jpg)
@@ -135,10 +179,40 @@
   fetch(BASE_URL + 'stats.json')
     .then(r => r.json())
     .then(s => {
-      document.getElementById('dash-lists').innerText = s.lists;
+      document.getElementById('dash-lists').innerText = s.unique_lists;
       document.getElementById('dash-birders').innerText = s.birders;
       document.getElementById('dash-species').innerText = s.species;
       document.getElementById('dash-updated').innerText = 'Updated ' + s.last_updated;
+    });
+
+  // ---- survey grid cells: light fill + hover summary, drawn under the checklist markers ----
+  fetch(BASE_URL + 'grids.geojson')
+    .then(r => r.json())
+    .then(geo => {
+      L.geoJSON(geo, {
+        style: function (feature) {
+          const n = feature.properties.n_lists || 0;
+          return {
+            color: '#999',
+            weight: 0.6,
+            fillColor: n > 0 ? '#3498db' : '#ccc',
+            fillOpacity: n > 0 ? Math.min(0.1 + n * 0.03, 0.45) : 0.03
+          };
+        },
+        onEachFeature: function (f, layer) {
+          const p = f.properties;
+          let html = '<div class="grid-tooltip">';
+          html += '<div class="gt-title">' + esc(p.GRID_CODE) + '</div>';
+          html += '<div>' + esc(p.BLOCK) + '</div>';
+          html += '<div>' + (p.n_lists || 0) + ' lists &middot; ' + (p.n_species || 0) + ' species</div>';
+          html += '<div>' + (p.n_birders || 0) + ' birder(s)</div>';
+          if (p.focal_lists) html += '<div style="color:#c0392b">' + p.focal_lists + ' list(s) with focal species</div>';
+          html += '</div>';
+          layer.bindTooltip(html, { sticky: true, direction: 'top' });
+          layer.on('mouseover', function () { this.setStyle({ weight: 2, color: '#e74c3c' }); });
+          layer.on('mouseout', function () { this.setStyle({ weight: 0.6, color: '#999' }); });
+        }
+      }).addTo(map);
     });
 
   let activeSpeciesSlug = null;   // null = show all checklists
@@ -240,6 +314,46 @@
         btn.classList.add('active');
         if (allFeatures) renderChecklists();
       }
+    });
+
+  // ---- tabs: Map vs All Species ----
+  const mapDiv = document.getElementById('map');
+  const speciesView = document.getElementById('species-view');
+  const tabMap = document.getElementById('tab-map');
+  const tabSpecies = document.getElementById('tab-species');
+
+  tabMap.onclick = function () {
+    tabMap.classList.add('active');
+    tabSpecies.classList.remove('active');
+    speciesView.classList.add('hidden');
+    mapDiv.classList.remove('hidden');
+    map.invalidateSize();
+  };
+  tabSpecies.onclick = function () {
+    tabSpecies.classList.add('active');
+    tabMap.classList.remove('active');
+    mapDiv.classList.add('hidden');
+    speciesView.classList.remove('hidden');
+  };
+
+  let allSpeciesRows = [];
+  function renderSpeciesTable(filterText) {
+    const tbody = document.getElementById('sv-tbody');
+    const q = (filterText || '').toLowerCase();
+    const rows = allSpeciesRows.filter(r => !q || r['COMMON.NAME'].toLowerCase().includes(q));
+    tbody.innerHTML = rows.map(r =>
+      '<tr><td>' + esc(r['COMMON.NAME']) + '</td>' +
+      '<td class="sv-cat">' + esc(r.category) + '</td>' +
+      '<td class="sv-count">' + r.checklists + '</td></tr>'
+    ).join('');
+  }
+
+  fetch(BASE_URL + 'all_species.json')
+    .then(r => r.json())
+    .then(rows => {
+      allSpeciesRows = rows;
+      renderSpeciesTable('');
+      document.getElementById('sv-search').addEventListener('input', e => renderSpeciesTable(e.target.value));
     });
 </script>
 </body>
