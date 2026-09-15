@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Blue-cheeked Bee-eater",
+    "slug": "blue-cheeked-bee-eater",
+    "image": "www/species/blue-cheeked-bee-eater.jpg",
+    "checklists": 0
+  },
+  {
+    "name": "Common Cuckoo",
+    "slug": "common-cuckoo",
+    "image": "www/species/common-cuckoo.jpg",
+    "checklists": 0
+  },
+  {
+    "name": "European Roller",
+    "slug": "european-roller",
+    "image": "www/species/european-roller.jpg",
+    "checklists": 0
+  },
+  {
+    "name": "Greater Whitethroat",
+    "slug": "greater-whitethroat",
+    "image": "www/species/greater-whitethroat.jpg",
+    "checklists": 0
+  },
+  {
+    "name": "Red-backed Shrike",
+    "slug": "red-backed-shrike",
+    "image": "www/species/red-backed-shrike.jpg",
+    "checklists": 0
+  },
+  {
+    "name": "Red-tailed Shrike",
+    "slug": "red-tailed-shrike",
+    "image": "www/species/red-tailed-shrike.jpg",
+    "checklists": 0
+  },
+  {
+    "name": "Rufous-tailed Scrub-Robin",
+    "slug": "rufous-tailed-scrub-robin",
+    "image": "www/species/rufous-tailed-scrub-robin.jpg",
+    "checklists": 0
+  },
+  {
+    "name": "Spotted Flycatcher",
+    "slug": "spotted-flycatcher",
+    "image": "www/species/spotted-flycatcher.jpg",
+    "checklists": 0
+  }
+]

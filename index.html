@@ -13,6 +13,7 @@
 <style>
   html, body, #map { width: 100%; height: 100%; margin: 0; padding: 0; }
   body { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; }
+  .hidden { display: none !important; }
 
   .stats-dashboard {
     background: rgba(255,255,255,0.96);
@@ -27,6 +28,22 @@
   .stat-value { font-size: 24px; font-weight: 800; color: #d35400; line-height: 1; }
   .stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; color: #666; margin-top: 3px; }
   .stats-updated { font-size: 10px; color: #999; text-align: center; margin-top: 8px; }
+
+  .compare-panel {
+    background: rgba(255,255,255,0.96);
+    padding: 10px 14px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    min-width: 260px;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  .compare-panel .cp-title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; color: #999; margin-bottom: 6px; }
+  .compare-panel .cp-row { display: flex; justify-content: space-between; margin: 3px 0; }
+  .compare-panel .cp-label { color: #555; }
+  .compare-panel .cp-delta-up { color: #27ae60; font-weight: 700; }
+  .compare-panel .cp-delta-down { color: #c0392b; font-weight: 700; }
+  .compare-panel .cp-msg { color: #555; line-height: 1.5; }
 
   .legend {
     background: rgba(255,255,255,0.96);
@@ -86,7 +103,7 @@
     background: rgba(255,255,255,0.97);
     border-radius: 10px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.2);
-    display: flex; overflow: hidden;
+    display: flex; align-items: center; overflow: hidden;
   }
   .tab-btn {
     border: none; background: transparent; cursor: pointer;
@@ -94,6 +111,24 @@
     padding: 10px 18px;
   }
   .tab-btn.active { background: #d35400; color: #fff; }
+  .tabs-divider { width: 1px; height: 22px; background: #e5e5e5; }
+  #year-bar { display: flex; }
+  .year-btn {
+    border: none; background: transparent; cursor: pointer;
+    font-family: inherit; font-size: 13px; font-weight: 600; color: #555;
+    padding: 10px 14px; display: flex; align-items: center; gap: 5px;
+  }
+  .year-btn.active { background: #2980b9; color: #fff; }
+  .year-btn .live-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: #e74c3c;
+    box-shadow: 0 0 0 0 rgba(231,76,60,0.7); animation: live-pulse 1.6s infinite;
+  }
+  .year-btn.active .live-dot { background: #fff; }
+  @keyframes live-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(231,76,60,0.6); }
+    70%  { box-shadow: 0 0 0 6px rgba(231,76,60,0); }
+    100% { box-shadow: 0 0 0 0 rgba(231,76,60,0); }
+  }
 
   #species-view { width: 100%; height: 100%; background: #fafafa; overflow-y: auto; box-sizing: border-box; padding: 70px 20px 20px; }
   #species-view.hidden, #map.hidden { display: none; }
@@ -111,6 +146,8 @@
 </head>
 <body>
 <div class="tabs">
+  <div id="year-bar"></div>
+  <div class="tabs-divider"></div>
   <button class="tab-btn active" id="tab-map">Map</button>
   <button class="tab-btn" id="tab-species">All Species</button>
 </div>
@@ -126,9 +163,11 @@
 </div>
 
 <script>
-  // data files (stats.json, checklists.geojson, species.json, www/species/*.jpg)
+  // data files (years.json, years/<year>/*.json, grids_geometry.geojson, www/species/*.jpg)
   // are committed in this same repo next to index.html, so plain relative fetches work.
   const BASE_URL = '';
+  let selectedYear = null;
+  let currentYear = null;   // the live/current-season year, from years.json
 
   // Kachchh district, Gujarat: panning limit + default view on load
   const KACHCHH_BOUNDS = L.latLngBounds([22.7, 68.1], [24.4, 70.9]);
@@ -161,6 +200,14 @@
   };
   dashboard.addTo(map);
 
+  const comparePanel = L.control({ position: 'topleft' });
+  comparePanel.onAdd = function () {
+    const div = L.DomUtil.create('div', 'compare-panel hidden');
+    div.id = 'compare-panel';
+    return div;
+  };
+  comparePanel.addTo(map);
+
   const legend = L.control({ position: 'bottomleft' });
   legend.onAdd = function () {
     const div = L.DomUtil.create('div', 'legend');
@@ -176,44 +223,56 @@
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
-  fetch(BASE_URL + 'stats.json')
-    .then(r => r.json())
-    .then(s => {
-      document.getElementById('dash-lists').innerText = s.unique_lists;
-      document.getElementById('dash-birders').innerText = s.birders;
-      document.getElementById('dash-species').innerText = s.species;
-      document.getElementById('dash-updated').innerText = 'Updated ' + s.last_updated;
-    });
+  function gridTooltipHtml(p) {
+    let html = '<div class="grid-tooltip">';
+    html += '<div class="gt-title">' + esc(p.GRID_CODE) + '</div>';
+    html += '<div>' + esc(p.BLOCK) + '</div>';
+    html += '<div>' + (p.n_lists || 0) + ' lists &middot; ' + (p.n_species || 0) + ' species</div>';
+    html += '<div>' + (p.n_birders || 0) + ' birder(s)</div>';
+    if (p.focal_lists) html += '<div style="color:#c0392b">' + p.focal_lists + ' list(s) with focal species</div>';
+    html += '</div>';
+    return html;
+  }
+  function gridStyle(n) {
+    return {
+      color: '#999', weight: 0.6,
+      fillColor: n > 0 ? '#3498db' : '#ccc',
+      fillOpacity: n > 0 ? Math.min(0.1 + n * 0.03, 0.45) : 0.03
+    };
+  }
 
-  // ---- survey grid cells: light fill + hover summary, drawn under the checklist markers ----
-  fetch(BASE_URL + 'grids.geojson')
+  // ---- survey grid cells: static geometry loaded once; per-year stats applied on top ----
+  const gridLayerByCode = {};
+  const gridGeomReady = fetch(BASE_URL + 'grids_geometry.geojson')
     .then(r => r.json())
     .then(geo => {
       L.geoJSON(geo, {
-        style: function (feature) {
-          const n = feature.properties.n_lists || 0;
-          return {
-            color: '#999',
-            weight: 0.6,
-            fillColor: n > 0 ? '#3498db' : '#ccc',
-            fillOpacity: n > 0 ? Math.min(0.1 + n * 0.03, 0.45) : 0.03
-          };
-        },
+        style: () => gridStyle(0),
         onEachFeature: function (f, layer) {
-          const p = f.properties;
-          let html = '<div class="grid-tooltip">';
-          html += '<div class="gt-title">' + esc(p.GRID_CODE) + '</div>';
-          html += '<div>' + esc(p.BLOCK) + '</div>';
-          html += '<div>' + (p.n_lists || 0) + ' lists &middot; ' + (p.n_species || 0) + ' species</div>';
-          html += '<div>' + (p.n_birders || 0) + ' birder(s)</div>';
-          if (p.focal_lists) html += '<div style="color:#c0392b">' + p.focal_lists + ' list(s) with focal species</div>';
-          html += '</div>';
-          layer.bindTooltip(html, { sticky: true, direction: 'top' });
+          gridLayerByCode[f.properties.GRID_CODE] = layer;
+          layer.bindTooltip(gridTooltipHtml(f.properties), { sticky: true, direction: 'top' });
           layer.on('mouseover', function () { this.setStyle({ weight: 2, color: '#e74c3c' }); });
-          layer.on('mouseout', function () { this.setStyle({ weight: 0.6, color: '#999' }); });
+          layer.on('mouseout', function () { this.setStyle(gridStyle(f.properties.n_lists || 0)); });
         }
       }).addTo(map);
     });
+
+  function applyGridStats(rows) {
+    // reset every cell to zero first, then apply this year's stats to the ones with data
+    Object.keys(gridLayerByCode).forEach(code => {
+      const layer = gridLayerByCode[code];
+      layer.feature.properties = Object.assign(layer.feature.properties, { n_lists: 0, n_birders: 0, n_species: 0, focal_lists: 0 });
+      layer.setStyle(gridStyle(0));
+      layer.setTooltipContent(gridTooltipHtml(layer.feature.properties));
+    });
+    rows.forEach(row => {
+      const layer = gridLayerByCode[row.GRID_CODE];
+      if (!layer) return;
+      layer.feature.properties = Object.assign(layer.feature.properties, row);
+      layer.setStyle(gridStyle(row.n_lists || 0));
+      layer.setTooltipContent(gridTooltipHtml(layer.feature.properties));
+    });
+  }
 
   let activeSpeciesSlug = null;   // null = show all checklists
   let checklistLayer = null;
@@ -273,12 +332,15 @@
     checklistLayer = makeLayer(features).addTo(map);
   }
 
-  fetch(BASE_URL + 'checklists.geojson')
-    .then(r => r.json())
-    .then(geo => {
-      allFeatures = geo.features;
-      renderChecklists();
-    });
+  function loadChecklists(year) {
+    return fetch(BASE_URL + 'years/' + year + '/checklists.geojson')
+      .then(r => r.json())
+      .then(geo => {
+        allFeatures = geo.features;
+        activeSpeciesSlug = null;
+        renderChecklists();
+      });
+  }
 
   // ---- focal species gallery / filter panel ----
   const speciesPanel = L.control({ position: 'topright' });
@@ -290,31 +352,34 @@
   };
   speciesPanel.addTo(map);
 
-  fetch(BASE_URL + 'species.json')
-    .then(r => r.json())
-    .then(list => {
-      const grid = document.getElementById('species-grid');
-      const allBtn = document.createElement('div');
-      allBtn.className = 'sp-btn active';
-      allBtn.innerText = 'All';
-      allBtn.onclick = () => setActive(null, allBtn);
-      grid.appendChild(allBtn);
+  function loadSpeciesPanel(year) {
+    return fetch(BASE_URL + 'years/' + year + '/species.json')
+      .then(r => r.json())
+      .then(list => {
+        const grid = document.getElementById('species-grid');
+        grid.innerHTML = '';
+        const allBtn = document.createElement('div');
+        allBtn.className = 'sp-btn active';
+        allBtn.innerText = 'All';
+        allBtn.onclick = () => setActive(null, allBtn);
+        grid.appendChild(allBtn);
 
-      list.forEach(sp => {
-        const btn = document.createElement('div');
-        btn.className = 'sp-btn';
-        btn.innerHTML = '<img src="' + BASE_URL + sp.image + '"><span>' + esc(sp.name) + ' (' + sp.checklists + ')</span>';
-        btn.onclick = () => setActive(sp.slug, btn);
-        grid.appendChild(btn);
+        list.forEach(sp => {
+          const btn = document.createElement('div');
+          btn.className = 'sp-btn';
+          btn.innerHTML = '<img src="' + BASE_URL + sp.image + '"><span>' + esc(sp.name) + ' (' + sp.checklists + ')</span>';
+          btn.onclick = () => setActive(sp.slug, btn);
+          grid.appendChild(btn);
+        });
+
+        function setActive(slug, btn) {
+          activeSpeciesSlug = slug;
+          grid.querySelectorAll('.sp-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          if (allFeatures) renderChecklists();
+        }
       });
-
-      function setActive(slug, btn) {
-        activeSpeciesSlug = slug;
-        grid.querySelectorAll('.sp-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        if (allFeatures) renderChecklists();
-      }
-    });
+  }
 
   // ---- tabs: Map vs All Species ----
   const mapDiv = document.getElementById('map');
@@ -347,13 +412,111 @@
       '<td class="sv-count">' + r.checklists + '</td></tr>'
     ).join('');
   }
+  document.getElementById('sv-search').addEventListener('input', e => renderSpeciesTable(e.target.value));
 
-  fetch(BASE_URL + 'all_species.json')
+  function loadAllSpecies(year) {
+    return fetch(BASE_URL + 'years/' + year + '/all_species.json')
+      .then(r => r.json())
+      .then(rows => {
+        allSpeciesRows = rows;
+        renderSpeciesTable(document.getElementById('sv-search').value);
+      });
+  }
+
+  function loadStats(year) {
+    return fetch(BASE_URL + 'years/' + year + '/stats.json')
+      .then(r => r.json())
+      .then(s => {
+        document.getElementById('dash-lists').innerText = s.unique_lists;
+        document.getElementById('dash-birders').innerText = s.birders;
+        document.getElementById('dash-species').innerText = s.species;
+        document.getElementById('dash-updated').innerText = 'Updated ' + s.last_updated;
+      });
+  }
+
+  function loadGridStats(year) {
+    return fetch(BASE_URL + 'years/' + year + '/grid_stats.json')
+      .then(r => r.json())
+      .then(rows => gridGeomReady.then(() => applyGridStats(rows)));
+  }
+
+  // ---- year-over-year comparison, shown only while viewing the live/current year ----
+  function pickSameSeasonPoint(dailyRows, monthDay) {
+    // last row at or before the given month-day; if the season hasn't reached that point
+    // yet last year either, fall back to the final (most complete) row available.
+    const upTo = dailyRows.filter(r => r.month_day <= monthDay);
+    return upTo.length ? upTo[upTo.length - 1] : dailyRows[dailyRows.length - 1];
+  }
+
+  function deltaSpan(curr, prev) {
+    if (!prev) return '';
+    const diff = curr - prev;
+    if (diff === 0) return '<span class="cp-label">(=)</span>';
+    const pct = prev > 0 ? Math.round((diff / prev) * 100) : null;
+    const cls = diff > 0 ? 'cp-delta-up' : 'cp-delta-down';
+    const arrow = diff > 0 ? '&#9650;' : '&#9660;';
+    return '<span class="' + cls + '">' + arrow + ' ' + Math.abs(diff) + (pct !== null ? ' (' + Math.abs(pct) + '%)' : '') + '</span>';
+  }
+
+  function updateComparePanel(year) {
+    const panel = document.getElementById('compare-panel');
+    if (year !== currentYear) { panel.classList.add('hidden'); return; }
+
+    const prevYear = currentYear - 1;
+    Promise.all([
+      fetch(BASE_URL + 'years/' + currentYear + '/daily_cumulative.json').then(r => r.json()),
+      fetch(BASE_URL + 'years/' + prevYear + '/daily_cumulative.json').then(r => r.json()).catch(() => [])
+    ]).then(([liveDaily, prevDaily]) => {
+      panel.classList.remove('hidden');
+
+      if (!liveDaily.length) {
+        if (!prevDaily.length) { panel.classList.add('hidden'); return; }
+        const last = prevDaily[prevDaily.length - 1];
+        panel.innerHTML = '<div class="cp-title">' + currentYear + ' vs ' + prevYear + '</div>' +
+          '<div class="cp-msg">' + currentYear + ' season hasn\'t started yet.<br>' +
+          prevYear + ' final count: <b>' + last.cum_lists + '</b> lists, <b>' + last.cum_species + '</b> species.</div>';
+        return;
+      }
+
+      const live = liveDaily[liveDaily.length - 1];
+      const prev = prevDaily.length ? pickSameSeasonPoint(prevDaily, live.month_day) : null;
+
+      panel.innerHTML =
+        '<div class="cp-title">' + currentYear + ' vs ' + prevYear + ' (as of ' + live.month_day + ')</div>' +
+        '<div class="cp-row"><span class="cp-label">Lists</span><span><b>' + live.cum_lists + '</b> ' + deltaSpan(live.cum_lists, prev && prev.cum_lists) + '</span></div>' +
+        '<div class="cp-row"><span class="cp-label">Species</span><span><b>' + live.cum_species + '</b> ' + deltaSpan(live.cum_species, prev && prev.cum_species) + '</span></div>' +
+        '<div class="cp-row"><span class="cp-label">Birders</span><span><b>' + live.cum_birders + '</b> ' + deltaSpan(live.cum_birders, prev && prev.cum_birders) + '</span></div>' +
+        (prev ? '' : '<div class="cp-msg">No ' + prevYear + ' data to compare.</div>');
+    });
+  }
+
+  // ---- year bar + orchestration ----
+  function loadYear(year) {
+    selectedYear = year;
+    document.querySelectorAll('.year-btn').forEach(b => b.classList.toggle('active', Number(b.dataset.year) === year));
+    Promise.all([
+      loadStats(year),
+      loadChecklists(year),
+      loadGridStats(year),
+      loadSpeciesPanel(year),
+      loadAllSpecies(year)
+    ]).then(() => updateComparePanel(year));
+  }
+
+  fetch(BASE_URL + 'years.json')
     .then(r => r.json())
-    .then(rows => {
-      allSpeciesRows = rows;
-      renderSpeciesTable('');
-      document.getElementById('sv-search').addEventListener('input', e => renderSpeciesTable(e.target.value));
+    .then(manifest => {
+      currentYear = manifest.current_year;
+      const bar = document.getElementById('year-bar');
+      manifest.years.forEach(y => {
+        const btn = document.createElement('button');
+        btn.className = 'year-btn';
+        btn.dataset.year = y;
+        btn.innerHTML = (y === currentYear) ? '<span class="live-dot"></span> ' + y : String(y);
+        btn.onclick = () => loadYear(y);
+        bar.appendChild(btn);
+      });
+      loadYear(currentYear);
     });
 </script>
 </body>
