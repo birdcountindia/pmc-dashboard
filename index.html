@@ -142,6 +142,34 @@
   table.sv-table th { background: #f7f7f7; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: #666; }
   table.sv-table td.sv-count { text-align: right; font-weight: 700; color: #d35400; }
   table.sv-table td.sv-cat { color: #999; text-transform: capitalize; }
+
+  @media (max-width: 640px) {
+    .tabs {
+      position: fixed; top: 0; left: 0; right: 0; transform: none;
+      border-radius: 0; flex-wrap: wrap; justify-content: center; row-gap: 2px; padding: 4px 0;
+    }
+    .tabs-divider { display: none; }
+    .tab-btn, .year-btn { font-size: 11px; padding: 7px 10px; }
+    #year-bar { flex: 1 1 100%; justify-content: center; }
+
+    .leaflet-top { top: 76px; }
+
+    .stats-dashboard { min-width: 0; width: 132px; padding: 8px 10px; }
+    .stat-value { font-size: 17px; }
+    .stat-label { font-size: 8px; }
+    .stats-updated { font-size: 8px; }
+
+    .compare-panel { min-width: 0; width: 150px; padding: 8px 10px; font-size: 10px; }
+
+    .species-panel { max-width: 130px; padding: 8px; }
+    .species-panel .sp-title { font-size: 9px; }
+    .sp-btn span { display: none; }
+    .sp-btn { padding: 3px; border-radius: 50%; }
+    .sp-btn img { width: 22px; height: 22px; margin: 0; }
+
+    #species-view { padding: 92px 12px 20px; }
+    table.sv-table th, table.sv-table td { padding: 7px 8px; font-size: 12px; }
+  }
 </style>
 </head>
 <body>
@@ -253,6 +281,7 @@
           layer.bindTooltip(gridTooltipHtml(f.properties), { sticky: true, direction: 'top' });
           layer.on('mouseover', function () { this.setStyle({ weight: 2, color: '#e74c3c' }); });
           layer.on('mouseout', function () { this.setStyle(gridStyle(f.properties.n_lists || 0)); });
+          layer.on('click', function () { this.openTooltip(); });   // tap-to-show on touch screens (no hover there)
         }
       }).addTo(map);
     });
@@ -319,6 +348,7 @@
         }
         html += '</div>';
         layer.bindTooltip(html, { sticky: true, direction: 'top', interactive: true });
+        layer.on('click', function () { this.openTooltip(); });   // tap-to-show on touch screens (no hover there)
       }
     });
     cluster.addLayer(geo);
