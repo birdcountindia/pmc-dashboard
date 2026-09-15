@@ -74,6 +74,7 @@ process_year <- function(data_year, grid, year) {
       file.path(year_dir, "species.json"), auto_unbox = TRUE, pretty = TRUE
     )
     write_json(list(), file.path(year_dir, "all_species.json"), auto_unbox = TRUE)
+    writeLines("{}", file.path(year_dir, "species_checklists.json"))
     write_json(list(), file.path(year_dir, "daily_cumulative.json"), auto_unbox = TRUE)
     file.create(file.path(year_dir, "checklist_grid_map.csv"))
     message(glue("[{year}] no data yet — empty outputs written."))
@@ -166,6 +167,19 @@ process_year <- function(data_year, grid, year) {
     mutate(pct_checklists = round(100 * checklists / n_lists, 1)) %>%
     arrange(taxonomic_order)
   write_json(all_species, file.path(year_dir, "all_species.json"), auto_unbox = TRUE, pretty = TRUE)
+
+  # ---- per-species checklist list, for the All Species table's expand-to-see-checklists feature ----
+  # one row per (species, checklist) — locality + SAMPLING.EVENT.IDENTIFIER (for the eBird link)
+  species_checklists <- data_year %>%
+    distinct(COMMON.NAME, GROUP.ID, .keep_all = TRUE) %>%
+    transmute(COMMON.NAME, locality = LOCALITY, sei = SAMPLING.EVENT.IDENTIFIER) %>%
+    arrange(COMMON.NAME, locality)
+  species_checklists_by_name <- split(
+    species_checklists %>% select(locality, sei),
+    species_checklists$COMMON.NAME
+  )
+  write_json(species_checklists_by_name, file.path(year_dir, "species_checklists.json"), auto_unbox = TRUE)
+  message(glue("[{year}] species_checklists.json written: {length(species_checklists_by_name)} taxa."))
 
   # ---- daily cumulative totals, for "same date last year" comparisons ----
   dates <- sort(unique(data_year$OBSERVATION.DATE[!is.na(data_year$OBSERVATION.DATE)]))

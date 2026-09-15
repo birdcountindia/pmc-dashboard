@@ -149,9 +149,14 @@
   #species-view { width: 100%; height: 100%; background: #fafafa; overflow-y: auto; box-sizing: border-box; padding: 70px 20px 20px; }
   #species-view.hidden, #map.hidden { display: none; }
   .sv-inner { max-width: 720px; margin: 0 auto; }
+  .sv-controls { display: flex; gap: 10px; margin-bottom: 12px; }
   .sv-search {
-    width: 100%; box-sizing: border-box; padding: 10px 14px; font-size: 14px;
-    border: 1px solid #ddd; border-radius: 8px; margin-bottom: 12px; font-family: inherit;
+    flex: 1; box-sizing: border-box; padding: 10px 14px; font-size: 14px;
+    border: 1px solid #ddd; border-radius: 8px; font-family: inherit;
+  }
+  .sv-cat-filter {
+    box-sizing: border-box; padding: 10px 12px; font-size: 14px;
+    border: 1px solid #ddd; border-radius: 8px; font-family: inherit; background: #fff; color: #333;
   }
   table.sv-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
   table.sv-table th, table.sv-table td { text-align: left; padding: 8px 12px; font-size: 13px; border-bottom: 1px solid #f0f0f0; }
@@ -164,6 +169,15 @@
   .sort-arrow { display: inline-block; width: 10px; }
   table.sv-table td.sv-count { text-align: right; font-weight: 700; color: #d35400; }
   table.sv-table td.sv-cat { color: #999; text-transform: capitalize; }
+  table.sv-table tr.sv-row-species { cursor: pointer; }
+  table.sv-table tr.sv-row-species:hover td { background: #fafafa; }
+  .sv-expand-caret { display: inline-block; width: 12px; color: #999; transition: transform .15s ease; }
+  tr.sv-row-species.expanded .sv-expand-caret { transform: rotate(90deg); color: #d35400; }
+  tr.sv-expand-row td { padding: 0; border-bottom: 1px solid #f0f0f0; }
+  .sv-expand-inner { max-height: 260px; overflow-y: auto; padding: 8px 16px; background: #fbfbfb; }
+  .sv-expand-inner .sv-expand-empty { color: #999; font-size: 12px; padding: 4px 0; }
+  a.sv-checklist-link { display: block; padding: 3px 0; font-size: 12px; color: #2980b9; text-decoration: none; }
+  a.sv-checklist-link:hover { text-decoration: underline; }
 
   @media (max-width: 640px) {
     .tabs {
@@ -206,7 +220,10 @@
 <div id="map"></div>
 <div id="species-view" class="hidden">
   <div class="sv-inner">
-    <input class="sv-search" id="sv-search" type="text" placeholder="Search species...">
+    <div class="sv-controls">
+      <input class="sv-search" id="sv-search" type="text" placeholder="Search species...">
+      <select class="sv-cat-filter" id="sv-cat-filter"></select>
+    </div>
     <table class="sv-table">
       <thead><tr>
         <th>
@@ -519,26 +536,82 @@
   });
   updateSortHeaders();
 
+  let categoryFilter = 'species';   // default: plain "species" rows only
+  let expandedSpecies = new Set();  // species names currently showing their checklist list
+  let speciesChecklistsMap = {};    // COMMON.NAME -> [{locality, sei}, ...] for the current year
+
+  function populateCategoryFilter() {
+    const sel = document.getElementById('sv-cat-filter');
+    const categories = Array.from(new Set(allSpeciesRows.map(r => r.category))).sort();
+    const prev = categoryFilter;
+    sel.innerHTML = '<option value="all">All categories</option>' +
+      categories.map(c => '<option value="' + esc(c) + '">' + esc(c[0].toUpperCase() + c.slice(1)) + '</option>').join('');
+    categoryFilter = categories.includes(prev) || prev === 'all' ? prev : 'species';
+    sel.value = categoryFilter;
+  }
+  document.getElementById('sv-cat-filter').addEventListener('change', e => {
+    categoryFilter = e.target.value;
+    renderSpeciesTable(document.getElementById('sv-search').value);
+  });
+
+  function checklistExpansionHtml(name) {
+    const list = speciesChecklistsMap[name] || [];
+    if (!list.length) return '<div class="sv-expand-empty">No checklists found.</div>';
+    return list.map(c =>
+      '<a class="sv-checklist-link" href="https://ebird.org/checklist/' + esc(c.sei) + '" target="_blank" rel="noopener">' +
+        esc(c.locality) +
+      '</a>'
+    ).join('');
+  }
+
   function renderSpeciesTable(filterText) {
     const tbody = document.getElementById('sv-tbody');
     const q = (filterText || '').toLowerCase();
-    const rows = sortSpeciesRows(allSpeciesRows.filter(r => !q || r['COMMON.NAME'].toLowerCase().includes(q)));
-    tbody.innerHTML = rows.map(r =>
-      '<tr><td>' + esc(r['COMMON.NAME']) + '</td>' +
-      '<td class="sv-cat">' + esc(r.category) + '</td>' +
-      '<td class="sv-count">' + r.total_count + '</td>' +
-      '<td class="sv-count">' + r.checklists + ' (' + r.pct_checklists + '%)</td></tr>'
-    ).join('');
+    const filtered = allSpeciesRows.filter(r =>
+      (!q || r['COMMON.NAME'].toLowerCase().includes(q)) &&
+      (categoryFilter === 'all' || r.category === categoryFilter)
+    );
+    const rows = sortSpeciesRows(filtered);
+    tbody.innerHTML = rows.map(r => {
+      const name = r['COMMON.NAME'];
+      const isOpen = expandedSpecies.has(name);
+      let html =
+        '<tr class="sv-row-species' + (isOpen ? ' expanded' : '') + '" data-species="' + esc(name) + '">' +
+        '<td><span class="sv-expand-caret">&#9656;</span>' + esc(name) + '</td>' +
+        '<td class="sv-cat">' + esc(r.category) + '</td>' +
+        '<td class="sv-count">' + r.total_count + '</td>' +
+        '<td class="sv-count">' + r.checklists + ' (' + r.pct_checklists + '%)</td></tr>';
+      if (isOpen) {
+        html += '<tr class="sv-expand-row"><td colspan="4"><div class="sv-expand-inner">' +
+          checklistExpansionHtml(name) + '</div></td></tr>';
+      }
+      return html;
+    }).join('');
   }
   document.getElementById('sv-search').addEventListener('input', e => renderSpeciesTable(e.target.value));
+  document.getElementById('sv-tbody').addEventListener('click', e => {
+    const row = e.target.closest('tr.sv-row-species');
+    if (!row) return;
+    const name = row.dataset.species;
+    if (expandedSpecies.has(name)) expandedSpecies.delete(name); else expandedSpecies.add(name);
+    renderSpeciesTable(document.getElementById('sv-search').value);
+  });
 
   function loadAllSpecies(year) {
     return fetch(BASE_URL + 'years/' + year + '/all_species.json')
       .then(r => r.json())
       .then(rows => {
         allSpeciesRows = rows;
+        expandedSpecies = new Set();
+        populateCategoryFilter();
         renderSpeciesTable(document.getElementById('sv-search').value);
       });
+  }
+
+  function loadSpeciesChecklists(year) {
+    return fetch(BASE_URL + 'years/' + year + '/species_checklists.json')
+      .then(r => r.json())
+      .then(map => { speciesChecklistsMap = map; });
   }
 
   function loadStats(year) {
@@ -617,7 +690,7 @@
       loadChecklists(year),
       loadGridStats(year),
       loadSpeciesPanel(year),
-      loadAllSpecies(year)
+      loadSpeciesChecklists(year).then(() => loadAllSpecies(year))
     ]).then(() => updateComparePanel(year));
   }
 
