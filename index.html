@@ -60,7 +60,7 @@
     font-size: 12px;
     line-height: 1.8;
   }
-  .legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; border: 1.5px solid #e74c3c; box-sizing: border-box; }
   .legend .thumb { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 6px; vertical-align: middle; object-fit: cover; border: 1px solid #fff; box-shadow: 0 0 0 1px #e74c3c; }
 
   .pmc-popup { font-size: 13px; min-width: 230px; max-width: 260px; white-space: normal; overflow-wrap: break-word; }
@@ -78,7 +78,7 @@
   }
   .checklist-dot {
     width: 16px; height: 16px; border-radius: 50%;
-    background: #2980b9; border: 2px solid #fff;
+    background: #2980b9; border: 2px solid #e74c3c;
     box-shadow: 0 1px 3px rgba(0,0,0,0.5);
   }
 
@@ -473,6 +473,7 @@
       '</div>' +
       '<div class="species-grid-wrap"><div class="species-grid" id="species-grid"></div></div>';
     L.DomEvent.disableClickPropagation(div);
+    L.DomEvent.disableScrollPropagation(div);
     div.querySelector('#species-panel-header').onclick = () => div.classList.toggle('collapsed');
     return div;
   };
