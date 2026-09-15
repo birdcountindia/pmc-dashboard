@@ -152,9 +152,16 @@ process_year <- function(data_year, grid, year) {
   message(glue("[{year}] grid_stats.json written: {nrow(grid_stats)} {GRID_DISTRICT} cell(s) with data."))
 
   # ---- complete species list (every category, incl. spuh/slash/hybrid), by distinct checklist ----
+  # OBSERVATION.COUNT is "X" (presence, no count) for some rows; those are excluded from the sum.
   all_species <- data_year %>%
     group_by(COMMON.NAME) %>%
-    summarise(category = first(CATEGORY), checklists = n_distinct(GROUP.ID), .groups = "drop") %>%
+    summarise(
+      category    = first(CATEGORY),
+      checklists  = n_distinct(GROUP.ID),
+      total_count = sum(suppressWarnings(as.numeric(OBSERVATION.COUNT)), na.rm = TRUE),
+      .groups = "drop"
+    ) %>%
+    mutate(pct_checklists = round(100 * checklists / n_lists, 1)) %>%
     arrange(desc(checklists))
   write_json(all_species, file.path(year_dir, "all_species.json"), auto_unbox = TRUE, pretty = TRUE)
 

@@ -202,7 +202,7 @@
   <div class="sv-inner">
     <input class="sv-search" id="sv-search" type="text" placeholder="Search species...">
     <table class="sv-table">
-      <thead><tr><th>Species</th><th>Category</th><th style="text-align:right">Checklists</th></tr></thead>
+      <thead><tr><th>Species</th><th>Category</th><th style="text-align:right">Total Count</th><th style="text-align:right">Checklists</th></tr></thead>
       <tbody id="sv-tbody"></tbody>
     </table>
   </div>
@@ -464,7 +464,8 @@
     tbody.innerHTML = rows.map(r =>
       '<tr><td>' + esc(r['COMMON.NAME']) + '</td>' +
       '<td class="sv-cat">' + esc(r.category) + '</td>' +
-      '<td class="sv-count">' + r.checklists + '</td></tr>'
+      '<td class="sv-count">' + r.total_count + '</td>' +
+      '<td class="sv-count">' + r.checklists + ' (' + r.pct_checklists + '%)</td></tr>'
     ).join('');
   }
   document.getElementById('sv-search').addEventListener('input', e => renderSpeciesTable(e.target.value));
