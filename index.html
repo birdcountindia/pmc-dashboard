@@ -155,7 +155,13 @@
   }
   table.sv-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
   table.sv-table th, table.sv-table td { text-align: left; padding: 8px 12px; font-size: 13px; border-bottom: 1px solid #f0f0f0; }
-  table.sv-table th { background: #f7f7f7; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: #666; }
+  table.sv-table th { background: #f7f7f7; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: #666; white-space: nowrap; }
+  .sort-btn { cursor: pointer; user-select: none; padding: 2px 5px; border-radius: 4px; }
+  .sort-btn:hover { background: #eee; }
+  .sort-btn.active { color: #d35400; background: #fdecea; }
+  .sort-btn.sort-btn-alt { margin-left: 4px; color: #999; font-weight: 400; text-transform: none; font-size: 10px; }
+  .sort-btn.sort-btn-alt.active { color: #d35400; }
+  .sort-arrow { display: inline-block; width: 10px; }
   table.sv-table td.sv-count { text-align: right; font-weight: 700; color: #d35400; }
   table.sv-table td.sv-cat { color: #999; text-transform: capitalize; }
 
@@ -202,7 +208,15 @@
   <div class="sv-inner">
     <input class="sv-search" id="sv-search" type="text" placeholder="Search species...">
     <table class="sv-table">
-      <thead><tr><th>Species</th><th>Category</th><th style="text-align:right">Total Count</th><th style="text-align:right">Checklists</th></tr></thead>
+      <thead><tr>
+        <th>
+          <span class="sort-btn" data-sort="name_taxo">Species<span class="sort-arrow"></span></span>
+          <span class="sort-btn sort-btn-alt" data-sort="name_alpha">(A&ndash;Z)<span class="sort-arrow"></span></span>
+        </th>
+        <th><span class="sort-btn" data-sort="category">Category<span class="sort-arrow"></span></span></th>
+        <th style="text-align:right"><span class="sort-btn" data-sort="total_count">Total Count<span class="sort-arrow"></span></span></th>
+        <th style="text-align:right"><span class="sort-btn" data-sort="checklists">Checklists<span class="sort-arrow"></span></span></th>
+      </tr></thead>
       <tbody id="sv-tbody"></tbody>
     </table>
   </div>
@@ -457,10 +471,51 @@
   };
 
   let allSpeciesRows = [];
+  let sortKey = 'name_taxo';   // default: natural taxonomic order (taxonomic_order value itself is never shown)
+  let sortDir = 1;             // 1 = ascending, -1 = descending
+
+  const SORT_ACCESSORS = {
+    name_taxo:   r => r.taxonomic_order,
+    name_alpha:  r => r['COMMON.NAME'],
+    category:    r => r.category,
+    total_count: r => r.total_count,
+    checklists:  r => r.checklists
+  };
+
+  function sortSpeciesRows(rows) {
+    const get = SORT_ACCESSORS[sortKey];
+    const dir = sortDir;
+    return rows.slice().sort((a, b) => {
+      const av = get(a), bv = get(b);
+      let cmp = (typeof av === 'string') ? av.localeCompare(bv) : (av - bv);
+      if (cmp === 0) cmp = a.taxonomic_order - b.taxonomic_order;   // stable, sensible tie-break
+      return dir * cmp;
+    });
+  }
+
+  function updateSortHeaders() {
+    document.querySelectorAll('.sort-btn').forEach(btn => {
+      const active = btn.dataset.sort === sortKey;
+      btn.classList.toggle('active', active);
+      btn.querySelector('.sort-arrow').textContent = active ? (sortDir === 1 ? '▲' : '▼') : '';
+    });
+  }
+
+  document.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.sort;
+      sortDir = (sortKey === key) ? -sortDir : 1;
+      sortKey = key;
+      updateSortHeaders();
+      renderSpeciesTable(document.getElementById('sv-search').value);
+    });
+  });
+  updateSortHeaders();
+
   function renderSpeciesTable(filterText) {
     const tbody = document.getElementById('sv-tbody');
     const q = (filterText || '').toLowerCase();
-    const rows = allSpeciesRows.filter(r => !q || r['COMMON.NAME'].toLowerCase().includes(q));
+    const rows = sortSpeciesRows(allSpeciesRows.filter(r => !q || r['COMMON.NAME'].toLowerCase().includes(q)));
     tbody.innerHTML = rows.map(r =>
       '<tr><td>' + esc(r['COMMON.NAME']) + '</td>' +
       '<td class="sv-cat">' + esc(r.category) + '</td>' +
