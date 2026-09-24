@@ -1659,66 +1659,10 @@
     "focal_lists": 1
   },
   {
-    "GRID_CODE": "GJ-PT-SAN-024",
-    "n_lists": 1,
-    "n_birders": 4,
-    "n_species": 12,
-    "focal_lists": 0
-  },
-  {
-    "GRID_CODE": "GJ-PT-SAN-025",
-    "n_lists": 1,
-    "n_birders": 4,
-    "n_species": 36,
-    "focal_lists": 0
-  },
-  {
-    "GRID_CODE": "GJ-PT-SAN-031",
-    "n_lists": 1,
-    "n_birders": 4,
-    "n_species": 84,
-    "focal_lists": 0
-  },
-  {
-    "GRID_CODE": "GJ-PT-SAN-035",
-    "n_lists": 1,
-    "n_birders": 4,
-    "n_species": 33,
-    "focal_lists": 0
-  },
-  {
-    "GRID_CODE": "GJ-PT-SAN-036",
-    "n_lists": 1,
-    "n_birders": 4,
-    "n_species": 21,
-    "focal_lists": 0
-  },
-  {
-    "GRID_CODE": "GJ-PT-SAN-046",
-    "n_lists": 1,
-    "n_birders": 4,
-    "n_species": 31,
-    "focal_lists": 0
-  },
-  {
-    "GRID_CODE": "GJ-PT-SAN-047",
-    "n_lists": 1,
-    "n_birders": 4,
-    "n_species": 40,
-    "focal_lists": 0
-  },
-  {
     "GRID_CODE": "GJ-SN-DAS-005",
     "n_lists": 2,
     "n_birders": 4,
     "n_species": 25,
-    "focal_lists": 0
-  },
-  {
-    "GRID_CODE": "GJ-SN-DAS-006",
-    "n_lists": 1,
-    "n_birders": 4,
-    "n_species": 33,
     "focal_lists": 0
   },
   {

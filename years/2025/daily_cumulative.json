@@ -14,45 +14,17 @@
     "cum_birders": 170
   },
   {
-    "date": "2025-10-04",
-    "month_day": "10-04",
-    "cum_lists": 464,
-    "cum_species": 223,
-    "cum_birders": 180
-  },
-  {
-    "date": "2025-10-05",
-    "month_day": "10-05",
-    "cum_lists": 484,
-    "cum_species": 234,
-    "cum_birders": 182
-  },
-  {
-    "date": "2026-01-18",
-    "month_day": "01-18",
-    "cum_lists": 648,
-    "cum_species": 364,
-    "cum_birders": 263
-  },
-  {
     "date": "2026-01-24",
     "month_day": "01-24",
-    "cum_lists": 701,
-    "cum_species": 364,
-    "cum_birders": 283
+    "cum_lists": 482,
+    "cum_species": 223,
+    "cum_birders": 188
   },
   {
     "date": "2026-01-25",
     "month_day": "01-25",
-    "cum_lists": 785,
-    "cum_species": 367,
-    "cum_birders": 283
-  },
-  {
-    "date": "2026-01-31",
-    "month_day": "01-31",
-    "cum_lists": 805,
-    "cum_species": 369,
-    "cum_birders": 313
+    "cum_lists": 543,
+    "cum_species": 232,
+    "cum_birders": 192
   }
 ]

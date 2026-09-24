@@ -1,12 +1,5 @@
 [
   {
-    "GRID_CODE": "GJ-BN-VAV-048",
-    "n_lists": 1,
-    "n_birders": 6,
-    "n_species": 18,
-    "focal_lists": 0
-  },
-  {
     "GRID_CODE": "GJ-KU-ABD-001",
     "n_lists": 1,
     "n_birders": 4,
@@ -435,9 +428,9 @@
   },
   {
     "GRID_CODE": "GJ-KU-RAN-050",
-    "n_lists": 2,
+    "n_lists": 1,
     "n_birders": 5,
-    "n_species": 35,
+    "n_species": 11,
     "focal_lists": 0
   },
   {
