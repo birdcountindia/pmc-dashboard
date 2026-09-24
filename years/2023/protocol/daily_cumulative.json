@@ -3,14 +3,21 @@
     "date": "2023-09-23",
     "month_day": "09-23",
     "cum_lists": 88,
-    "cum_species": 181,
-    "cum_birders": 1
+    "cum_species": 182,
+    "cum_birders": 83
   },
   {
     "date": "2023-09-24",
     "month_day": "09-24",
     "cum_lists": 143,
-    "cum_species": 192,
-    "cum_birders": 1
+    "cum_species": 194,
+    "cum_birders": 83
+  },
+  {
+    "date": "2024-02-03",
+    "month_day": "02-03",
+    "cum_lists": 144,
+    "cum_species": 198,
+    "cum_birders": 85
   }
 ]

@@ -1,5 +1,19 @@
 [
   {
+    "GRID_CODE": "GJ-KU-BHU-114",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 15,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-115",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 21,
+    "focal_lists": 1
+  },
+  {
     "GRID_CODE": "GJ-KU-BHU-135",
     "n_lists": 1,
     "n_birders": 1,

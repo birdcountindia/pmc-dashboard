@@ -9,13 +9,13 @@
     "name": "Common Cuckoo",
     "slug": "common-cuckoo",
     "image": "www/species/common-cuckoo.svg",
-    "checklists": 7
+    "checklists": 8
   },
   {
     "name": "European Roller",
     "slug": "european-roller",
     "image": "www/species/european-roller.svg",
-    "checklists": 40
+    "checklists": 42
   },
   {
     "name": "Greater Whitethroat",
@@ -45,6 +45,6 @@
     "name": "Spotted Flycatcher",
     "slug": "spotted-flycatcher",
     "image": "www/species/spotted-flycatcher.svg",
-    "checklists": 23
+    "checklists": 25
   }
 ]

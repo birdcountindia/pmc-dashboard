@@ -3,7 +3,7 @@
     "name": "Blue-cheeked Bee-eater",
     "slug": "blue-cheeked-bee-eater",
     "image": "www/species/blue-cheeked-bee-eater.svg",
-    "checklists": 34
+    "checklists": 52
   },
   {
     "name": "Common Cuckoo",
@@ -15,19 +15,19 @@
     "name": "European Roller",
     "slug": "european-roller",
     "image": "www/species/european-roller.svg",
-    "checklists": 150
+    "checklists": 154
   },
   {
     "name": "Greater Whitethroat",
     "slug": "greater-whitethroat",
     "image": "www/species/greater-whitethroat.svg",
-    "checklists": 13
+    "checklists": 14
   },
   {
     "name": "Red-backed Shrike",
     "slug": "red-backed-shrike",
     "image": "www/species/red-backed-shrike.svg",
-    "checklists": 25
+    "checklists": 27
   },
   {
     "name": "Red-tailed Shrike",
@@ -45,6 +45,6 @@
     "name": "Spotted Flycatcher",
     "slug": "spotted-flycatcher",
     "image": "www/species/spotted-flycatcher.svg",
-    "checklists": 61
+    "checklists": 62
   }
 ]

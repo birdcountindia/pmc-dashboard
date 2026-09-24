@@ -225,7 +225,7 @@ update_pmc_dashboard <- function() {
 
   # ---- 2. static grid geometry (shared across all years) ----
   grid <- st_read(GRID_SHP, quiet = TRUE) %>% st_transform(4326)
-  grid_geometry <- grid %>% filter(DISTRICT == GRID_DISTRICT) %>% select(GRID_CODE, DISTRICT, BLOCK)
+  grid_geometry <- grid %>% filter(DISTRICT %in% GRID_DISTRICT) %>% select(GRID_CODE, DISTRICT, BLOCK)
   grid_geojson <- sf_geojson(grid_geometry)
   if (length(grid_geojson) != 1 || is.na(grid_geojson) || !nzchar(grid_geojson)) stop("sf_geojson() produced no output for grid geometry.")
   writeLines(grid_geojson, file.path(OUT_DIR, "grids_geometry.geojson"))
