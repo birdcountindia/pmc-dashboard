@@ -26,7 +26,7 @@ PMC_DATA_DIR  <- "E:/Abhinandan/BCI/eBird-projects/PMC/data"
 OUT_DIR       <- "E:/Abhinandan/BCI/eBird-projects/PMC/PMC-dashboard"
 YEARS_DIR     <- file.path(OUT_DIR, "years")
 GRID_SHP      <- file.path(OUT_DIR, "PMC-grids", "PMC_IN_2026.shp")
-GRID_DISTRICT <- "Kachchh"   # which district's grid cells to publish (matches the map's bounds)
+GRID_DISTRICT <- c("Kachchh", "Jaisalmer")   # which district's grid cells to publish (matches the map's bounds)
 
 # ---- focal species to highlight on the map (common names, must match COMMON.NAME) ----
 FOCAL_SPECIES <- c(

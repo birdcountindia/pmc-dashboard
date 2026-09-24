@@ -171,9 +171,9 @@
     "COMMON.NAME": "Painted Sandgrouse",
     "category": "species",
     "taxonomic_order": 2906,
-    "checklists": 4,
-    "total_count": 8,
-    "pct_checklists": 0.9
+    "checklists": 3,
+    "total_count": 6,
+    "pct_checklists": 0.7
   },
   {
     "COMMON.NAME": "Lesser Florican",
@@ -1403,17 +1403,17 @@
     "COMMON.NAME": "Red-backed Shrike",
     "category": "species",
     "taxonomic_order": 21045,
-    "checklists": 50,
-    "total_count": 72,
-    "pct_checklists": 11.2
+    "checklists": 49,
+    "total_count": 70,
+    "pct_checklists": 11
   },
   {
     "COMMON.NAME": "Red-tailed Shrike",
     "category": "species",
     "taxonomic_order": 21046,
-    "checklists": 56,
-    "total_count": 75,
-    "pct_checklists": 12.5
+    "checklists": 55,
+    "total_count": 74,
+    "pct_checklists": 12.3
   },
   {
     "COMMON.NAME": "Isabelline Shrike",
@@ -1459,9 +1459,9 @@
     "COMMON.NAME": "Great Gray Shrike",
     "category": "species",
     "taxonomic_order": 21112,
-    "checklists": 44,
-    "total_count": 66,
-    "pct_checklists": 9.8
+    "checklists": 43,
+    "total_count": 65,
+    "pct_checklists": 9.6
   },
   {
     "COMMON.NAME": "shrike sp.",
@@ -1491,9 +1491,9 @@
     "COMMON.NAME": "Greater Hoopoe-Lark",
     "category": "species",
     "taxonomic_order": 22337,
-    "checklists": 2,
-    "total_count": 2,
-    "pct_checklists": 0.4
+    "checklists": 1,
+    "total_count": 1,
+    "pct_checklists": 0.2
   },
   {
     "COMMON.NAME": "Rufous-tailed Lark",
@@ -1531,9 +1531,9 @@
     "COMMON.NAME": "Tawny Lark",
     "category": "species",
     "taxonomic_order": 22652,
-    "checklists": 10,
-    "total_count": 29,
-    "pct_checklists": 2.2
+    "checklists": 9,
+    "total_count": 19,
+    "pct_checklists": 2
   },
   {
     "COMMON.NAME": "Crested Lark",
@@ -1595,9 +1595,9 @@
     "COMMON.NAME": "Gray-breasted Prinia",
     "category": "species",
     "taxonomic_order": 23233,
-    "checklists": 107,
-    "total_count": 255,
-    "pct_checklists": 23.9
+    "checklists": 106,
+    "total_count": 253,
+    "pct_checklists": 23.7
   },
   {
     "COMMON.NAME": "Delicate Prinia",
@@ -1811,9 +1811,9 @@
     "COMMON.NAME": "Greater Whitethroat",
     "category": "species",
     "taxonomic_order": 25364,
-    "checklists": 34,
-    "total_count": 48,
-    "pct_checklists": 7.6
+    "checklists": 33,
+    "total_count": 47,
+    "pct_checklists": 7.4
   },
   {
     "COMMON.NAME": "old world warbler sp.",
@@ -1979,9 +1979,9 @@
     "COMMON.NAME": "Variable Wheatear",
     "category": "species",
     "taxonomic_order": 29850,
-    "checklists": 88,
-    "total_count": 144,
-    "pct_checklists": 19.7
+    "checklists": 84,
+    "total_count": 136,
+    "pct_checklists": 18.8
   },
   {
     "COMMON.NAME": "wheatear sp.",
@@ -2011,9 +2011,9 @@
     "COMMON.NAME": "Baya Weaver",
     "category": "species",
     "taxonomic_order": 30904,
-    "checklists": 153,
-    "total_count": 1485,
-    "pct_checklists": 34.2
+    "checklists": 154,
+    "total_count": 1527,
+    "pct_checklists": 34.5
   },
   {
     "COMMON.NAME": "Indian Silverbill",
@@ -2107,17 +2107,17 @@
     "COMMON.NAME": "Long-billed Pipit",
     "category": "species",
     "taxonomic_order": 31788,
-    "checklists": 8,
-    "total_count": 9,
-    "pct_checklists": 1.8
+    "checklists": 6,
+    "total_count": 7,
+    "pct_checklists": 1.3
   },
   {
     "COMMON.NAME": "Tawny Pipit",
     "category": "species",
     "taxonomic_order": 31815,
-    "checklists": 55,
-    "total_count": 151,
-    "pct_checklists": 12.3
+    "checklists": 54,
+    "total_count": 145,
+    "pct_checklists": 12.1
   },
   {
     "COMMON.NAME": "Tree Pipit",

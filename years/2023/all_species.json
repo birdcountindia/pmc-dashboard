@@ -83,9 +83,9 @@
     "COMMON.NAME": "Black Francolin",
     "category": "species",
     "taxonomic_order": 1647,
-    "checklists": 21,
-    "total_count": 34,
-    "pct_checklists": 10
+    "checklists": 20,
+    "total_count": 33,
+    "pct_checklists": 9.5
   },
   {
     "COMMON.NAME": "Rain Quail",
@@ -779,9 +779,9 @@
     "COMMON.NAME": "Western Reef-Heron",
     "category": "species",
     "taxonomic_order": 7655,
-    "checklists": 14,
-    "total_count": 51,
-    "pct_checklists": 6.6
+    "checklists": 13,
+    "total_count": 40,
+    "pct_checklists": 6.2
   },
   {
     "COMMON.NAME": "Little Heron",
@@ -1259,9 +1259,9 @@
     "COMMON.NAME": "Great Gray Shrike",
     "category": "issf",
     "taxonomic_order": 21112,
-    "checklists": 21,
-    "total_count": 32,
-    "pct_checklists": 10
+    "checklists": 20,
+    "total_count": 31,
+    "pct_checklists": 9.5
   },
   {
     "COMMON.NAME": "shrike sp.",
@@ -1403,9 +1403,9 @@
     "COMMON.NAME": "Gray-breasted Prinia",
     "category": "species",
     "taxonomic_order": 23233,
-    "checklists": 69,
-    "total_count": 153,
-    "pct_checklists": 32.7
+    "checklists": 67,
+    "total_count": 151,
+    "pct_checklists": 31.8
   },
   {
     "COMMON.NAME": "Delicate Prinia",
@@ -1419,9 +1419,9 @@
     "COMMON.NAME": "Jungle Prinia",
     "category": "species",
     "taxonomic_order": 23257,
-    "checklists": 36,
-    "total_count": 62,
-    "pct_checklists": 17.1
+    "checklists": 35,
+    "total_count": 61,
+    "pct_checklists": 16.6
   },
   {
     "COMMON.NAME": "Plain Prinia",
@@ -1501,6 +1501,14 @@
     "taxonomic_order": 23772,
     "checklists": 1,
     "total_count": 3,
+    "pct_checklists": 0.5
+  },
+  {
+    "COMMON.NAME": "Gray-throated Martin",
+    "category": "species",
+    "taxonomic_order": 24047,
+    "checklists": 1,
+    "total_count": 1,
     "pct_checklists": 0.5
   },
   {
@@ -1627,9 +1635,9 @@
     "COMMON.NAME": "Greater Whitethroat",
     "category": "species",
     "taxonomic_order": 25364,
-    "checklists": 25,
-    "total_count": 47,
-    "pct_checklists": 11.8
+    "checklists": 23,
+    "total_count": 45,
+    "pct_checklists": 10.9
   },
   {
     "COMMON.NAME": "old world warbler sp.",
@@ -1699,9 +1707,9 @@
     "COMMON.NAME": "Rufous-tailed Scrub-Robin",
     "category": "species",
     "taxonomic_order": 28964,
-    "checklists": 16,
-    "total_count": 24,
-    "pct_checklists": 7.6
+    "checklists": 15,
+    "total_count": 22,
+    "pct_checklists": 7.1
   },
   {
     "COMMON.NAME": "Indian Robin",
@@ -1771,9 +1779,9 @@
     "COMMON.NAME": "Variable Wheatear",
     "category": "species",
     "taxonomic_order": 29850,
-    "checklists": 54,
-    "total_count": 95,
-    "pct_checklists": 25.6
+    "checklists": 50,
+    "total_count": 88,
+    "pct_checklists": 23.7
   },
   {
     "COMMON.NAME": "Purple Sunbird",
@@ -1931,9 +1939,9 @@
     "COMMON.NAME": "Gray-necked Bunting",
     "category": "species",
     "taxonomic_order": 32742,
-    "checklists": 28,
-    "total_count": 111,
-    "pct_checklists": 13.3
+    "checklists": 27,
+    "total_count": 98,
+    "pct_checklists": 12.8
   },
   {
     "COMMON.NAME": "Striolated Bunting",
