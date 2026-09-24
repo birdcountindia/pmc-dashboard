@@ -279,13 +279,17 @@
     return 'years/' + year + '/' + (protocolFilter === 'all' ? '' : protocolFilter + '/');
   }
 
-  // Kachchh district, Gujarat: panning limit + default view on load
+  // Default view on load: Kachchh district, Gujarat.
   const KACHCHH_BOUNDS = L.latLngBounds([22.7, 68.1], [24.4, 70.9]);
+  // Panning limit: union of Kachchh + Jaisalmer district (Rajasthan), whose grid
+  // cells sit well north of Kachchh's own box (lat ~26.06-28.01 vs ~22.76-24.66)
+  // — MAP_BOUNDS has to cover both or Jaisalmer is simply unreachable by panning.
+  const MAP_BOUNDS = L.latLngBounds([22.6, 68.0], [28.15, 72.5]);
 
   const map = L.map('map', {
     zoomControl: false,
     minZoom: 7,
-    maxBounds: KACHCHH_BOUNDS.pad(0.15),
+    maxBounds: MAP_BOUNDS.pad(0.15),
     maxBoundsViscosity: 1.0
   }).fitBounds(KACHCHH_BOUNDS);
   L.control.zoom({ position: 'bottomright' }).addTo(map);
