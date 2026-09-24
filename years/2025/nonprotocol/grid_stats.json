@@ -1,0 +1,1122 @@
+[
+  {
+    "GRID_CODE": "GJ-KU-ABD-008",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 41,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-013",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 25,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-021",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 76,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-023",
+    "n_lists": 7,
+    "n_birders": 1,
+    "n_species": 65,
+    "focal_lists": 7
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-025",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 35,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-026",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-027",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 45,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-029",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 25,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-037",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 41,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-038",
+    "n_lists": 8,
+    "n_birders": 1,
+    "n_species": 78,
+    "focal_lists": 7
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-044",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 62,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-045",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 90,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-046",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 70,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-047",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 76,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-048",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 52,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-055",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 8,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-058",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 77,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-060",
+    "n_lists": 8,
+    "n_birders": 1,
+    "n_species": 91,
+    "focal_lists": 8
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-070",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 64,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-072",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 21,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-073",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 2,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-083",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 29,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-085",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 30,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-089",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 4,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-091",
+    "n_lists": 3,
+    "n_birders": 1,
+    "n_species": 7,
+    "focal_lists": 3
+  },
+  {
+    "GRID_CODE": "GJ-KU-ABD-095",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 43,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-ANJ-001",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 21,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ANJ-003",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 33,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-ANJ-005",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 27,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-ANJ-034",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-011",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 15,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-014",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 33,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-022",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 24,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-024",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 13,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-029",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 31,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-037",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 25,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-048",
+    "n_lists": 3,
+    "n_birders": 1,
+    "n_species": 30,
+    "focal_lists": 3
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-050",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 27,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-051",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 37,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-053",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-055",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-056",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 11,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-058",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 15,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-059",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 26,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-061",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 27,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-067",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 12,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-068",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 5,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-069",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 18,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHA-074",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 51,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-001",
+    "n_lists": 4,
+    "n_birders": 1,
+    "n_species": 14,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-002",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 10,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-005",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-017",
+    "n_lists": 6,
+    "n_birders": 1,
+    "n_species": 8,
+    "focal_lists": 3
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-018",
+    "n_lists": 5,
+    "n_birders": 1,
+    "n_species": 18,
+    "focal_lists": 4
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-019",
+    "n_lists": 5,
+    "n_birders": 1,
+    "n_species": 7,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-024",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 75,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-025",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 68,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-027",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 87,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-028",
+    "n_lists": 4,
+    "n_birders": 1,
+    "n_species": 12,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-029",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 3,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-030",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 34,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-039",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 7,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-047",
+    "n_lists": 8,
+    "n_birders": 1,
+    "n_species": 11,
+    "focal_lists": 4
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-048",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-049",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-059",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 39,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-063",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 4,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-069",
+    "n_lists": 3,
+    "n_birders": 1,
+    "n_species": 39,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-072",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 8,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-089",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 22,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-090",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 25,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-091",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 26,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-098",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 4,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-101",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 10,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-104",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 26,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-109",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 13,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-112",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 40,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-120",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 23,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-122",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 13,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-130",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 14,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-134",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 31,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-138",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-143",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-147",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 21,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-150",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 8,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-158",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 17,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-165",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 11,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-168",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 31,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-170",
+    "n_lists": 4,
+    "n_birders": 1,
+    "n_species": 33,
+    "focal_lists": 3
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-005",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 23,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-007",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 18,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-015",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 39,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-017",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 33,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-019",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 5,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-026",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 27,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-037",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 28,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-039",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 29,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-040",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 16,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-041",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 16,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-042",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 22,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-045",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 24,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-048",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 6,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-068",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 20,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-LAK-074",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 14,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-LIT-028",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 8,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-LIT-040",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 6,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-LIT-042",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 52,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-MAN-008",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 19,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-MAN-009",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 39,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-MAN-011",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 37,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-MAN-027",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 29,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-MAN-032",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 27,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-MAN-037",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 14,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-MAN-048",
+    "n_lists": 3,
+    "n_birders": 1,
+    "n_species": 14,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-MAN-052",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 38,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-MUN-006",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 25,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-MUN-007",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 32,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-MUN-023",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 18,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-NAK-001",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 10,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-NAK-003",
+    "n_lists": 3,
+    "n_birders": 1,
+    "n_species": 33,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-NAK-007",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 30,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-NAK-010",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 19,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-NAK-049",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 12,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-NAK-052",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 11,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-NAK-060",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 32,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-NAK-061",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 6,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-NAK-063",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 19,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-085",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 2,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-124",
+    "n_lists": 3,
+    "n_birders": 1,
+    "n_species": 8,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-170",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 12,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-218",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 4,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-219",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 7,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-268",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 18,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-270",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 8,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-323",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-324",
+    "n_lists": 3,
+    "n_birders": 1,
+    "n_species": 21,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-457",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 28,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-472",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 9,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-501",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 81,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-504",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 2,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-505",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 17,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-506",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 26,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-531",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 26,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-004",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 30,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-005",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 22,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-007",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 19,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-016",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 40,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-034",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 2,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-045",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 2,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-046",
+    "n_lists": 3,
+    "n_birders": 1,
+    "n_species": 2,
+    "focal_lists": 3
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-047",
+    "n_lists": 3,
+    "n_birders": 1,
+    "n_species": 40,
+    "focal_lists": 3
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-051",
+    "n_lists": 4,
+    "n_birders": 1,
+    "n_species": 23,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-052",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 2,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-053",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 15,
+    "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-058",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 2,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-059",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-060",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 33,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-077",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 24,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-085",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 30,
+    "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-100",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 12,
+    "focal_lists": 1
+  }
+]

@@ -48,8 +48,11 @@ slugify <- function(x) {
 empty_feature_collection <- function() '{"type":"FeatureCollection","features":[]}'
 
 # ---- process a single count-year's worth of rows, write its output bundle ----
-process_year <- function(data_year, grid, year) {
-  year_dir <- file.path(YEARS_DIR, as.character(year))
+# out_dir defaults to years/<year>/ (the "All" bundle); the protocol-filter
+# variants below pass years/<year>/protocol/ or years/<year>/nonprotocol/ so
+# every tab/output the front end reads has a matching filtered version.
+process_year <- function(data_year, grid, year, out_dir = file.path(YEARS_DIR, as.character(year))) {
+  year_dir <- out_dir
   dir.create(year_dir, recursive = TRUE, showWarnings = FALSE)
 
   n_lists   <- n_distinct(data_year$GROUP.ID)
@@ -209,6 +212,17 @@ update_pmc_dashboard <- function() {
 
   data <- read_csv(latest_csv, show_col_types = FALSE, na = c("", "NA"))
 
+  # PMC.PROTOCOL: 1 if this checklist's effort falls inside the PMC survey
+  # protocol (0.08-1.2 km, 30-<90 min), else 0. Recomputed here (not just
+  # trusted from the CSV) so this script stays self-contained regardless of
+  # which script wrote the latest CSV.
+  data <- data %>%
+    mutate(PMC.PROTOCOL = as.integer(
+      !is.na(EFFORT.DISTANCE.KM) & !is.na(DURATION.MINUTES) &
+      EFFORT.DISTANCE.KM >= 0.08 & EFFORT.DISTANCE.KM <= 1.2 &
+      DURATION.MINUTES >= 30 & DURATION.MINUTES < 90
+    ))
+
   # ---- 2. static grid geometry (shared across all years) ----
   grid <- st_read(GRID_SHP, quiet = TRUE) %>% st_transform(4326)
   grid_geometry <- grid %>% filter(DISTRICT == GRID_DISTRICT) %>% select(GRID_CODE, DISTRICT, BLOCK)
@@ -222,9 +236,18 @@ update_pmc_dashboard <- function() {
   data_years    <- sort(unique(data$M.YEAR))
   all_years     <- sort(union(data_years, current_year))
 
+  # For each year, write the unfiltered ("All") bundle at its usual path, plus
+  # a protocol-only and a non-protocol-only bundle alongside it, so the
+  # dashboard's Protocol Lists / Not Protocol Lists toggle has a matching
+  # pre-built bundle to switch to for every tab/output.
   dir.create(YEARS_DIR, recursive = TRUE, showWarnings = FALSE)
   for (yr in all_years) {
-    process_year(data %>% filter(M.YEAR == yr), grid, yr)
+    yr_data <- data %>% filter(M.YEAR == yr)
+    year_dir <- file.path(YEARS_DIR, as.character(yr))
+
+    process_year(yr_data, grid, yr, out_dir = year_dir)
+    process_year(yr_data %>% filter(PMC.PROTOCOL == 1), grid, yr, out_dir = file.path(year_dir, "protocol"))
+    process_year(yr_data %>% filter(PMC.PROTOCOL == 0), grid, yr, out_dir = file.path(year_dir, "nonprotocol"))
   }
 
   write_json(

@@ -142,6 +142,13 @@
     padding: 10px 14px; display: flex; align-items: center; gap: 5px;
   }
   .year-btn.active { background: #2980b9; color: #fff; }
+  #protocol-bar { display: flex; background: #eafaf1; }
+  .protocol-btn {
+    border: none; background: transparent; cursor: pointer;
+    font-family: inherit; font-size: 13px; font-weight: 600; color: #1e7a46;
+    padding: 10px 14px;
+  }
+  .protocol-btn.active { background: #27ae60; color: #fff; }
   .year-btn .live-dot {
     width: 7px; height: 7px; border-radius: 50%; background: #e74c3c;
     box-shadow: 0 0 0 0 rgba(231,76,60,0.7); animation: live-pulse 1.6s infinite;
@@ -192,8 +199,8 @@
       border-radius: 0; flex-wrap: wrap; justify-content: center; row-gap: 2px; padding: 4px 0;
     }
     .tabs-divider { display: none; }
-    .tab-btn, .year-btn { font-size: 11px; padding: 7px 10px; }
-    #year-bar { flex: 1 1 100%; justify-content: center; }
+    .tab-btn, .year-btn, .protocol-btn { font-size: 11px; padding: 7px 10px; }
+    #year-bar, #protocol-bar { flex: 1 1 100%; justify-content: center; }
 
     .leaflet-top { top: 76px; }
 
@@ -221,6 +228,12 @@
 <body>
 <div class="tabs">
   <div id="year-bar"></div>
+  <div class="tabs-divider"></div>
+  <div id="protocol-bar">
+    <button class="protocol-btn active" data-protocol="all">All</button>
+    <button class="protocol-btn" data-protocol="protocol">Protocol Lists</button>
+    <button class="protocol-btn" data-protocol="nonprotocol">Not Protocol Lists</button>
+  </div>
   <div class="tabs-divider"></div>
   <div class="view-tabs">
     <button class="tab-btn active" id="tab-map">Map</button>
@@ -255,6 +268,16 @@
   const BASE_URL = '';
   let selectedYear = null;
   let currentYear = null;   // the live/current-season year, from years.json
+
+  // Protocol Lists filter: 'all' | 'protocol' | 'nonprotocol'. Every per-year
+  // file has three pre-built copies (years/<year>/, years/<year>/protocol/,
+  // years/<year>/nonprotocol/) written by source_data.R — yearPath() just
+  // points every fetch at the right one, so switching the filter re-fetches
+  // and re-renders every tab/output consistently.
+  let protocolFilter = 'all';
+  function yearPath(year) {
+    return 'years/' + year + '/' + (protocolFilter === 'all' ? '' : protocolFilter + '/');
+  }
 
   // Kachchh district, Gujarat: panning limit + default view on load
   const KACHCHH_BOUNDS = L.latLngBounds([22.7, 68.1], [24.4, 70.9]);
@@ -458,7 +481,7 @@
   }
 
   function loadChecklists(year) {
-    return fetch(BASE_URL + 'years/' + year + '/checklists.geojson')
+    return fetch(BASE_URL + yearPath(year) + 'checklists.geojson')
       .then(r => r.json())
       .then(geo => {
         allFeatures = geo.features;
@@ -485,7 +508,7 @@
   speciesPanel.addTo(map);
 
   function loadSpeciesPanel(year) {
-    return fetch(BASE_URL + 'years/' + year + '/species.json')
+    return fetch(BASE_URL + yearPath(year) + 'species.json')
       .then(r => r.json())
       .then(list => {
         const grid = document.getElementById('species-grid');
@@ -637,7 +660,7 @@
   });
 
   function loadAllSpecies(year) {
-    return fetch(BASE_URL + 'years/' + year + '/all_species.json')
+    return fetch(BASE_URL + yearPath(year) + 'all_species.json')
       .then(r => r.json())
       .then(rows => {
         allSpeciesRows = rows;
@@ -648,24 +671,27 @@
   }
 
   function loadSpeciesChecklists(year) {
-    return fetch(BASE_URL + 'years/' + year + '/species_checklists.json')
+    return fetch(BASE_URL + yearPath(year) + 'species_checklists.json')
       .then(r => r.json())
       .then(map => { speciesChecklistsMap = map; });
   }
 
+  const PROTOCOL_FILTER_LABELS = { protocol: ' · Protocol Lists only', nonprotocol: ' · Not Protocol Lists only' };
+
   function loadStats(year) {
-    return fetch(BASE_URL + 'years/' + year + '/stats.json')
+    return fetch(BASE_URL + yearPath(year) + 'stats.json')
       .then(r => r.json())
       .then(s => {
         document.getElementById('dash-lists').innerText = s.unique_lists;
         document.getElementById('dash-birders').innerText = s.birders;
         document.getElementById('dash-species').innerText = s.species;
-        document.getElementById('dash-updated').innerText = 'Updated ' + s.last_updated;
+        document.getElementById('dash-updated').innerText =
+          'Updated ' + s.last_updated + (PROTOCOL_FILTER_LABELS[protocolFilter] || '');
       });
   }
 
   function loadGridStats(year) {
-    return fetch(BASE_URL + 'years/' + year + '/grid_stats.json')
+    return fetch(BASE_URL + yearPath(year) + 'grid_stats.json')
       .then(r => r.json())
       .then(rows => gridGeomReady.then(() => applyGridStats(rows)));
   }
@@ -694,8 +720,8 @@
 
     const prevYear = currentYear - 1;
     Promise.all([
-      fetch(BASE_URL + 'years/' + currentYear + '/daily_cumulative.json').then(r => r.json()),
-      fetch(BASE_URL + 'years/' + prevYear + '/daily_cumulative.json').then(r => r.json()).catch(() => [])
+      fetch(BASE_URL + yearPath(currentYear) + 'daily_cumulative.json').then(r => r.json()),
+      fetch(BASE_URL + yearPath(prevYear) + 'daily_cumulative.json').then(r => r.json()).catch(() => [])
     ]).then(([liveDaily, prevDaily]) => {
       panel.classList.remove('hidden');
 
@@ -719,6 +745,16 @@
         (prev ? '' : '<div class="cp-msg">No ' + prevYear + ' data to compare.</div>');
     });
   }
+
+  // ---- Protocol Lists filter bar ----
+  document.querySelectorAll('.protocol-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.protocol === protocolFilter) return;
+      protocolFilter = btn.dataset.protocol;
+      document.querySelectorAll('.protocol-btn').forEach(b => b.classList.toggle('active', b === btn));
+      if (selectedYear !== null) loadYear(selectedYear);
+    });
+  });
 
   // ---- year bar + orchestration ----
   function loadYear(year) {
