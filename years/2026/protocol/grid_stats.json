@@ -12,5 +12,12 @@
     "n_birders": 1,
     "n_species": 21,
     "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-052",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 0
   }
 ]
