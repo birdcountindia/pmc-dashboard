@@ -4,7 +4,7 @@
     "category": "species",
     "taxonomic_order": 258,
     "checklists": 5,
-    "total_count": 57,
+    "total_count": 59,
     "pct_checklists": 8.8
   },
   {
@@ -12,7 +12,7 @@
     "category": "species",
     "taxonomic_order": 540,
     "checklists": 8,
-    "total_count": 83,
+    "total_count": 84,
     "pct_checklists": 14
   },
   {
@@ -36,7 +36,7 @@
     "category": "species",
     "taxonomic_order": 1573,
     "checklists": 15,
-    "total_count": 187,
+    "total_count": 189,
     "pct_checklists": 26.3
   },
   {
@@ -44,7 +44,7 @@
     "category": "species",
     "taxonomic_order": 1639,
     "checklists": 39,
-    "total_count": 274,
+    "total_count": 288,
     "pct_checklists": 68.4
   },
   {
@@ -60,7 +60,7 @@
     "category": "species",
     "taxonomic_order": 1750,
     "checklists": 1,
-    "total_count": 2,
+    "total_count": 4,
     "pct_checklists": 1.8
   },
   {
@@ -68,7 +68,7 @@
     "category": "domestic",
     "taxonomic_order": 1868,
     "checklists": 13,
-    "total_count": 236,
+    "total_count": 241,
     "pct_checklists": 22.8
   },
   {
@@ -76,7 +76,7 @@
     "category": "species",
     "taxonomic_order": 2031,
     "checklists": 42,
-    "total_count": 398,
+    "total_count": 407,
     "pct_checklists": 73.7
   },
   {
@@ -92,7 +92,7 @@
     "category": "species",
     "taxonomic_order": 2071,
     "checklists": 42,
-    "total_count": 460,
+    "total_count": 465,
     "pct_checklists": 73.7
   },
   {
@@ -196,7 +196,7 @@
     "category": "species",
     "taxonomic_order": 5533,
     "checklists": 5,
-    "total_count": 54,
+    "total_count": 58,
     "pct_checklists": 8.8
   },
   {
@@ -220,7 +220,7 @@
     "category": "species",
     "taxonomic_order": 5763,
     "checklists": 14,
-    "total_count": 146,
+    "total_count": 149,
     "pct_checklists": 24.6
   },
   {
@@ -244,7 +244,7 @@
     "category": "species",
     "taxonomic_order": 5883,
     "checklists": 37,
-    "total_count": 384,
+    "total_count": 388,
     "pct_checklists": 64.9
   },
   {
@@ -308,7 +308,7 @@
     "category": "species",
     "taxonomic_order": 6125,
     "checklists": 14,
-    "total_count": 63,
+    "total_count": 65,
     "pct_checklists": 24.6
   },
   {
@@ -316,7 +316,7 @@
     "category": "species",
     "taxonomic_order": 6128,
     "checklists": 12,
-    "total_count": 38,
+    "total_count": 41,
     "pct_checklists": 21.1
   },
   {
@@ -508,7 +508,7 @@
     "category": "species",
     "taxonomic_order": 7386,
     "checklists": 16,
-    "total_count": 64,
+    "total_count": 65,
     "pct_checklists": 28.1
   },
   {
@@ -540,7 +540,7 @@
     "category": "species",
     "taxonomic_order": 7467,
     "checklists": 4,
-    "total_count": 61,
+    "total_count": 64,
     "pct_checklists": 7
   },
   {
@@ -612,7 +612,7 @@
     "category": "species",
     "taxonomic_order": 7729,
     "checklists": 4,
-    "total_count": 7,
+    "total_count": 8,
     "pct_checklists": 7
   },
   {
@@ -620,7 +620,7 @@
     "category": "species",
     "taxonomic_order": 7737,
     "checklists": 4,
-    "total_count": 10,
+    "total_count": 11,
     "pct_checklists": 7
   },
   {
@@ -628,7 +628,7 @@
     "category": "species",
     "taxonomic_order": 7745,
     "checklists": 7,
-    "total_count": 13,
+    "total_count": 14,
     "pct_checklists": 12.3
   },
   {
@@ -636,7 +636,7 @@
     "category": "species",
     "taxonomic_order": 7766,
     "checklists": 3,
-    "total_count": 6,
+    "total_count": 7,
     "pct_checklists": 5.3
   },
   {
@@ -748,7 +748,7 @@
     "category": "species",
     "taxonomic_order": 9604,
     "checklists": 22,
-    "total_count": 85,
+    "total_count": 90,
     "pct_checklists": 38.6
   },
   {
@@ -756,7 +756,7 @@
     "category": "species",
     "taxonomic_order": 9811,
     "checklists": 39,
-    "total_count": 481,
+    "total_count": 483,
     "pct_checklists": 68.4
   },
   {
@@ -780,7 +780,7 @@
     "category": "species",
     "taxonomic_order": 10076,
     "checklists": 19,
-    "total_count": 59,
+    "total_count": 61,
     "pct_checklists": 33.3
   },
   {
@@ -796,7 +796,7 @@
     "category": "species",
     "taxonomic_order": 10328,
     "checklists": 35,
-    "total_count": 201,
+    "total_count": 213,
     "pct_checklists": 61.4
   },
   {
@@ -820,7 +820,7 @@
     "category": "species",
     "taxonomic_order": 11263,
     "checklists": 3,
-    "total_count": 4,
+    "total_count": 5,
     "pct_checklists": 5.3
   },
   {
@@ -860,7 +860,7 @@
     "category": "species",
     "taxonomic_order": 18577,
     "checklists": 5,
-    "total_count": 48,
+    "total_count": 55,
     "pct_checklists": 8.8
   },
   {
@@ -892,7 +892,7 @@
     "category": "species",
     "taxonomic_order": 20434,
     "checklists": 25,
-    "total_count": 99,
+    "total_count": 102,
     "pct_checklists": 43.9
   },
   {
@@ -916,7 +916,7 @@
     "category": "species",
     "taxonomic_order": 21048,
     "checklists": 7,
-    "total_count": 13,
+    "total_count": 14,
     "pct_checklists": 12.3
   },
   {
@@ -924,7 +924,7 @@
     "category": "species",
     "taxonomic_order": 21066,
     "checklists": 15,
-    "total_count": 71,
+    "total_count": 73,
     "pct_checklists": 26.3
   },
   {
@@ -932,7 +932,7 @@
     "category": "species",
     "taxonomic_order": 21069,
     "checklists": 14,
-    "total_count": 44,
+    "total_count": 47,
     "pct_checklists": 24.6
   },
   {
@@ -948,7 +948,7 @@
     "category": "spuh",
     "taxonomic_order": 21166,
     "checklists": 11,
-    "total_count": 21,
+    "total_count": 22,
     "pct_checklists": 19.3
   },
   {
@@ -980,7 +980,7 @@
     "category": "species",
     "taxonomic_order": 22419,
     "checklists": 19,
-    "total_count": 173,
+    "total_count": 176,
     "pct_checklists": 33.3
   },
   {
@@ -1028,7 +1028,7 @@
     "category": "species",
     "taxonomic_order": 23148,
     "checklists": 17,
-    "total_count": 62,
+    "total_count": 63,
     "pct_checklists": 29.8
   },
   {
@@ -1044,7 +1044,7 @@
     "category": "species",
     "taxonomic_order": 23233,
     "checklists": 12,
-    "total_count": 52,
+    "total_count": 54,
     "pct_checklists": 21.1
   },
   {
@@ -1052,7 +1052,7 @@
     "category": "species",
     "taxonomic_order": 23251,
     "checklists": 4,
-    "total_count": 7,
+    "total_count": 8,
     "pct_checklists": 7
   },
   {
@@ -1084,7 +1084,7 @@
     "category": "species",
     "taxonomic_order": 23528,
     "checklists": 2,
-    "total_count": 7,
+    "total_count": 10,
     "pct_checklists": 3.5
   },
   {
@@ -1132,7 +1132,7 @@
     "category": "species",
     "taxonomic_order": 24187,
     "checklists": 14,
-    "total_count": 439,
+    "total_count": 442,
     "pct_checklists": 24.6
   },
   {
@@ -1148,7 +1148,7 @@
     "category": "issf",
     "taxonomic_order": 24239,
     "checklists": 18,
-    "total_count": 75,
+    "total_count": 84,
     "pct_checklists": 31.6
   },
   {
@@ -1156,7 +1156,7 @@
     "category": "species",
     "taxonomic_order": 24274,
     "checklists": 5,
-    "total_count": 76,
+    "total_count": 79,
     "pct_checklists": 8.8
   },
   {
@@ -1172,7 +1172,7 @@
     "category": "species",
     "taxonomic_order": 24754,
     "checklists": 40,
-    "total_count": 323,
+    "total_count": 331,
     "pct_checklists": 70.2
   },
   {
@@ -1180,7 +1180,7 @@
     "category": "species",
     "taxonomic_order": 24776,
     "checklists": 35,
-    "total_count": 273,
+    "total_count": 277,
     "pct_checklists": 61.4
   },
   {
@@ -1196,7 +1196,7 @@
     "category": "species",
     "taxonomic_order": 25305,
     "checklists": 22,
-    "total_count": 69,
+    "total_count": 70,
     "pct_checklists": 38.6
   },
   {
@@ -1204,7 +1204,7 @@
     "category": "species",
     "taxonomic_order": 25334,
     "checklists": 3,
-    "total_count": 4,
+    "total_count": 6,
     "pct_checklists": 5.3
   },
   {
@@ -1236,7 +1236,7 @@
     "category": "species",
     "taxonomic_order": 26637,
     "checklists": 38,
-    "total_count": 539,
+    "total_count": 546,
     "pct_checklists": 66.7
   },
   {
@@ -1244,7 +1244,7 @@
     "category": "species",
     "taxonomic_order": 27829,
     "checklists": 15,
-    "total_count": 879,
+    "total_count": 1179,
     "pct_checklists": 26.3
   },
   {
@@ -1252,7 +1252,7 @@
     "category": "species",
     "taxonomic_order": 27846,
     "checklists": 6,
-    "total_count": 121,
+    "total_count": 127,
     "pct_checklists": 10.5
   },
   {
@@ -1260,7 +1260,7 @@
     "category": "species",
     "taxonomic_order": 27859,
     "checklists": 8,
-    "total_count": 86,
+    "total_count": 88,
     "pct_checklists": 14
   },
   {
@@ -1268,7 +1268,7 @@
     "category": "species",
     "taxonomic_order": 27862,
     "checklists": 1,
-    "total_count": 4,
+    "total_count": 8,
     "pct_checklists": 1.8
   },
   {
@@ -1276,7 +1276,7 @@
     "category": "species",
     "taxonomic_order": 28818,
     "checklists": 17,
-    "total_count": 69,
+    "total_count": 71,
     "pct_checklists": 29.8
   },
   {
@@ -1284,7 +1284,7 @@
     "category": "species",
     "taxonomic_order": 28964,
     "checklists": 5,
-    "total_count": 10,
+    "total_count": 12,
     "pct_checklists": 8.8
   },
   {
@@ -1292,7 +1292,7 @@
     "category": "species",
     "taxonomic_order": 28991,
     "checklists": 28,
-    "total_count": 149,
+    "total_count": 151,
     "pct_checklists": 49.1
   },
   {
@@ -1308,7 +1308,7 @@
     "category": "species",
     "taxonomic_order": 29677,
     "checklists": 13,
-    "total_count": 45,
+    "total_count": 48,
     "pct_checklists": 22.8
   },
   {
@@ -1324,7 +1324,7 @@
     "category": "species",
     "taxonomic_order": 29799,
     "checklists": 3,
-    "total_count": 4,
+    "total_count": 5,
     "pct_checklists": 5.3
   },
   {
@@ -1332,7 +1332,7 @@
     "category": "species",
     "taxonomic_order": 29849,
     "checklists": 3,
-    "total_count": 6,
+    "total_count": 7,
     "pct_checklists": 5.3
   },
   {
@@ -1340,7 +1340,7 @@
     "category": "species",
     "taxonomic_order": 29850,
     "checklists": 15,
-    "total_count": 45,
+    "total_count": 46,
     "pct_checklists": 26.3
   },
   {
@@ -1356,7 +1356,7 @@
     "category": "species",
     "taxonomic_order": 30450,
     "checklists": 35,
-    "total_count": 221,
+    "total_count": 223,
     "pct_checklists": 61.4
   },
   {
@@ -1372,7 +1372,7 @@
     "category": "species",
     "taxonomic_order": 30904,
     "checklists": 20,
-    "total_count": 432,
+    "total_count": 464,
     "pct_checklists": 35.1
   },
   {
@@ -1396,7 +1396,7 @@
     "category": "species",
     "taxonomic_order": 31534,
     "checklists": 26,
-    "total_count": 567,
+    "total_count": 626,
     "pct_checklists": 45.6
   },
   {
@@ -1452,7 +1452,7 @@
     "category": "species",
     "taxonomic_order": 31758,
     "checklists": 11,
-    "total_count": 46,
+    "total_count": 48,
     "pct_checklists": 19.3
   },
   {
@@ -1468,7 +1468,7 @@
     "category": "species",
     "taxonomic_order": 31788,
     "checklists": 1,
-    "total_count": 2,
+    "total_count": 4,
     "pct_checklists": 1.8
   },
   {
@@ -1476,7 +1476,7 @@
     "category": "species",
     "taxonomic_order": 31815,
     "checklists": 10,
-    "total_count": 39,
+    "total_count": 42,
     "pct_checklists": 17.5
   },
   {
@@ -1484,7 +1484,7 @@
     "category": "species",
     "taxonomic_order": 31857,
     "checklists": 3,
-    "total_count": 12,
+    "total_count": 14,
     "pct_checklists": 5.3
   },
   {
@@ -1492,7 +1492,7 @@
     "category": "spuh",
     "taxonomic_order": 31927,
     "checklists": 8,
-    "total_count": 23,
+    "total_count": 25,
     "pct_checklists": 14
   },
   {
