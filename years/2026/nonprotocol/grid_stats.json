@@ -520,7 +520,7 @@
   {
     "GRID_CODE": "GJ-KU-MAN-042",
     "n_lists": 2,
-    "n_birders": 1,
+    "n_birders": 2,
     "n_species": 29,
     "focal_lists": 2
   },
@@ -635,6 +635,13 @@
     "n_birders": 2,
     "n_species": 1,
     "focal_lists": 2
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-266",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 0
   },
   {
     "GRID_CODE": "GJ-KU-RAN-501",

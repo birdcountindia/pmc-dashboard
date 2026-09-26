@@ -15,13 +15,13 @@
     "name": "European Roller",
     "slug": "european-roller",
     "image": "www/species/european-roller.svg",
-    "checklists": 147
+    "checklists": 148
   },
   {
     "name": "Greater Whitethroat",
     "slug": "greater-whitethroat",
     "image": "www/species/greater-whitethroat.svg",
-    "checklists": 11
+    "checklists": 12
   },
   {
     "name": "Red-backed Shrike",
@@ -45,6 +45,6 @@
     "name": "Spotted Flycatcher",
     "slug": "spotted-flycatcher",
     "image": "www/species/spotted-flycatcher.svg",
-    "checklists": 38
+    "checklists": 40
   }
 ]

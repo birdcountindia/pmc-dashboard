@@ -16,7 +16,7 @@
   {
     "GRID_CODE": "GJ-KU-ABD-010",
     "n_lists": 1,
-    "n_birders": 1,
+    "n_birders": 2,
     "n_species": 30,
     "focal_lists": 1
   },
@@ -289,7 +289,7 @@
   {
     "GRID_CODE": "GJ-KU-BHA-058",
     "n_lists": 1,
-    "n_birders": 1,
+    "n_birders": 2,
     "n_species": 18,
     "focal_lists": 1
   },
@@ -407,10 +407,10 @@
   },
   {
     "GRID_CODE": "GJ-KU-BHU-115",
-    "n_lists": 1,
-    "n_birders": 1,
-    "n_species": 21,
-    "focal_lists": 1
+    "n_lists": 3,
+    "n_birders": 4,
+    "n_species": 30,
+    "focal_lists": 3
   },
   {
     "GRID_CODE": "GJ-KU-BHU-120",
@@ -758,7 +758,7 @@
   {
     "GRID_CODE": "GJ-KU-MAN-042",
     "n_lists": 2,
-    "n_birders": 1,
+    "n_birders": 2,
     "n_species": 29,
     "focal_lists": 2
   },
@@ -793,7 +793,7 @@
   {
     "GRID_CODE": "GJ-KU-MAN-052",
     "n_lists": 1,
-    "n_birders": 1,
+    "n_birders": 2,
     "n_species": 6,
     "focal_lists": 0
   },
@@ -887,6 +887,13 @@
     "n_birders": 3,
     "n_species": 31,
     "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAN-266",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 1,
+    "focal_lists": 0
   },
   {
     "GRID_CODE": "GJ-KU-RAN-501",
