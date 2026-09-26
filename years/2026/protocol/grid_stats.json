@@ -98,6 +98,13 @@
     "focal_lists": 1
   },
   {
+    "GRID_CODE": "GJ-KU-LIT-010",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 10,
+    "focal_lists": 1
+  },
+  {
     "GRID_CODE": "GJ-KU-LIT-023",
     "n_lists": 1,
     "n_birders": 1,
@@ -107,7 +114,7 @@
   {
     "GRID_CODE": "GJ-KU-NAK-067",
     "n_lists": 1,
-    "n_birders": 1,
+    "n_birders": 2,
     "n_species": 41,
     "focal_lists": 1
   },
