@@ -15,7 +15,7 @@
     "name": "European Roller",
     "slug": "european-roller",
     "image": "www/species/european-roller.svg",
-    "checklists": 100
+    "checklists": 106
   },
   {
     "name": "Greater Whitethroat",
@@ -27,7 +27,7 @@
     "name": "Red-backed Shrike",
     "slug": "red-backed-shrike",
     "image": "www/species/red-backed-shrike.svg",
-    "checklists": 11
+    "checklists": 12
   },
   {
     "name": "Red-tailed Shrike",
