@@ -9,13 +9,13 @@
     "name": "Common Cuckoo",
     "slug": "common-cuckoo",
     "image": "www/species/common-cuckoo.svg",
-    "checklists": 0
+    "checklists": 1
   },
   {
     "name": "European Roller",
     "slug": "european-roller",
     "image": "www/species/european-roller.svg",
-    "checklists": 28
+    "checklists": 32
   },
   {
     "name": "Greater Whitethroat",
@@ -27,13 +27,13 @@
     "name": "Red-backed Shrike",
     "slug": "red-backed-shrike",
     "image": "www/species/red-backed-shrike.svg",
-    "checklists": 1
+    "checklists": 2
   },
   {
     "name": "Red-tailed Shrike",
     "slug": "red-tailed-shrike",
     "image": "www/species/red-tailed-shrike.svg",
-    "checklists": 0
+    "checklists": 1
   },
   {
     "name": "Rufous-tailed Scrub-Robin",
@@ -45,6 +45,6 @@
     "name": "Spotted Flycatcher",
     "slug": "spotted-flycatcher",
     "image": "www/species/spotted-flycatcher.svg",
-    "checklists": 1
+    "checklists": 4
   }
 ]
