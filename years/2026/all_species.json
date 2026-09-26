@@ -45,7 +45,7 @@
     "taxonomic_order": 540,
     "checklists": 23,
     "total_count": 169,
-    "pct_checklists": 8.9
+    "pct_checklists": 8.8
   },
   {
     "COMMON.NAME": "Northern Pintail",
@@ -93,7 +93,7 @@
     "taxonomic_order": 1639,
     "checklists": 86,
     "total_count": 712,
-    "pct_checklists": 33.2
+    "pct_checklists": 33.1
   },
   {
     "COMMON.NAME": "Black Francolin",
@@ -141,7 +141,7 @@
     "taxonomic_order": 2031,
     "checklists": 100,
     "total_count": 1675,
-    "pct_checklists": 38.6
+    "pct_checklists": 38.5
   },
   {
     "COMMON.NAME": "Red Collared-Dove",
@@ -157,7 +157,7 @@
     "taxonomic_order": 2071,
     "checklists": 108,
     "total_count": 1510,
-    "pct_checklists": 41.7
+    "pct_checklists": 41.5
   },
   {
     "COMMON.NAME": "pigeon/dove sp.",
@@ -197,7 +197,7 @@
     "taxonomic_order": 3121,
     "checklists": 24,
     "total_count": 70,
-    "pct_checklists": 9.3
+    "pct_checklists": 9.2
   },
   {
     "COMMON.NAME": "Pied Cuckoo",
@@ -243,9 +243,9 @@
     "COMMON.NAME": "Indian Nightjar",
     "category": "species",
     "taxonomic_order": 3695,
-    "checklists": 6,
-    "total_count": 19,
-    "pct_checklists": 2.3
+    "checklists": 7,
+    "total_count": 23,
+    "pct_checklists": 2.7
   },
   {
     "COMMON.NAME": "Savanna Nightjar",
@@ -325,7 +325,7 @@
     "taxonomic_order": 5763,
     "checklists": 38,
     "total_count": 480,
-    "pct_checklists": 14.7
+    "pct_checklists": 14.6
   },
   {
     "COMMON.NAME": "Little Ringed Plover",
@@ -349,7 +349,15 @@
     "taxonomic_order": 5883,
     "checklists": 110,
     "total_count": 1646,
-    "pct_checklists": 42.5
+    "pct_checklists": 42.3
+  },
+  {
+    "COMMON.NAME": "lapwing sp.",
+    "category": "spuh",
+    "taxonomic_order": 5903,
+    "checklists": 1,
+    "total_count": 4,
+    "pct_checklists": 0.4
   },
   {
     "COMMON.NAME": "Tibetan Sand-Plover",
@@ -437,7 +445,7 @@
     "taxonomic_order": 6125,
     "checklists": 31,
     "total_count": 183,
-    "pct_checklists": 12
+    "pct_checklists": 11.9
   },
   {
     "COMMON.NAME": "Green Sandpiper",
@@ -501,7 +509,7 @@
     "taxonomic_order": 6219,
     "checklists": 10,
     "total_count": 59,
-    "pct_checklists": 3.9
+    "pct_checklists": 3.8
   },
   {
     "COMMON.NAME": "peep sp.",
@@ -597,7 +605,7 @@
     "taxonomic_order": 6730,
     "checklists": 32,
     "total_count": 171,
-    "pct_checklists": 12.4
+    "pct_checklists": 12.3
   },
   {
     "COMMON.NAME": "River/Black-bellied Tern",
@@ -613,7 +621,7 @@
     "taxonomic_order": 6803,
     "checklists": 10,
     "total_count": 127,
-    "pct_checklists": 3.9
+    "pct_checklists": 3.8
   },
   {
     "COMMON.NAME": "Greater Flamingo",
@@ -669,7 +677,7 @@
     "taxonomic_order": 7386,
     "checklists": 45,
     "total_count": 347,
-    "pct_checklists": 17.4
+    "pct_checklists": 17.3
   },
   {
     "COMMON.NAME": "Great Cormorant",
@@ -733,7 +741,7 @@
     "taxonomic_order": 7524,
     "checklists": 10,
     "total_count": 75,
-    "pct_checklists": 3.9
+    "pct_checklists": 3.8
   },
   {
     "COMMON.NAME": "Black-crowned Night Heron",
@@ -781,7 +789,7 @@
     "taxonomic_order": 7726,
     "checklists": 57,
     "total_count": 724,
-    "pct_checklists": 22
+    "pct_checklists": 21.9
   },
   {
     "COMMON.NAME": "Great Egret",
@@ -789,7 +797,7 @@
     "taxonomic_order": 7729,
     "checklists": 10,
     "total_count": 22,
-    "pct_checklists": 3.9
+    "pct_checklists": 3.8
   },
   {
     "COMMON.NAME": "Medium Egret",
@@ -853,7 +861,7 @@
     "taxonomic_order": 7846,
     "checklists": 17,
     "total_count": 43,
-    "pct_checklists": 6.6
+    "pct_checklists": 6.5
   },
   {
     "COMMON.NAME": "Oriental Honey-buzzard",
@@ -981,7 +989,7 @@
     "taxonomic_order": 9604,
     "checklists": 51,
     "total_count": 182,
-    "pct_checklists": 19.7
+    "pct_checklists": 19.6
   },
   {
     "COMMON.NAME": "Asian Green Bee-eater",
@@ -989,7 +997,7 @@
     "taxonomic_order": 9811,
     "checklists": 110,
     "total_count": 1208,
-    "pct_checklists": 42.5
+    "pct_checklists": 42.3
   },
   {
     "COMMON.NAME": "Blue-cheeked Bee-eater",
@@ -997,7 +1005,7 @@
     "taxonomic_order": 9820,
     "checklists": 32,
     "total_count": 267,
-    "pct_checklists": 12.4
+    "pct_checklists": 12.3
   },
   {
     "COMMON.NAME": "Common Kingfisher",
@@ -1029,7 +1037,7 @@
     "taxonomic_order": 10328,
     "checklists": 148,
     "total_count": 1201,
-    "pct_checklists": 57.1
+    "pct_checklists": 56.9
   },
   {
     "COMMON.NAME": "Indian Roller",
@@ -1085,7 +1093,7 @@
     "taxonomic_order": 12350,
     "checklists": 25,
     "total_count": 225,
-    "pct_checklists": 9.7
+    "pct_checklists": 9.6
   },
   {
     "COMMON.NAME": "Alexandrine/Rose-ringed Parakeet",
@@ -1101,7 +1109,7 @@
     "taxonomic_order": 18577,
     "checklists": 10,
     "total_count": 87,
-    "pct_checklists": 3.9
+    "pct_checklists": 3.8
   },
   {
     "COMMON.NAME": "Indian Golden Oriole",
@@ -1133,7 +1141,7 @@
     "taxonomic_order": 20434,
     "checklists": 72,
     "total_count": 418,
-    "pct_checklists": 27.8
+    "pct_checklists": 27.7
   },
   {
     "COMMON.NAME": "Red-backed Shrike",
@@ -1157,7 +1165,7 @@
     "taxonomic_order": 21048,
     "checklists": 17,
     "total_count": 46,
-    "pct_checklists": 6.6
+    "pct_checklists": 6.5
   },
   {
     "COMMON.NAME": "Red-tailed/Isabelline Shrike",
@@ -1181,7 +1189,7 @@
     "taxonomic_order": 21069,
     "checklists": 30,
     "total_count": 103,
-    "pct_checklists": 11.6
+    "pct_checklists": 11.5
   },
   {
     "COMMON.NAME": "Great Gray Shrike",
@@ -1197,7 +1205,7 @@
     "taxonomic_order": 21166,
     "checklists": 24,
     "total_count": 91,
-    "pct_checklists": 9.3
+    "pct_checklists": 9.2
   },
   {
     "COMMON.NAME": "House Crow",
@@ -1229,7 +1237,7 @@
     "taxonomic_order": 22379,
     "checklists": 17,
     "total_count": 76,
-    "pct_checklists": 6.6
+    "pct_checklists": 6.5
   },
   {
     "COMMON.NAME": "Ashy-crowned Sparrow-Lark",
@@ -1317,7 +1325,7 @@
     "taxonomic_order": 23257,
     "checklists": 10,
     "total_count": 25,
-    "pct_checklists": 3.9
+    "pct_checklists": 3.8
   },
   {
     "COMMON.NAME": "Plain Prinia",
@@ -1397,7 +1405,7 @@
     "taxonomic_order": 24187,
     "checklists": 31,
     "total_count": 611,
-    "pct_checklists": 12
+    "pct_checklists": 11.9
   },
   {
     "COMMON.NAME": "Wire-tailed Swallow",
@@ -1405,7 +1413,7 @@
     "taxonomic_order": 24209,
     "checklists": 43,
     "total_count": 339,
-    "pct_checklists": 16.6
+    "pct_checklists": 16.5
   },
   {
     "COMMON.NAME": "Eastern Red-rumped Swallow",
@@ -1413,7 +1421,7 @@
     "taxonomic_order": 24239,
     "checklists": 39,
     "total_count": 236,
-    "pct_checklists": 15.1
+    "pct_checklists": 15
   },
   {
     "COMMON.NAME": "Streak-throated Swallow",
@@ -1437,7 +1445,7 @@
     "taxonomic_order": 24754,
     "checklists": 102,
     "total_count": 1070,
-    "pct_checklists": 39.4
+    "pct_checklists": 39.2
   },
   {
     "COMMON.NAME": "White-eared Bulbul",
@@ -1445,7 +1453,7 @@
     "taxonomic_order": 24776,
     "checklists": 82,
     "total_count": 650,
-    "pct_checklists": 31.7
+    "pct_checklists": 31.5
   },
   {
     "COMMON.NAME": "Green Warbler",
@@ -1469,7 +1477,7 @@
     "taxonomic_order": 25305,
     "checklists": 49,
     "total_count": 178,
-    "pct_checklists": 18.9
+    "pct_checklists": 18.8
   },
   {
     "COMMON.NAME": "Eastern Orphean Warbler",
@@ -1517,7 +1525,7 @@
     "taxonomic_order": 26637,
     "checklists": 90,
     "total_count": 1532,
-    "pct_checklists": 34.7
+    "pct_checklists": 34.6
   },
   {
     "COMMON.NAME": "Rosy Starling",
@@ -1573,7 +1581,7 @@
     "taxonomic_order": 28991,
     "checklists": 69,
     "total_count": 382,
-    "pct_checklists": 26.6
+    "pct_checklists": 26.5
   },
   {
     "COMMON.NAME": "Red-breasted Flycatcher",
@@ -1605,7 +1613,7 @@
     "taxonomic_order": 29677,
     "checklists": 30,
     "total_count": 120,
-    "pct_checklists": 11.6
+    "pct_checklists": 11.5
   },
   {
     "COMMON.NAME": "Pied Bushchat",
@@ -1613,7 +1621,7 @@
     "taxonomic_order": 29711,
     "checklists": 10,
     "total_count": 40,
-    "pct_checklists": 3.9
+    "pct_checklists": 3.8
   },
   {
     "COMMON.NAME": "Isabelline Wheatear",
@@ -1645,7 +1653,7 @@
     "taxonomic_order": 29850,
     "checklists": 30,
     "total_count": 98,
-    "pct_checklists": 11.6
+    "pct_checklists": 11.5
   },
   {
     "COMMON.NAME": "wheatear sp.",
@@ -1661,7 +1669,7 @@
     "taxonomic_order": 30450,
     "checklists": 78,
     "total_count": 481,
-    "pct_checklists": 30.1
+    "pct_checklists": 30
   },
   {
     "COMMON.NAME": "sunbird sp.",
@@ -1685,7 +1693,7 @@
     "taxonomic_order": 30904,
     "checklists": 51,
     "total_count": 996,
-    "pct_checklists": 19.7
+    "pct_checklists": 19.6
   },
   {
     "COMMON.NAME": "Indian Silverbill",
@@ -1709,7 +1717,7 @@
     "taxonomic_order": 31534,
     "checklists": 78,
     "total_count": 2357,
-    "pct_checklists": 30.1
+    "pct_checklists": 30
   },
   {
     "COMMON.NAME": "Yellow-throated Sparrow",
@@ -1773,7 +1781,7 @@
     "taxonomic_order": 31758,
     "checklists": 31,
     "total_count": 134,
-    "pct_checklists": 12
+    "pct_checklists": 11.9
   },
   {
     "COMMON.NAME": "Richard's/Paddyfield Pipit",
@@ -1797,7 +1805,7 @@
     "taxonomic_order": 31815,
     "checklists": 17,
     "total_count": 82,
-    "pct_checklists": 6.6
+    "pct_checklists": 6.5
   },
   {
     "COMMON.NAME": "Tree Pipit",
@@ -1813,7 +1821,7 @@
     "taxonomic_order": 31927,
     "checklists": 10,
     "total_count": 31,
-    "pct_checklists": 3.9
+    "pct_checklists": 3.8
   },
   {
     "COMMON.NAME": "Gray-necked Bunting",
