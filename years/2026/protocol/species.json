@@ -21,13 +21,13 @@
     "name": "Greater Whitethroat",
     "slug": "greater-whitethroat",
     "image": "www/species/greater-whitethroat.svg",
-    "checklists": 6
+    "checklists": 7
   },
   {
     "name": "Red-backed Shrike",
     "slug": "red-backed-shrike",
     "image": "www/species/red-backed-shrike.svg",
-    "checklists": 3
+    "checklists": 4
   },
   {
     "name": "Red-tailed Shrike",
@@ -39,7 +39,7 @@
     "name": "Rufous-tailed Scrub-Robin",
     "slug": "rufous-tailed-scrub-robin",
     "image": "www/species/rufous-tailed-scrub-robin.svg",
-    "checklists": 3
+    "checklists": 4
   },
   {
     "name": "Spotted Flycatcher",
