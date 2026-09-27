@@ -42,6 +42,13 @@
     "focal_lists": 1
   },
   {
+    "GRID_CODE": "GJ-KU-ANJ-013",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 60,
+    "focal_lists": 1
+  },
+  {
     "GRID_CODE": "GJ-KU-ANJ-017",
     "n_lists": 1,
     "n_birders": 4,
