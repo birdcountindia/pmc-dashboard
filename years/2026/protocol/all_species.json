@@ -115,9 +115,9 @@
     "COMMON.NAME": "Laughing Dove",
     "category": "species",
     "taxonomic_order": 2071,
-    "checklists": 65,
-    "total_count": 735,
-    "pct_checklists": 73.9
+    "checklists": 66,
+    "total_count": 739,
+    "pct_checklists": 75
   },
   {
     "COMMON.NAME": "pigeon/dove sp.",
@@ -907,9 +907,9 @@
     "COMMON.NAME": "White-throated Kingfisher",
     "category": "species",
     "taxonomic_order": 10076,
-    "checklists": 33,
-    "total_count": 104,
-    "pct_checklists": 37.5
+    "checklists": 34,
+    "total_count": 105,
+    "pct_checklists": 38.6
   },
   {
     "COMMON.NAME": "Pied Kingfisher",
@@ -1124,7 +1124,7 @@
     "category": "species",
     "taxonomic_order": 22419,
     "checklists": 32,
-    "total_count": 405,
+    "total_count": 410,
     "pct_checklists": 36.4
   },
   {
@@ -1163,9 +1163,9 @@
     "COMMON.NAME": "Sand Lark",
     "category": "species",
     "taxonomic_order": 22830,
-    "checklists": 2,
-    "total_count": 11,
-    "pct_checklists": 2.3
+    "checklists": 3,
+    "total_count": 31,
+    "pct_checklists": 3.4
   },
   {
     "COMMON.NAME": "lark sp.",
@@ -1411,9 +1411,9 @@
     "COMMON.NAME": "Rosy Starling",
     "category": "species",
     "taxonomic_order": 27829,
-    "checklists": 25,
-    "total_count": 1535,
-    "pct_checklists": 28.4
+    "checklists": 26,
+    "total_count": 1550,
+    "pct_checklists": 29.5
   },
   {
     "COMMON.NAME": "Brahminy Starling",
@@ -1580,7 +1580,7 @@
     "category": "species",
     "taxonomic_order": 31534,
     "checklists": 39,
-    "total_count": 979,
+    "total_count": 981,
     "pct_checklists": 44.3
   },
   {
