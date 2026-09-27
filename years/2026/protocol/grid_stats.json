@@ -611,21 +611,21 @@
   {
     "GRID_CODE": "GJ-KU-MAN-048",
     "n_lists": 1,
-    "n_birders": 2,
+    "n_birders": 3,
     "n_species": 7,
     "focal_lists": 0
   },
   {
     "GRID_CODE": "GJ-KU-MAN-051",
     "n_lists": 1,
-    "n_birders": 2,
+    "n_birders": 3,
     "n_species": 16,
     "focal_lists": 1
   },
   {
     "GRID_CODE": "GJ-KU-MAN-052",
     "n_lists": 1,
-    "n_birders": 2,
+    "n_birders": 3,
     "n_species": 7,
     "focal_lists": 0
   },
