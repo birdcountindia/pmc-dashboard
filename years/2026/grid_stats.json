@@ -744,7 +744,7 @@
   {
     "GRID_CODE": "GJ-KU-BHU-055",
     "n_lists": 3,
-    "n_birders": 5,
+    "n_birders": 6,
     "n_species": 34,
     "focal_lists": 3
   },
@@ -1234,7 +1234,7 @@
   {
     "GRID_CODE": "GJ-KU-LIT-007",
     "n_lists": 6,
-    "n_birders": 5,
+    "n_birders": 6,
     "n_species": 67,
     "focal_lists": 5
   },
@@ -1528,7 +1528,7 @@
   {
     "GRID_CODE": "GJ-KU-NAK-012",
     "n_lists": 1,
-    "n_birders": 2,
+    "n_birders": 3,
     "n_species": 13,
     "focal_lists": 1
   },
