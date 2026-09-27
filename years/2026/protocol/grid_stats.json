@@ -294,11 +294,25 @@
     "focal_lists": 0
   },
   {
+    "GRID_CODE": "GJ-KU-BHU-024",
+    "n_lists": 1,
+    "n_birders": 1,
+    "n_species": 13,
+    "focal_lists": 0
+  },
+  {
     "GRID_CODE": "GJ-KU-BHU-030",
     "n_lists": 1,
     "n_birders": 2,
     "n_species": 23,
     "focal_lists": 1
+  },
+  {
+    "GRID_CODE": "GJ-KU-BHU-040",
+    "n_lists": 2,
+    "n_birders": 1,
+    "n_species": 11,
+    "focal_lists": 0
   },
   {
     "GRID_CODE": "GJ-KU-BHU-047",
