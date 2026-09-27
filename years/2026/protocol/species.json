@@ -21,19 +21,19 @@
     "name": "Greater Whitethroat",
     "slug": "greater-whitethroat",
     "image": "www/species/greater-whitethroat.svg",
-    "checklists": 17
+    "checklists": 18
   },
   {
     "name": "Red-backed Shrike",
     "slug": "red-backed-shrike",
     "image": "www/species/red-backed-shrike.svg",
-    "checklists": 18
+    "checklists": 19
   },
   {
     "name": "Red-tailed Shrike",
     "slug": "red-tailed-shrike",
     "image": "www/species/red-tailed-shrike.svg",
-    "checklists": 14
+    "checklists": 15
   },
   {
     "name": "Rufous-tailed Scrub-Robin",
