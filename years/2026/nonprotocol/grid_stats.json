@@ -450,28 +450,28 @@
   {
     "GRID_CODE": "GJ-KU-BHU-001",
     "n_lists": 2,
-    "n_birders": 5,
+    "n_birders": 6,
     "n_species": 14,
     "focal_lists": 1
   },
   {
     "GRID_CODE": "GJ-KU-BHU-002",
     "n_lists": 2,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 1,
     "focal_lists": 0
   },
   {
     "GRID_CODE": "GJ-KU-BHU-003",
     "n_lists": 2,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 2,
     "focal_lists": 0
   },
   {
     "GRID_CODE": "GJ-KU-BHU-005",
     "n_lists": 5,
-    "n_birders": 5,
+    "n_birders": 6,
     "n_species": 11,
     "focal_lists": 4
   },
@@ -485,7 +485,7 @@
   {
     "GRID_CODE": "GJ-KU-BHU-010",
     "n_lists": 2,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 5,
     "focal_lists": 1
   },
@@ -555,7 +555,7 @@
   {
     "GRID_CODE": "GJ-KU-BHU-047",
     "n_lists": 2,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 3,
     "focal_lists": 1
   },
@@ -1290,7 +1290,7 @@
   {
     "GRID_CODE": "GJ-KU-RAN-078",
     "n_lists": 4,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 20,
     "focal_lists": 3
   },
@@ -1304,7 +1304,7 @@
   {
     "GRID_CODE": "GJ-KU-RAN-161",
     "n_lists": 2,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 8,
     "focal_lists": 0
   },
@@ -1325,14 +1325,14 @@
   {
     "GRID_CODE": "GJ-KU-RAN-215",
     "n_lists": 1,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 2,
     "focal_lists": 0
   },
   {
     "GRID_CODE": "GJ-KU-RAN-218",
     "n_lists": 1,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 2,
     "focal_lists": 0
   },
@@ -1346,28 +1346,28 @@
   {
     "GRID_CODE": "GJ-KU-RAN-266",
     "n_lists": 1,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 1,
     "focal_lists": 0
   },
   {
     "GRID_CODE": "GJ-KU-RAN-269",
     "n_lists": 1,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 6,
     "focal_lists": 0
   },
   {
     "GRID_CODE": "GJ-KU-RAN-270",
     "n_lists": 4,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 13,
     "focal_lists": 2
   },
   {
     "GRID_CODE": "GJ-KU-RAN-324",
     "n_lists": 2,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 8,
     "focal_lists": 1
   },

@@ -296,7 +296,7 @@
   {
     "GRID_CODE": "GJ-KU-BHU-019",
     "n_lists": 2,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 3,
     "focal_lists": 0
   },
@@ -779,28 +779,28 @@
   {
     "GRID_CODE": "GJ-KU-RAN-167",
     "n_lists": 1,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 14,
     "focal_lists": 1
   },
   {
     "GRID_CODE": "GJ-KU-RAN-219",
     "n_lists": 1,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 13,
     "focal_lists": 1
   },
   {
     "GRID_CODE": "GJ-KU-RAN-268",
     "n_lists": 1,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 9,
     "focal_lists": 1
   },
   {
     "GRID_CODE": "GJ-KU-RAN-270",
     "n_lists": 1,
-    "n_birders": 4,
+    "n_birders": 5,
     "n_species": 20,
     "focal_lists": 1
   },
