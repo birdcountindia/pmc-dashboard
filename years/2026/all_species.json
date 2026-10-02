@@ -1411,9 +1411,9 @@
     "COMMON.NAME": "Common Woodshrike",
     "category": "species",
     "taxonomic_order": 19949,
-    "checklists": 31,
-    "total_count": 221,
-    "pct_checklists": 4.6
+    "checklists": 32,
+    "total_count": 222,
+    "pct_checklists": 4.7
   },
   {
     "COMMON.NAME": "White-tailed Iora",
@@ -1484,7 +1484,7 @@
     "category": "species",
     "taxonomic_order": 21066,
     "checklists": 134,
-    "total_count": 723,
+    "total_count": 722,
     "pct_checklists": 19.9
   },
   {
@@ -1499,9 +1499,9 @@
     "COMMON.NAME": "Great Gray Shrike",
     "category": "species",
     "taxonomic_order": 21112,
-    "checklists": 26,
-    "total_count": 93,
-    "pct_checklists": 3.9
+    "checklists": 27,
+    "total_count": 94,
+    "pct_checklists": 4
   },
   {
     "COMMON.NAME": "shrike sp.",
@@ -1915,9 +1915,9 @@
     "COMMON.NAME": "Spotted Flycatcher",
     "category": "species",
     "taxonomic_order": 28818,
-    "checklists": 96,
-    "total_count": 436,
-    "pct_checklists": 14.2
+    "checklists": 97,
+    "total_count": 437,
+    "pct_checklists": 14.4
   },
   {
     "COMMON.NAME": "Rufous-tailed Scrub-Robin",
@@ -2011,9 +2011,9 @@
     "COMMON.NAME": "Variable Wheatear",
     "category": "species",
     "taxonomic_order": 29850,
-    "checklists": 108,
-    "total_count": 567,
-    "pct_checklists": 16
+    "checklists": 109,
+    "total_count": 568,
+    "pct_checklists": 16.2
   },
   {
     "COMMON.NAME": "wheatear sp.",
