@@ -1459,9 +1459,9 @@
     "COMMON.NAME": "Red-tailed Shrike",
     "category": "species",
     "taxonomic_order": 21046,
-    "checklists": 46,
-    "total_count": 199,
-    "pct_checklists": 6.8
+    "checklists": 45,
+    "total_count": 198,
+    "pct_checklists": 6.7
   },
   {
     "COMMON.NAME": "Isabelline Shrike",
@@ -1507,9 +1507,9 @@
     "COMMON.NAME": "shrike sp.",
     "category": "spuh",
     "taxonomic_order": 21166,
-    "checklists": 49,
-    "total_count": 244,
-    "pct_checklists": 7.3
+    "checklists": 50,
+    "total_count": 245,
+    "pct_checklists": 7.4
   },
   {
     "COMMON.NAME": "House Crow",
