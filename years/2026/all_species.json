@@ -483,9 +483,9 @@
     "COMMON.NAME": "Eurasian Whimbrel",
     "category": "species",
     "taxonomic_order": 6012,
-    "checklists": 4,
-    "total_count": 24,
-    "pct_checklists": 0.6
+    "checklists": 5,
+    "total_count": 26,
+    "pct_checklists": 0.7
   },
   {
     "COMMON.NAME": "Eurasian Curlew",
@@ -619,9 +619,9 @@
     "COMMON.NAME": "Temminck's Stint",
     "category": "species",
     "taxonomic_order": 6184,
-    "checklists": 15,
-    "total_count": 131,
-    "pct_checklists": 2.2
+    "checklists": 16,
+    "total_count": 133,
+    "pct_checklists": 2.4
   },
   {
     "COMMON.NAME": "Sanderling",
@@ -643,9 +643,9 @@
     "COMMON.NAME": "Little Stint",
     "category": "species",
     "taxonomic_order": 6219,
-    "checklists": 39,
-    "total_count": 575,
-    "pct_checklists": 5.8
+    "checklists": 40,
+    "total_count": 578,
+    "pct_checklists": 5.9
   },
   {
     "COMMON.NAME": "peep sp.",
@@ -2203,9 +2203,9 @@
     "COMMON.NAME": "Gray-necked Bunting",
     "category": "species",
     "taxonomic_order": 32742,
-    "checklists": 35,
-    "total_count": 357,
-    "pct_checklists": 5.2
+    "checklists": 36,
+    "total_count": 358,
+    "pct_checklists": 5.3
   },
   {
     "COMMON.NAME": "Striolated Bunting",

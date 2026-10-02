@@ -443,9 +443,9 @@
     "COMMON.NAME": "Eurasian Whimbrel",
     "category": "species",
     "taxonomic_order": 6012,
-    "checklists": 1,
-    "total_count": 2,
-    "pct_checklists": 0.2
+    "checklists": 2,
+    "total_count": 4,
+    "pct_checklists": 0.4
   },
   {
     "COMMON.NAME": "Eurasian Curlew",
@@ -571,9 +571,9 @@
     "COMMON.NAME": "Temminck's Stint",
     "category": "species",
     "taxonomic_order": 6184,
-    "checklists": 9,
-    "total_count": 46,
-    "pct_checklists": 1.8
+    "checklists": 10,
+    "total_count": 48,
+    "pct_checklists": 2
   },
   {
     "COMMON.NAME": "Dunlin",
@@ -587,9 +587,9 @@
     "COMMON.NAME": "Little Stint",
     "category": "species",
     "taxonomic_order": 6219,
-    "checklists": 27,
-    "total_count": 394,
-    "pct_checklists": 5.3
+    "checklists": 28,
+    "total_count": 397,
+    "pct_checklists": 5.5
   },
   {
     "COMMON.NAME": "peep sp.",
