@@ -2164,7 +2164,7 @@
     "category": "species",
     "taxonomic_order": 31815,
     "checklists": 46,
-    "total_count": 365,
+    "total_count": 366,
     "pct_checklists": 6.8
   },
   {
@@ -2187,9 +2187,9 @@
     "COMMON.NAME": "pipit sp.",
     "category": "spuh",
     "taxonomic_order": 31927,
-    "checklists": 26,
-    "total_count": 218,
-    "pct_checklists": 3.9
+    "checklists": 25,
+    "total_count": 216,
+    "pct_checklists": 3.7
   },
   {
     "COMMON.NAME": "Black-headed/Red-headed Bunting",
