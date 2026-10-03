@@ -1931,9 +1931,9 @@
     "COMMON.NAME": "Tawny Pipit",
     "category": "species",
     "taxonomic_order": 31815,
-    "checklists": 21,
-    "total_count": 177,
-    "pct_checklists": 4.1
+    "checklists": 22,
+    "total_count": 178,
+    "pct_checklists": 4.3
   },
   {
     "COMMON.NAME": "Tree Pipit",
@@ -1948,7 +1948,7 @@
     "category": "spuh",
     "taxonomic_order": 31927,
     "checklists": 13,
-    "total_count": 171,
+    "total_count": 169,
     "pct_checklists": 2.5
   },
   {
