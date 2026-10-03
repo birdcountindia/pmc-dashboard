@@ -1304,7 +1304,7 @@
   {
     "GRID_CODE": "GJ-KU-NAK-026",
     "n_lists": 2,
-    "n_birders": 6,
+    "n_birders": 7,
     "n_species": 12,
     "focal_lists": 2
   },
@@ -1325,14 +1325,14 @@
   {
     "GRID_CODE": "GJ-KU-NAK-039",
     "n_lists": 2,
-    "n_birders": 3,
+    "n_birders": 4,
     "n_species": 1,
     "focal_lists": 2
   },
   {
     "GRID_CODE": "GJ-KU-NAK-040",
     "n_lists": 2,
-    "n_birders": 6,
+    "n_birders": 7,
     "n_species": 20,
     "focal_lists": 2
   },
