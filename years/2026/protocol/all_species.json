@@ -1595,9 +1595,9 @@
     "COMMON.NAME": "Brahminy Starling",
     "category": "species",
     "taxonomic_order": 27846,
-    "checklists": 18,
-    "total_count": 262,
-    "pct_checklists": 11.1
+    "checklists": 19,
+    "total_count": 263,
+    "pct_checklists": 11.7
   },
   {
     "COMMON.NAME": "Common Myna",
@@ -1740,7 +1740,7 @@
     "category": "species",
     "taxonomic_order": 30904,
     "checklists": 49,
-    "total_count": 1307,
+    "total_count": 1309,
     "pct_checklists": 30.2
   },
   {
