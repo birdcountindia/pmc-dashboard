@@ -27,9 +27,9 @@
     "COMMON.NAME": "Garganey",
     "category": "species",
     "taxonomic_order": 479,
-    "checklists": 3,
-    "total_count": 25,
-    "pct_checklists": 0.4
+    "checklists": 4,
+    "total_count": 26,
+    "pct_checklists": 0.6
   },
   {
     "COMMON.NAME": "Northern Shoveler",
@@ -619,9 +619,9 @@
     "COMMON.NAME": "Temminck's Stint",
     "category": "species",
     "taxonomic_order": 6184,
-    "checklists": 16,
-    "total_count": 135,
-    "pct_checklists": 2.4
+    "checklists": 17,
+    "total_count": 137,
+    "pct_checklists": 2.5
   },
   {
     "COMMON.NAME": "Sanderling",
@@ -779,9 +779,9 @@
     "COMMON.NAME": "Greater Flamingo",
     "category": "species",
     "taxonomic_order": 6811,
-    "checklists": 23,
-    "total_count": 11699,
-    "pct_checklists": 3.4
+    "checklists": 24,
+    "total_count": 11701,
+    "pct_checklists": 3.6
   },
   {
     "COMMON.NAME": "Lesser Flamingo",
@@ -2051,9 +2051,9 @@
     "COMMON.NAME": "Baya Weaver",
     "category": "species",
     "taxonomic_order": 30904,
-    "checklists": 102,
-    "total_count": 2624,
-    "pct_checklists": 15.1
+    "checklists": 103,
+    "total_count": 2625,
+    "pct_checklists": 15.2
   },
   {
     "COMMON.NAME": "Indian Silverbill",

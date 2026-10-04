@@ -19,9 +19,9 @@
     "COMMON.NAME": "Garganey",
     "category": "species",
     "taxonomic_order": 479,
-    "checklists": 1,
-    "total_count": 16,
-    "pct_checklists": 0.2
+    "checklists": 2,
+    "total_count": 17,
+    "pct_checklists": 0.4
   },
   {
     "COMMON.NAME": "Northern Shoveler",
@@ -571,9 +571,9 @@
     "COMMON.NAME": "Temminck's Stint",
     "category": "species",
     "taxonomic_order": 6184,
-    "checklists": 10,
-    "total_count": 50,
-    "pct_checklists": 1.9
+    "checklists": 11,
+    "total_count": 52,
+    "pct_checklists": 2.1
   },
   {
     "COMMON.NAME": "Dunlin",

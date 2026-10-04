@@ -667,9 +667,9 @@
     "COMMON.NAME": "Greater Flamingo",
     "category": "species",
     "taxonomic_order": 6811,
-    "checklists": 3,
-    "total_count": 108,
-    "pct_checklists": 1.9
+    "checklists": 4,
+    "total_count": 110,
+    "pct_checklists": 2.5
   },
   {
     "COMMON.NAME": "Lesser Flamingo",
@@ -1739,9 +1739,9 @@
     "COMMON.NAME": "Baya Weaver",
     "category": "species",
     "taxonomic_order": 30904,
-    "checklists": 49,
-    "total_count": 1309,
-    "pct_checklists": 30.2
+    "checklists": 50,
+    "total_count": 1310,
+    "pct_checklists": 30.9
   },
   {
     "COMMON.NAME": "Indian Silverbill",
