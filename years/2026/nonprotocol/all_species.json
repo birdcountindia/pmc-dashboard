@@ -1307,9 +1307,9 @@
     "COMMON.NAME": "Red-tailed Shrike",
     "category": "species",
     "taxonomic_order": 21046,
-    "checklists": 25,
-    "total_count": 119,
-    "pct_checklists": 4.9
+    "checklists": 26,
+    "total_count": 123,
+    "pct_checklists": 5.1
   },
   {
     "COMMON.NAME": "Isabelline Shrike",
@@ -1356,7 +1356,7 @@
     "category": "spuh",
     "taxonomic_order": 21166,
     "checklists": 25,
-    "total_count": 158,
+    "total_count": 154,
     "pct_checklists": 4.9
   },
   {
