@@ -523,17 +523,17 @@
     "COMMON.NAME": "Common Redshank",
     "category": "species",
     "taxonomic_order": 6138,
-    "checklists": 2,
-    "total_count": 26,
-    "pct_checklists": 0.4
+    "checklists": 3,
+    "total_count": 27,
+    "pct_checklists": 0.6
   },
   {
     "COMMON.NAME": "Spotted Redshank",
     "category": "species",
     "taxonomic_order": 6150,
-    "checklists": 2,
-    "total_count": 3,
-    "pct_checklists": 0.4
+    "checklists": 1,
+    "total_count": 2,
+    "pct_checklists": 0.2
   },
   {
     "COMMON.NAME": "Common Greenshank",
@@ -635,9 +635,9 @@
     "COMMON.NAME": "Lesser Black-backed Gull",
     "category": "issf",
     "taxonomic_order": 6576,
-    "checklists": 3,
-    "total_count": 24,
-    "pct_checklists": 0.6
+    "checklists": 4,
+    "total_count": 25,
+    "pct_checklists": 0.8
   },
   {
     "COMMON.NAME": "Little Tern",
@@ -651,9 +651,9 @@
     "COMMON.NAME": "Gull-billed Tern",
     "category": "species",
     "taxonomic_order": 6710,
-    "checklists": 20,
-    "total_count": 218,
-    "pct_checklists": 3.9
+    "checklists": 21,
+    "total_count": 223,
+    "pct_checklists": 4.1
   },
   {
     "COMMON.NAME": "Caspian Tern",
@@ -667,9 +667,9 @@
     "COMMON.NAME": "Whiskered Tern",
     "category": "species",
     "taxonomic_order": 6720,
-    "checklists": 50,
-    "total_count": 534,
-    "pct_checklists": 9.7
+    "checklists": 51,
+    "total_count": 544,
+    "pct_checklists": 9.9
   },
   {
     "COMMON.NAME": "River Tern",
@@ -1811,9 +1811,9 @@
     "COMMON.NAME": "Variable Wheatear",
     "category": "species",
     "taxonomic_order": 29850,
-    "checklists": 64,
-    "total_count": 339,
-    "pct_checklists": 12.5
+    "checklists": 65,
+    "total_count": 340,
+    "pct_checklists": 12.6
   },
   {
     "COMMON.NAME": "wheatear sp.",
