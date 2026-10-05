@@ -6,9 +6,6 @@
 <title>Passage Migrant Count Dashboard</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
   html, body, #map { width: 100%; height: 100%; margin: 0; padding: 0; }
@@ -60,8 +57,8 @@
     font-size: 12px;
     line-height: 1.8;
   }
-  .legend .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 6px; vertical-align: middle; border: 1.5px solid #e74c3c; box-sizing: border-box; }
   .legend .thumb { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 6px; vertical-align: middle; object-fit: cover; border: 1px solid #fff; box-shadow: 0 0 0 1px #e74c3c; }
+  .legend .legend-marker { display: inline-block; width: 14px; height: 14px; margin-right: 6px; vertical-align: middle; object-fit: contain; }
 
   .pmc-popup { font-size: 13px; min-width: 230px; max-width: 260px; white-space: normal; overflow-wrap: break-word; }
   .pmc-popup .pp-title { font-weight: 700; margin-bottom: 4px; }
@@ -75,11 +72,6 @@
     border-radius: 50%;
     object-fit: cover; border: 2px solid #e74c3c;
     box-shadow: 0 1px 4px rgba(0,0,0,0.4);
-  }
-  .checklist-dot {
-    width: 16px; height: 16px; border-radius: 50%;
-    background: #2980b9; border: 2px solid #e74c3c;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
   }
 
   .species-panel {
@@ -352,8 +344,8 @@
   legend.onAdd = function () {
     const div = L.DomUtil.create('div', 'legend');
     div.innerHTML =
-      '<div><span class="dot" style="background:#2980b9"></span>Checklist</div>' +
-      '<div><span class="thumb" style="background:#e74c3c"></span>Focal species</div>';
+      '<div><img class="legend-marker" src="' + BASE_URL + 'www/map-marker.svg">Checklist</div>' +
+      '<div><span class="thumb" style="background:#e74c3c"></span>Focal / notable species</div>';
     return div;
   };
   legend.addTo(map);
@@ -433,10 +425,17 @@
       iconAnchor: [size / 2, size / 2]
     });
   }
-  const dotIcon = L.divIcon({ className: '', html: '<div class="checklist-dot"></div>', iconSize: [16, 16], iconAnchor: [8, 8] });
+  // Non-species checklist points: a plain map-pin image, anchored at its tip.
+  const plainMarkerIcon = L.icon({
+    iconUrl: BASE_URL + 'www/map-marker.svg',
+    iconSize: [26, 26],
+    iconAnchor: [13, 26],
+    popupAnchor: [0, -22]
+  });
 
   function makeLayer(features) {
-    const cluster = L.markerClusterGroup({ maxClusterRadius: 45, spiderfyOnMaxZoom: true });
+    // No clustering: every checklist point is shown individually, all at once,
+    // even where many points overlap, instead of being clumped into bubbles.
     const geo = L.geoJSON({ type: 'FeatureCollection', features: features }, {
       pointToLayer: function (feature, latlng) {
         const p = feature.properties;
@@ -448,7 +447,7 @@
             return L.marker(latlng, { icon: focalIcon(activeSpeciesSlug) });
           }
         }
-        return L.marker(latlng, { icon: dotIcon });
+        return L.marker(latlng, { icon: plainMarkerIcon });
       },
       onEachFeature: function (f, layer) {
         const p = f.properties;
@@ -484,8 +483,7 @@
         layer.on('mouseover', function () { this.openPopup(); });
       }
     });
-    cluster.addLayer(geo);
-    return cluster;
+    return geo;
   }
 
   function renderChecklists() {
