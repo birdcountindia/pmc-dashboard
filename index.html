@@ -49,6 +49,20 @@
   .compare-panel .cp-delta-down { color: #c0392b; font-weight: 700; }
   .compare-panel .cp-msg { color: #555; line-height: 1.5; }
 
+  .birder-panel {
+    background: rgba(255,255,255,0.96);
+    padding: 10px 14px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    min-width: 260px;
+    margin-top: 10px;
+  }
+  .birder-panel .bp-title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; color: #999; margin-bottom: 6px; }
+  .birder-select {
+    width: 100%; box-sizing: border-box; padding: 7px 8px; font-size: 13px;
+    border: 1px solid #ddd; border-radius: 6px; font-family: inherit; background: #fff; color: #333;
+  }
+
   .legend {
     background: rgba(255,255,255,0.96);
     padding: 8px 12px;
@@ -206,6 +220,10 @@
     .stats-updated { font-size: 8px; }
 
     .compare-panel { min-width: 0; width: 150px; padding: 8px 10px; font-size: 10px; }
+
+    .birder-panel { min-width: 0; width: 150px; padding: 8px 10px; }
+    .birder-panel .bp-title { font-size: 9px; }
+    .birder-select { font-size: 11px; padding: 5px 6px; }
 
     .species-panel { width: 190px; }
     .species-panel-header { padding: 8px 10px; }
@@ -455,6 +473,7 @@
         html += '<div class="pp-title">' + esc(p.LOCALITY) + '</div>';
         html += '<div class="pp-row">' + esc(p['OBSERVATION.DATE']) + '</div>';
         html += '<div class="pp-row">' + (p.n_species || 0) + ' species</div>';
+        html += '<div class="pp-row">' + esc(p['FULL.NAME']) + '</div>';
         if (p.has_focal && p.focal_species_seen) {
           html += '<div class="pp-row pp-focal">Focal: ' + esc(p.focal_species_seen) + '</div>';
           const slugs = (p.focal_species_slugs || '').split(';').filter(Boolean);
@@ -486,11 +505,17 @@
     return geo;
   }
 
+  let activeBirderName = null;   // null = all birders; set from the Birder dropdown below
+
   function renderChecklists() {
     if (checklistLayer) map.removeLayer(checklistLayer);
-    const features = activeSpeciesSlug
-      ? allFeatures.filter(f => ((f.properties.focal_species_slugs || '') + ';' + (f.properties.notable_species_slugs || '')).split(';').includes(activeSpeciesSlug))
-      : allFeatures;
+    let features = allFeatures;
+    if (activeSpeciesSlug) {
+      features = features.filter(f => ((f.properties.focal_species_slugs || '') + ';' + (f.properties.notable_species_slugs || '')).split(';').includes(activeSpeciesSlug));
+    }
+    if (activeBirderName) {
+      features = features.filter(f => f.properties['FULL.NAME'] === activeBirderName);
+    }
     checklistLayer = makeLayer(features).addTo(map);
   }
 
@@ -500,8 +525,42 @@
       .then(geo => {
         allFeatures = geo.features;
         activeSpeciesSlug = null;
+        activeBirderName = null;
+        populateBirderSelect();
         renderChecklists();
       });
+  }
+
+  // ---- "select and view data by FULL.NAME": a birder dropdown that filters the
+  // map's checklist markers. Independent of (and combinable with) the species
+  // filter above — picking both shows only that birder's checklists with that species.
+  const birderPanel = L.control({ position: 'topleft' });
+  birderPanel.onAdd = function () {
+    const div = L.DomUtil.create('div', 'birder-panel');
+    div.innerHTML =
+      '<div class="bp-title">Birder</div>' +
+      '<select class="birder-select" id="birder-select"><option value="">All birders</option></select>';
+    L.DomEvent.disableClickPropagation(div);
+    return div;
+  };
+  birderPanel.addTo(map);
+  document.getElementById('birder-select').addEventListener('change', e => {
+    activeBirderName = e.target.value || null;
+    renderChecklists();
+  });
+
+  function populateBirderSelect() {
+    const sel = document.getElementById('birder-select');
+    const counts = {};
+    allFeatures.forEach(f => {
+      const name = f.properties['FULL.NAME'];
+      if (!name) return;
+      counts[name] = (counts[name] || 0) + 1;
+    });
+    const names = Object.keys(counts).sort((a, b) => a.localeCompare(b));
+    sel.innerHTML = '<option value="">All birders</option>' +
+      names.map(n => '<option value="' + esc(n) + '">' + esc(n) + ' (' + counts[n] + ')</option>').join('');
+    sel.value = '';
   }
 
   // ---- species gallery / filter panels: Focal species, and Notable species right
