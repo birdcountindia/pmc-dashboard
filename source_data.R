@@ -76,7 +76,7 @@ process_year <- function(data_year, grid, year, out_dir = file.path(YEARS_DIR, a
   dir.create(year_dir, recursive = TRUE, showWarnings = FALSE)
 
   n_lists   <- n_distinct(data_year$GROUP.ID)
-  n_birders <- n_distinct(data_year$OBSERVER.ID)
+  n_birders <- n_distinct(data_year$FULL.NAME)
   n_species <- n_distinct(data_year$COMMON.NAME[data_year$CATEGORY %in% c("species", "issf")])
 
   stats <- list(
@@ -127,7 +127,7 @@ process_year <- function(data_year, grid, year, out_dir = file.path(YEARS_DIR, a
   checklists <- data_year %>%
     distinct(GROUP.ID, .keep_all = TRUE) %>%
     select(GROUP.ID, LOCALITY, LATITUDE, LONGITUDE, OBSERVATION.DATE,
-           OBSERVER.ID, DURATION.MINUTES, SAMPLING.EVENT.IDENTIFIER) %>%
+           FULL.NAME, DURATION.MINUTES, SAMPLING.EVENT.IDENTIFIER) %>%
     left_join(checklist_species, by = "GROUP.ID") %>%
     mutate(
       n_species           = replace_na(n_species, 0L),
@@ -187,7 +187,7 @@ process_year <- function(data_year, grid, year, out_dir = file.path(YEARS_DIR, a
     group_by(GRID_CODE) %>%
     summarise(
       n_lists     = n_distinct(GROUP.ID),
-      n_birders   = n_distinct(OBSERVER.ID),
+      n_birders   = n_distinct(FULL.NAME),
       n_species   = n_distinct(COMMON.NAME[CATEGORY %in% c("species", "issf")]),
       focal_lists = n_distinct(GROUP.ID[COMMON.NAME %in% FOCAL_SPECIES]),
       .groups = "drop"
@@ -233,7 +233,7 @@ process_year <- function(data_year, grid, year, out_dir = file.path(YEARS_DIR, a
       month_day  = format(d, "%m-%d"),
       cum_lists   = n_distinct(upto$GROUP.ID),
       cum_species = n_distinct(upto$COMMON.NAME[upto$CATEGORY %in% c("species", "issf")]),
-      cum_birders = n_distinct(upto$OBSERVER.ID)
+      cum_birders = n_distinct(upto$FULL.NAME)
     )
   })
   write_json(daily_cumulative, file.path(year_dir, "daily_cumulative.json"), auto_unbox = TRUE, pretty = TRUE)
