@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Bay-backed Shrike",
+    "slug": "bay-backed-shrike",
+    "image": "www/species/bay-backed-shrike.svg",
+    "checklists": 134
+  },
+  {
+    "name": "Blyth's Reed Warbler",
+    "slug": "blyths-reed-warbler",
+    "image": "www/species/blyths-reed-warbler.svg",
+    "checklists": 15
+  },
+  {
+    "name": "Brown Shrike",
+    "slug": "brown-shrike",
+    "image": "www/species/brown-shrike.svg",
+    "checklists": 0
+  },
+  {
+    "name": "Eastern Orphean Warbler",
+    "slug": "eastern-orphean-warbler",
+    "image": "www/species/eastern-orphean-warbler.svg",
+    "checklists": 17
+  },
+  {
+    "name": "Eurasian Nightjar",
+    "slug": "eurasian-nightjar",
+    "image": "www/species/eurasian-nightjar.svg",
+    "checklists": 5
+  },
+  {
+    "name": "Eurasian Wryneck",
+    "slug": "eurasian-wryneck",
+    "image": "www/species/eurasian-wryneck.svg",
+    "checklists": 17
+  },
+  {
+    "name": "Great Gray Shrike",
+    "slug": "great-gray-shrike",
+    "image": "www/species/great-gray-shrike.svg",
+    "checklists": 28
+  },
+  {
+    "name": "Greater Hoopoe-Lark",
+    "slug": "greater-hoopoe-lark",
+    "image": "www/species/greater-hoopoe-lark.svg",
+    "checklists": 2
+  },
+  {
+    "name": "Isabelline Shrike",
+    "slug": "isabelline-shrike",
+    "image": "www/species/isabelline-shrike.svg",
+    "checklists": 63
+  },
+  {
+    "name": "Long-tailed Shrike",
+    "slug": "long-tailed-shrike",
+    "image": "www/species/long-tailed-shrike.svg",
+    "checklists": 66
+  },
+  {
+    "name": "Painted Sandgrouse",
+    "slug": "painted-sandgrouse",
+    "image": "www/species/painted-sandgrouse.svg",
+    "checklists": 6
+  },
+  {
+    "name": "Striolated Bunting",
+    "slug": "striolated-bunting",
+    "image": "www/species/striolated-bunting.svg",
+    "checklists": 20
+  },
+  {
+    "name": "White-bellied Minivet",
+    "slug": "white-bellied-minivet",
+    "image": "www/species/white-bellied-minivet.svg",
+    "checklists": 1
+  },
+  {
+    "name": "White-naped Tit",
+    "slug": "white-naped-tit",
+    "image": "www/species/white-naped-tit.svg",
+    "checklists": 1
+  }
+]

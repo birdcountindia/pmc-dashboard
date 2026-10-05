@@ -7,6 +7,7 @@
 #   years/<year>/checklists.geojson    — one point per checklist
 #   years/<year>/grid_stats.json       — per-grid-cell counts for that year (joined client-side to the geometry)
 #   years/<year>/species.json          — focal-species gallery manifest
+#   years/<year>/notable_species.json  — notable-species gallery manifest
 #   years/<year>/all_species.json      — every taxon (incl. spuh/slash/hybrid), by distinct checklist
 #   years/<year>/checklist_grid_map.csv— GROUP.ID / SAMPLING.EVENT.IDENTIFIER / GRID_CODE
 #   years/<year>/daily_cumulative.json — cumulative lists/species/birders by date, for year-over-year comparison
@@ -38,6 +39,25 @@ FOCAL_SPECIES <- c(
   "Red-tailed Shrike",
   "Rufous-tailed Scrub-Robin",
   "Spotted Flycatcher"
+)
+
+# ---- notable species: a second, separate gallery shown below Focal species ----
+# (common names, must match COMMON.NAME; images in www/species/, same convention)
+NOTABLE_SPECIES <- c(
+  "Bay-backed Shrike",
+  "Blyth's Reed Warbler",
+  "Brown Shrike",
+  "Eastern Orphean Warbler",
+  "Eurasian Nightjar",
+  "Eurasian Wryneck",
+  "Great Gray Shrike",
+  "Greater Hoopoe-Lark",
+  "Isabelline Shrike",
+  "Long-tailed Shrike",
+  "Painted Sandgrouse",
+  "Striolated Bunting",
+  "White-bellied Minivet",
+  "White-naped Tit"
 )
 
 # slug helper: "Blue-cheeked Bee-eater" -> "blue-cheeked-bee-eater" (matches www/species/*.svg)
@@ -76,6 +96,11 @@ process_year <- function(data_year, grid, year, out_dir = file.path(YEARS_DIR, a
              image = paste0("www/species/", slugify(FOCAL_SPECIES), ".svg"), checklists = 0L),
       file.path(year_dir, "species.json"), auto_unbox = TRUE, pretty = TRUE
     )
+    write_json(
+      tibble(name = NOTABLE_SPECIES, slug = slugify(NOTABLE_SPECIES),
+             image = paste0("www/species/", slugify(NOTABLE_SPECIES), ".svg"), checklists = 0L),
+      file.path(year_dir, "notable_species.json"), auto_unbox = TRUE, pretty = TRUE
+    )
     write_json(list(), file.path(year_dir, "all_species.json"), auto_unbox = TRUE)
     writeLines("{}", file.path(year_dir, "species_checklists.json"))
     write_json(list(), file.path(year_dir, "daily_cumulative.json"), auto_unbox = TRUE)
@@ -93,9 +118,11 @@ process_year <- function(data_year, grid, year, out_dir = file.path(YEARS_DIR, a
       n_species    = n_distinct(COMMON.NAME),
       focal_species_seen  = paste(sort(unique(COMMON.NAME[COMMON.NAME %in% FOCAL_SPECIES])), collapse = "; "),
       focal_species_slugs = paste(slugify(sort(unique(COMMON.NAME[COMMON.NAME %in% FOCAL_SPECIES]))), collapse = ";"),
+      notable_species_seen  = paste(sort(unique(COMMON.NAME[COMMON.NAME %in% NOTABLE_SPECIES])), collapse = "; "),
+      notable_species_slugs = paste(slugify(sort(unique(COMMON.NAME[COMMON.NAME %in% NOTABLE_SPECIES]))), collapse = ";"),
       .groups = "drop"
     ) %>%
-    mutate(has_focal = focal_species_seen != "")
+    mutate(has_focal = focal_species_seen != "", has_notable = notable_species_seen != "")
 
   checklists <- data_year %>%
     distinct(GROUP.ID, .keep_all = TRUE) %>%
@@ -107,7 +134,10 @@ process_year <- function(data_year, grid, year, out_dir = file.path(YEARS_DIR, a
       species_list        = replace_na(species_list, ""),
       focal_species_seen  = replace_na(focal_species_seen, ""),
       focal_species_slugs = replace_na(focal_species_slugs, ""),
-      has_focal           = replace_na(has_focal, FALSE)
+      has_focal           = replace_na(has_focal, FALSE),
+      notable_species_seen  = replace_na(notable_species_seen, ""),
+      notable_species_slugs = replace_na(notable_species_slugs, ""),
+      has_notable            = replace_na(has_notable, FALSE)
     ) %>%
     filter(!is.na(LATITUDE), !is.na(LONGITUDE)) %>%
     st_as_sf(coords = c("LONGITUDE", "LATITUDE"), crs = 4326, remove = FALSE)
@@ -137,6 +167,16 @@ process_year <- function(data_year, grid, year, out_dir = file.path(YEARS_DIR, a
     checklists = as.integer(species_counts[FOCAL_SPECIES])
   )
   write_json(species_manifest, file.path(year_dir, "species.json"), auto_unbox = TRUE, pretty = TRUE)
+
+  # ---- notable species gallery manifest (same shape, separate list/panel) ----
+  notable_counts <- sapply(NOTABLE_SPECIES, function(sp) sum(str_detect(checklists$notable_species_seen, fixed(sp))))
+  notable_manifest <- tibble(
+    name       = NOTABLE_SPECIES,
+    slug       = slugify(NOTABLE_SPECIES),
+    image      = paste0("www/species/", slugify(NOTABLE_SPECIES), ".svg"),
+    checklists = as.integer(notable_counts[NOTABLE_SPECIES])
+  )
+  write_json(notable_manifest, file.path(year_dir, "notable_species.json"), auto_unbox = TRUE, pretty = TRUE)
 
   # ---- per-grid stats (geometry lives in the shared grids_geometry.geojson) ----
   group_to_grid <- checklists %>% st_drop_geometry() %>% select(GROUP.ID, GRID_CODE)

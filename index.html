@@ -440,10 +440,10 @@
     const geo = L.geoJSON({ type: 'FeatureCollection', features: features }, {
       pointToLayer: function (feature, latlng) {
         const p = feature.properties;
-        // default "All" view: every checklist gets the same plain marker, focal or not.
-        // Photo markers only appear once a specific focal species is selected below.
+        // default "All" view: every checklist gets the same plain marker, focal/notable or not.
+        // Photo markers only appear once a specific species is selected below (either panel).
         if (activeSpeciesSlug) {
-          const slugs = (p.focal_species_slugs || '').split(';').filter(Boolean);
+          const slugs = ((p.focal_species_slugs || '') + ';' + (p.notable_species_slugs || '')).split(';').filter(Boolean);
           if (slugs.includes(activeSpeciesSlug)) {
             return L.marker(latlng, { icon: focalIcon(activeSpeciesSlug) });
           }
@@ -460,6 +460,13 @@
           html += '<div class="pp-row pp-focal">Focal: ' + esc(p.focal_species_seen) + '</div>';
           const slugs = (p.focal_species_slugs || '').split(';').filter(Boolean);
           html += '<div class="pp-focal-imgs">' + slugs.map(sl =>
+            '<img src="' + BASE_URL + 'www/species/' + sl + '.svg" title="' + esc(sl) + '">'
+          ).join('') + '</div>';
+        }
+        if (p.has_notable && p.notable_species_seen) {
+          html += '<div class="pp-row pp-focal">Notable: ' + esc(p.notable_species_seen) + '</div>';
+          const nslugs = (p.notable_species_slugs || '').split(';').filter(Boolean);
+          html += '<div class="pp-focal-imgs">' + nslugs.map(sl =>
             '<img src="' + BASE_URL + 'www/species/' + sl + '.svg" title="' + esc(sl) + '">'
           ).join('') + '</div>';
         }
@@ -484,7 +491,7 @@
   function renderChecklists() {
     if (checklistLayer) map.removeLayer(checklistLayer);
     const features = activeSpeciesSlug
-      ? allFeatures.filter(f => (f.properties.focal_species_slugs || '').split(';').includes(activeSpeciesSlug))
+      ? allFeatures.filter(f => ((f.properties.focal_species_slugs || '') + ';' + (f.properties.notable_species_slugs || '')).split(';').includes(activeSpeciesSlug))
       : allFeatures;
     checklistLayer = makeLayer(features).addTo(map);
   }
@@ -499,50 +506,71 @@
       });
   }
 
-  // ---- focal species gallery / filter panel ----
-  const speciesPanel = L.control({ position: 'topright' });
-  speciesPanel.onAdd = function () {
-    const div = L.DomUtil.create('div', 'species-panel');
-    div.innerHTML =
-      '<div class="species-panel-header" id="species-panel-header">' +
-        '<span class="sp-title">Focal species</span>' +
-        '<span class="species-toggle-icon">&#9660;</span>' +
-      '</div>' +
-      '<div class="species-grid-wrap"><div class="species-grid" id="species-grid"></div></div>';
-    L.DomEvent.disableClickPropagation(div);
-    L.DomEvent.disableScrollPropagation(div);
-    div.querySelector('#species-panel-header').onclick = () => div.classList.toggle('collapsed');
-    return div;
-  };
-  speciesPanel.addTo(map);
+  // ---- species gallery / filter panels: Focal species, and Notable species right
+  // below it (Leaflet stacks same-corner controls in the order they're added).
+  // Both panels share one global activeSpeciesSlug — selecting a species in either
+  // one is exclusive with everything else, in both panels at once.
+  function buildSpeciesPanel(title, gridId) {
+    const panel = L.control({ position: 'topright' });
+    panel.onAdd = function () {
+      const div = L.DomUtil.create('div', 'species-panel');
+      div.innerHTML =
+        '<div class="species-panel-header">' +
+          '<span class="sp-title">' + esc(title) + '</span>' +
+          '<span class="species-toggle-icon">&#9660;</span>' +
+        '</div>' +
+        '<div class="species-grid-wrap"><div class="species-grid" id="' + gridId + '"></div></div>';
+      L.DomEvent.disableClickPropagation(div);
+      L.DomEvent.disableScrollPropagation(div);
+      div.querySelector('.species-panel-header').onclick = () => div.classList.toggle('collapsed');
+      return div;
+    };
+    panel.addTo(map);
+  }
+  buildSpeciesPanel('Focal species', 'species-grid');
+  buildSpeciesPanel('Notable species', 'notable-species-grid');
 
-  function loadSpeciesPanel(year) {
-    return fetch(BASE_URL + yearPath(year) + 'species.json')
+  function setActiveSpecies(slug) {
+    activeSpeciesSlug = slug;
+    refreshActiveSpeciesButtons();
+    if (allFeatures) renderChecklists();
+  }
+  function refreshActiveSpeciesButtons() {
+    document.querySelectorAll('.species-grid .sp-btn').forEach(b => {
+      b.classList.toggle('active', (b.dataset.slug || null) === activeSpeciesSlug);
+    });
+  }
+
+  function loadSpeciesGallery(gridId, jsonFile, year) {
+    return fetch(BASE_URL + yearPath(year) + jsonFile)
       .then(r => r.json())
       .then(list => {
-        const grid = document.getElementById('species-grid');
+        const grid = document.getElementById(gridId);
         grid.innerHTML = '';
         const allBtn = document.createElement('div');
-        allBtn.className = 'sp-btn active';
+        allBtn.className = 'sp-btn';
+        allBtn.dataset.slug = '';
         allBtn.innerText = 'All';
-        allBtn.onclick = () => setActive(null, allBtn);
+        allBtn.onclick = () => setActiveSpecies(null);
         grid.appendChild(allBtn);
 
         list.forEach(sp => {
           const btn = document.createElement('div');
           btn.className = 'sp-btn';
+          btn.dataset.slug = sp.slug;
           btn.innerHTML = '<img src="' + BASE_URL + sp.image + '"><span>' + esc(sp.name) + ' (' + sp.checklists + ')</span>';
-          btn.onclick = () => setActive(sp.slug, btn);
+          btn.onclick = () => setActiveSpecies(sp.slug);
           grid.appendChild(btn);
         });
 
-        function setActive(slug, btn) {
-          activeSpeciesSlug = slug;
-          grid.querySelectorAll('.sp-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          if (allFeatures) renderChecklists();
-        }
+        refreshActiveSpeciesButtons();
       });
+  }
+  function loadSpeciesPanel(year) {
+    return loadSpeciesGallery('species-grid', 'species.json', year);
+  }
+  function loadNotableSpeciesPanel(year) {
+    return loadSpeciesGallery('notable-species-grid', 'notable_species.json', year);
   }
 
   // ---- tabs: Map vs All Species ----
@@ -806,6 +834,7 @@
       loadChecklists(year),
       loadGridStats(year),
       loadSpeciesPanel(year),
+      loadNotableSpeciesPanel(year),
       loadSpeciesChecklists(year).then(() => loadAllSpecies(year))
     ]).then(() => updateComparePanel(year));
   }
