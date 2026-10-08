@@ -971,16 +971,16 @@
     "COMMON.NAME": "Montagu's Harrier",
     "category": "species",
     "taxonomic_order": 8329,
-    "checklists": 11,
-    "total_count": 54,
-    "pct_checklists": 6.8
+    "checklists": 12,
+    "total_count": 55,
+    "pct_checklists": 7.4
   },
   {
     "COMMON.NAME": "harrier sp.",
     "category": "spuh",
     "taxonomic_order": 8333,
     "checklists": 7,
-    "total_count": 32,
+    "total_count": 31,
     "pct_checklists": 4.3
   },
   {
@@ -1238,6 +1238,14 @@
     "checklists": 26,
     "total_count": 126,
     "pct_checklists": 16
+  },
+  {
+    "COMMON.NAME": "Red-tailed/Isabelline Shrike",
+    "category": "slash",
+    "taxonomic_order": 21053,
+    "checklists": 1,
+    "total_count": 1,
+    "pct_checklists": 0.6
   },
   {
     "COMMON.NAME": "Bay-backed Shrike",

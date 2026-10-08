@@ -348,7 +348,7 @@
     "category": "species",
     "taxonomic_order": 5763,
     "checklists": 70,
-    "total_count": 1760,
+    "total_count": 1761,
     "pct_checklists": 13.6
   },
   {
@@ -675,9 +675,9 @@
     "COMMON.NAME": "River Tern",
     "category": "species",
     "taxonomic_order": 6730,
-    "checklists": 52,
-    "total_count": 627,
-    "pct_checklists": 10.1
+    "checklists": 53,
+    "total_count": 628,
+    "pct_checklists": 10.3
   },
   {
     "COMMON.NAME": "River/Black-bellied Tern",
@@ -811,9 +811,9 @@
     "COMMON.NAME": "Glossy Ibis",
     "category": "species",
     "taxonomic_order": 7467,
-    "checklists": 43,
-    "total_count": 588,
-    "pct_checklists": 8.4
+    "checklists": 44,
+    "total_count": 592,
+    "pct_checklists": 8.6
   },
   {
     "COMMON.NAME": "Black-headed Ibis",
@@ -1275,9 +1275,9 @@
     "COMMON.NAME": "Common Woodshrike",
     "category": "species",
     "taxonomic_order": 19949,
-    "checklists": 15,
-    "total_count": 105,
-    "pct_checklists": 2.9
+    "checklists": 16,
+    "total_count": 107,
+    "pct_checklists": 3.1
   },
   {
     "COMMON.NAME": "White-tailed Iora",
@@ -1379,9 +1379,9 @@
     "COMMON.NAME": "Rufous-tailed Lark",
     "category": "species",
     "taxonomic_order": 22379,
-    "checklists": 23,
-    "total_count": 275,
-    "pct_checklists": 4.5
+    "checklists": 24,
+    "total_count": 276,
+    "pct_checklists": 4.7
   },
   {
     "COMMON.NAME": "Ashy-crowned Sparrow-Lark",
@@ -1395,9 +1395,9 @@
     "COMMON.NAME": "Indian Bushlark",
     "category": "species",
     "taxonomic_order": 22478,
-    "checklists": 27,
-    "total_count": 188,
-    "pct_checklists": 5.3
+    "checklists": 28,
+    "total_count": 189,
+    "pct_checklists": 5.4
   },
   {
     "COMMON.NAME": "Indian/Singing Bushlark",
@@ -1444,7 +1444,7 @@
     "category": "spuh",
     "taxonomic_order": 22836,
     "checklists": 10,
-    "total_count": 194,
+    "total_count": 193,
     "pct_checklists": 1.9
   },
   {
@@ -1827,9 +1827,9 @@
     "COMMON.NAME": "Purple Sunbird",
     "category": "species",
     "taxonomic_order": 30450,
-    "checklists": 75,
-    "total_count": 840,
-    "pct_checklists": 14.6
+    "checklists": 76,
+    "total_count": 842,
+    "pct_checklists": 14.8
   },
   {
     "COMMON.NAME": "Streaked Weaver",

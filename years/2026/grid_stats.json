@@ -1200,7 +1200,7 @@
     "GRID_CODE": "GJ-KU-LAK-026",
     "n_lists": 1,
     "n_birders": 3,
-    "n_species": 13,
+    "n_species": 18,
     "focal_lists": 1
   },
   {
@@ -1368,14 +1368,14 @@
     "GRID_CODE": "GJ-KU-LIT-022",
     "n_lists": 1,
     "n_birders": 4,
-    "n_species": 8,
+    "n_species": 9,
     "focal_lists": 1
   },
   {
     "GRID_CODE": "GJ-KU-LIT-023",
     "n_lists": 1,
     "n_birders": 4,
-    "n_species": 18,
+    "n_species": 19,
     "focal_lists": 1
   },
   {
