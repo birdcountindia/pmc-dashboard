@@ -11,6 +11,8 @@
 #   years/<year>/all_species.json      — every taxon (incl. spuh/slash/hybrid), by distinct checklist
 #   years/<year>/checklist_grid_map.csv— GROUP.ID / SAMPLING.EVENT.IDENTIFIER / GRID_CODE
 #   years/<year>/daily_cumulative.json — cumulative lists/species/birders by date, for year-over-year comparison
+#   years/<year>/birder_checklists.json— FULL.NAME -> every GROUP.ID they're on + their own
+#                                         SAMPLING.EVENT.IDENTIFIER for it (shared-checklist co-observers included)
 #
 # Run:  Rscript source_data.R
 # (or call update_pmc_dashboard() from another script, e.g. an automation loop)
@@ -91,6 +93,7 @@ process_year <- function(data_year, grid, year, out_dir = file.path(YEARS_DIR, a
     # no data yet for this year (e.g. the current season hasn't started) — write valid empty outputs
     writeLines(empty_feature_collection(), file.path(year_dir, "checklists.geojson"))
     write_json(list(), file.path(year_dir, "grid_stats.json"), auto_unbox = TRUE)
+    writeLines("{}", file.path(year_dir, "birder_checklists.json"))
     write_json(
       tibble(name = FOCAL_SPECIES, slug = slugify(FOCAL_SPECIES),
              image = paste0("www/species/", slugify(FOCAL_SPECIES), ".svg"), checklists = 0L),
@@ -108,6 +111,27 @@ process_year <- function(data_year, grid, year, out_dir = file.path(YEARS_DIR, a
     message(glue("[{year}] no data yet — empty outputs written."))
     return(invisible(FALSE))
   }
+
+  # ---- birder -> checklists mapping, kept entirely separate from the
+  # checklists.geojson build below (which still collapses each shared
+  # checklist down to one GROUP.ID / one FULL.NAME for the map marker, and
+  # is untouched). This file instead lists, for every birder, every
+  # GROUP.ID they're on plus their own SAMPLING.EVENT.IDENTIFIER for it --
+  # so a shared checklist's co-observers (who may never be the FULL.NAME a
+  # given GROUP.ID's marker happens to show) still appear in the Birder
+  # dropdown and count towards their own lists total. When the dropdown
+  # selects a birder, the front end looks up this birder's GROUP.IDs to
+  # find/filter their checklist markers, and uses their own
+  # SAMPLING.EVENT.IDENTIFIER (not the marker's) to link to their checklist. ----
+  birder_checklists <- data_year %>%
+    distinct(FULL.NAME, GROUP.ID, SAMPLING.EVENT.IDENTIFIER) %>%
+    arrange(FULL.NAME, GROUP.ID)
+  birder_checklists_by_name <- split(
+    birder_checklists %>% select(GROUP.ID, SAMPLING.EVENT.IDENTIFIER),
+    birder_checklists$FULL.NAME
+  )
+  write_json(birder_checklists_by_name, file.path(year_dir, "birder_checklists.json"), auto_unbox = TRUE)
+  message(glue("[{year}] birder_checklists.json written: {length(birder_checklists_by_name)} birder(s)."))
 
   # ---- one point per checklist (GROUP.ID, so shared checklists count once) ----
   checklist_species <- data_year %>%

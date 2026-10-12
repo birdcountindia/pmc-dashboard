@@ -432,6 +432,7 @@
   let activeSpeciesSlug = null;   // null = show all checklists
   let checklistLayer = null;
   let allFeatures = null;
+  let birderChecklists = {};   // FULL.NAME -> [{ 'GROUP.ID', 'SAMPLING.EVENT.IDENTIFIER' }, ...], from birder_checklists.json
 
   function focalIcon(slug) {
     // 20% bigger than the original 28px on desktop; unchanged on mobile.
@@ -469,11 +470,24 @@
       },
       onEachFeature: function (f, layer) {
         const p = f.properties;
+        // when a birder filter is active, this checklist's marker may belong to a shared
+        // checklist whose displayed FULL.NAME/SEI are a co-observer's, not the selected
+        // birder's own -- look up their own name/SEI for this GROUP.ID from birder_checklists.json
+        let displayName = p['FULL.NAME'];
+        let sei = p['SAMPLING.EVENT.IDENTIFIER'];
+        if (activeBirderName) {
+          const mine = (birderChecklists[activeBirderName] || []).find(c => c['GROUP.ID'] === p['GROUP.ID']);
+          if (mine) {
+            displayName = activeBirderName;
+            sei = mine['SAMPLING.EVENT.IDENTIFIER'];
+          }
+        }
+
         let html = '<div class="pmc-popup">';
         html += '<div class="pp-title">' + esc(p.LOCALITY) + '</div>';
         html += '<div class="pp-row">' + esc(p['OBSERVATION.DATE']) + '</div>';
         html += '<div class="pp-row">' + (p.n_species || 0) + ' species</div>';
-        html += '<div class="pp-row">' + esc(p['FULL.NAME']) + '</div>';
+        html += '<div class="pp-row">' + esc(displayName) + '</div>';
         if (p.has_focal && p.focal_species_seen) {
           html += '<div class="pp-row pp-focal">Focal: ' + esc(p.focal_species_seen) + '</div>';
           const slugs = (p.focal_species_slugs || '').split(';').filter(Boolean);
@@ -488,7 +502,6 @@
             '<img src="' + BASE_URL + 'www/species/' + sl + '.svg" title="' + esc(sl) + '">'
           ).join('') + '</div>';
         }
-        const sei = p['SAMPLING.EVENT.IDENTIFIER'];
         if (sei) {
           html += '<div class="pp-row"><a href="https://ebird.org/checklist/' + esc(sei) + '" target="_blank" rel="noopener">View checklist</a></div>';
         }
@@ -514,21 +527,27 @@
       features = features.filter(f => ((f.properties.focal_species_slugs || '') + ';' + (f.properties.notable_species_slugs || '')).split(';').includes(activeSpeciesSlug));
     }
     if (activeBirderName) {
-      features = features.filter(f => f.properties['FULL.NAME'] === activeBirderName);
+      // match on GROUP.ID via birder_checklists.json, not the marker's own FULL.NAME --
+      // a shared checklist's marker only ever shows one co-observer's name, so matching
+      // FULL.NAME directly would miss every checklist where this birder wasn't the one kept.
+      const ids = new Set((birderChecklists[activeBirderName] || []).map(c => c['GROUP.ID']));
+      features = features.filter(f => ids.has(f.properties['GROUP.ID']));
     }
     checklistLayer = makeLayer(features).addTo(map);
   }
 
   function loadChecklists(year) {
-    return fetch(BASE_URL + yearPath(year) + 'checklists.geojson')
-      .then(r => r.json())
-      .then(geo => {
-        allFeatures = geo.features;
-        activeSpeciesSlug = null;
-        activeBirderName = null;
-        populateBirderSelect();
-        renderChecklists();
-      });
+    return Promise.all([
+      fetch(BASE_URL + yearPath(year) + 'checklists.geojson').then(r => r.json()),
+      fetch(BASE_URL + yearPath(year) + 'birder_checklists.json').then(r => r.json()).catch(() => ({}))
+    ]).then(([geo, birders]) => {
+      allFeatures = geo.features;
+      birderChecklists = birders;
+      activeSpeciesSlug = null;
+      activeBirderName = null;
+      populateBirderSelect();
+      renderChecklists();
+    });
   }
 
   // ---- "select and view data by FULL.NAME": a birder dropdown that filters the
@@ -551,15 +570,11 @@
 
   function populateBirderSelect() {
     const sel = document.getElementById('birder-select');
-    const counts = {};
-    allFeatures.forEach(f => {
-      const name = f.properties['FULL.NAME'];
-      if (!name) return;
-      counts[name] = (counts[name] || 0) + 1;
-    });
-    const names = Object.keys(counts).sort((a, b) => a.localeCompare(b));
+    // birder_checklists.json lists every birder's own GROUP.IDs, so the count here (and the
+    // dropdown itself) covers shared-checklist co-observers that checklists.geojson alone would miss.
+    const names = Object.keys(birderChecklists).sort((a, b) => a.localeCompare(b));
     sel.innerHTML = '<option value="">All birders</option>' +
-      names.map(n => '<option value="' + esc(n) + '">' + esc(n) + ' (' + counts[n] + ')</option>').join('');
+      names.map(n => '<option value="' + esc(n) + '">' + esc(n) + ' (' + birderChecklists[n].length + ')</option>').join('');
     sel.value = '';
   }
 
