@@ -1497,7 +1497,7 @@
   },
   {
     "COMMON.NAME": "Eastern Red-rumped Swallow",
-    "category": "issf",
+    "category": "species",
     "taxonomic_order": 24239,
     "checklists": 44,
     "total_count": 545,
@@ -1729,7 +1729,7 @@
   },
   {
     "COMMON.NAME": "Variable Wheatear",
-    "category": "species",
+    "category": "form",
     "taxonomic_order": 29850,
     "checklists": 46,
     "total_count": 308,
