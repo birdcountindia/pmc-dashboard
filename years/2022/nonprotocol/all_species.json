@@ -1377,7 +1377,7 @@
   },
   {
     "COMMON.NAME": "Great Gray Shrike",
-    "category": "species",
+    "category": "issf",
     "taxonomic_order": 21112,
     "checklists": 22,
     "total_count": 112,
@@ -1729,7 +1729,7 @@
   },
   {
     "COMMON.NAME": "Lesser Whitethroat",
-    "category": "form",
+    "category": "species",
     "taxonomic_order": 25305,
     "checklists": 30,
     "total_count": 132,
