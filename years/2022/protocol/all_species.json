@@ -1465,8 +1465,8 @@
   },
   {
     "COMMON.NAME": "Spotted Flycatcher",
-    "category": "species",
-    "taxonomic_order": 28818,
+    "category": "issf",
+    "taxonomic_order": 28819,
     "checklists": 38,
     "total_count": 265,
     "pct_checklists": 26.4
