@@ -49,7 +49,7 @@
   },
   {
     "COMMON.NAME": "Green-winged Teal",
-    "category": "species",
+    "category": "issf",
     "taxonomic_order": 612,
     "checklists": 2,
     "total_count": 9,
@@ -1729,7 +1729,7 @@
   },
   {
     "COMMON.NAME": "Variable Wheatear",
-    "category": "species",
+    "category": "form",
     "taxonomic_order": 29850,
     "checklists": 46,
     "total_count": 308,
