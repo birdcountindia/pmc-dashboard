@@ -1465,7 +1465,7 @@
   },
   {
     "COMMON.NAME": "Great Gray Shrike",
-    "category": "species",
+    "category": "issf",
     "taxonomic_order": 21112,
     "checklists": 43,
     "total_count": 301,
@@ -1889,8 +1889,8 @@
   },
   {
     "COMMON.NAME": "Spotted Flycatcher",
-    "category": "species",
-    "taxonomic_order": 28818,
+    "category": "issf",
+    "taxonomic_order": 28819,
     "checklists": 143,
     "total_count": 1241,
     "pct_checklists": 32
