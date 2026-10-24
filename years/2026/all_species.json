@@ -101,7 +101,7 @@
     "taxonomic_order": 1639,
     "checklists": 229,
     "total_count": 3435,
-    "pct_checklists": 33
+    "pct_checklists": 32.9
   },
   {
     "COMMON.NAME": "Black Francolin",
@@ -413,7 +413,7 @@
     "taxonomic_order": 5863,
     "checklists": 42,
     "total_count": 902,
-    "pct_checklists": 6.1
+    "pct_checklists": 6
   },
   {
     "COMMON.NAME": "Red-wattled Lapwing",
@@ -421,7 +421,7 @@
     "taxonomic_order": 5883,
     "checklists": 258,
     "total_count": 7102,
-    "pct_checklists": 37.2
+    "pct_checklists": 37.1
   },
   {
     "COMMON.NAME": "lapwing sp.",
@@ -549,7 +549,7 @@
     "taxonomic_order": 6128,
     "checklists": 76,
     "total_count": 519,
-    "pct_checklists": 11
+    "pct_checklists": 10.9
   },
   {
     "COMMON.NAME": "Marsh Sandpiper",
@@ -619,9 +619,9 @@
     "COMMON.NAME": "Temminck's Stint",
     "category": "species",
     "taxonomic_order": 6184,
-    "checklists": 17,
-    "total_count": 173,
-    "pct_checklists": 2.4
+    "checklists": 18,
+    "total_count": 175,
+    "pct_checklists": 2.6
   },
   {
     "COMMON.NAME": "Sanderling",
@@ -749,7 +749,7 @@
     "taxonomic_order": 6720,
     "checklists": 76,
     "total_count": 867,
-    "pct_checklists": 11
+    "pct_checklists": 10.9
   },
   {
     "COMMON.NAME": "River Tern",
@@ -949,7 +949,7 @@
     "taxonomic_order": 7650,
     "checklists": 92,
     "total_count": 1100,
-    "pct_checklists": 13.3
+    "pct_checklists": 13.2
   },
   {
     "COMMON.NAME": "Western Reef-Heron",
@@ -979,9 +979,9 @@
     "COMMON.NAME": "Eastern Cattle-Egret",
     "category": "species",
     "taxonomic_order": 7726,
-    "checklists": 144,
-    "total_count": 2921,
-    "pct_checklists": 20.7
+    "checklists": 145,
+    "total_count": 2922,
+    "pct_checklists": 20.9
   },
   {
     "COMMON.NAME": "Great Egret",
@@ -1149,7 +1149,7 @@
     "taxonomic_order": 8329,
     "checklists": 42,
     "total_count": 189,
-    "pct_checklists": 6.1
+    "pct_checklists": 6
   },
   {
     "COMMON.NAME": "Pallid/Montagu's Harrier",
@@ -1219,9 +1219,9 @@
     "COMMON.NAME": "Rock Eagle-Owl",
     "category": "species",
     "taxonomic_order": 8930,
-    "checklists": 2,
-    "total_count": 8,
-    "pct_checklists": 0.3
+    "checklists": 3,
+    "total_count": 9,
+    "pct_checklists": 0.4
   },
   {
     "COMMON.NAME": "Spotted Owlet",
@@ -1253,7 +1253,7 @@
     "taxonomic_order": 9811,
     "checklists": 281,
     "total_count": 6684,
-    "pct_checklists": 40.5
+    "pct_checklists": 40.4
   },
   {
     "COMMON.NAME": "Blue-cheeked Bee-eater",
@@ -1261,7 +1261,7 @@
     "taxonomic_order": 9820,
     "checklists": 99,
     "total_count": 1747,
-    "pct_checklists": 14.3
+    "pct_checklists": 14.2
   },
   {
     "COMMON.NAME": "Blue-cheeked/Blue-tailed Bee-eater",
@@ -1757,7 +1757,7 @@
     "taxonomic_order": 24187,
     "checklists": 90,
     "total_count": 1445,
-    "pct_checklists": 13
+    "pct_checklists": 12.9
   },
   {
     "COMMON.NAME": "Wire-tailed Swallow",
@@ -1877,7 +1877,7 @@
     "taxonomic_order": 26637,
     "checklists": 233,
     "total_count": 7151,
-    "pct_checklists": 33.6
+    "pct_checklists": 33.5
   },
   {
     "COMMON.NAME": "Rosy Starling",
@@ -1885,7 +1885,7 @@
     "taxonomic_order": 27829,
     "checklists": 110,
     "total_count": 8627,
-    "pct_checklists": 15.9
+    "pct_checklists": 15.8
   },
   {
     "COMMON.NAME": "Brahminy Starling",
@@ -1901,7 +1901,7 @@
     "taxonomic_order": 27859,
     "checklists": 42,
     "total_count": 554,
-    "pct_checklists": 6.1
+    "pct_checklists": 6
   },
   {
     "COMMON.NAME": "Bank Myna",
@@ -1917,7 +1917,7 @@
     "taxonomic_order": 28819,
     "checklists": 101,
     "total_count": 603,
-    "pct_checklists": 14.6
+    "pct_checklists": 14.5
   },
   {
     "COMMON.NAME": "Muscicapa sp.",
@@ -1931,9 +1931,9 @@
     "COMMON.NAME": "Rufous-tailed Scrub-Robin",
     "category": "species",
     "taxonomic_order": 28964,
-    "checklists": 26,
-    "total_count": 138,
-    "pct_checklists": 3.7
+    "checklists": 27,
+    "total_count": 139,
+    "pct_checklists": 3.9
   },
   {
     "COMMON.NAME": "Indian Robin",
@@ -1989,7 +1989,7 @@
     "taxonomic_order": 29677,
     "checklists": 92,
     "total_count": 655,
-    "pct_checklists": 13.3
+    "pct_checklists": 13.2
   },
   {
     "COMMON.NAME": "Pied Bushchat",
@@ -2093,7 +2093,7 @@
     "taxonomic_order": 31534,
     "checklists": 190,
     "total_count": 12234,
-    "pct_checklists": 27.4
+    "pct_checklists": 27.3
   },
   {
     "COMMON.NAME": "Yellow-throated Sparrow",
