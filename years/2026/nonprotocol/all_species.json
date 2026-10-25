@@ -57,7 +57,7 @@
   },
   {
     "COMMON.NAME": "Green-winged Teal",
-    "category": "issf",
+    "category": "species",
     "taxonomic_order": 612,
     "checklists": 3,
     "total_count": 16,
@@ -633,7 +633,7 @@
   },
   {
     "COMMON.NAME": "Lesser Black-backed Gull",
-    "category": "species",
+    "category": "issf",
     "taxonomic_order": 6576,
     "checklists": 4,
     "total_count": 25,
