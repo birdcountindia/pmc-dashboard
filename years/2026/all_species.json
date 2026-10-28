@@ -705,7 +705,7 @@
   },
   {
     "COMMON.NAME": "Lesser Black-backed Gull",
-    "category": "species",
+    "category": "issf",
     "taxonomic_order": 6622,
     "checklists": 6,
     "total_count": 58,
@@ -2017,7 +2017,7 @@
   },
   {
     "COMMON.NAME": "Variable Wheatear",
-    "category": "species",
+    "category": "form",
     "taxonomic_order": 30071,
     "checklists": 111,
     "total_count": 739,
