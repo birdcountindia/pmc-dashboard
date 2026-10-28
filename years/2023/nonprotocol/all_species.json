@@ -160,6 +160,14 @@
     "pct_checklists": 11.3
   },
   {
+    "COMMON.NAME": "Little Swift",
+    "category": "species",
+    "taxonomic_order": 4173,
+    "checklists": 4,
+    "total_count": 21,
+    "pct_checklists": 5.6
+  },
+  {
     "COMMON.NAME": "swift sp.",
     "category": "spuh",
     "taxonomic_order": 4235,

@@ -312,6 +312,14 @@
     "pct_checklists": 0.8
   },
   {
+    "COMMON.NAME": "Little Swift",
+    "category": "species",
+    "taxonomic_order": 4173,
+    "checklists": 49,
+    "total_count": 1409,
+    "pct_checklists": 10.3
+  },
+  {
     "COMMON.NAME": "swift sp.",
     "category": "spuh",
     "taxonomic_order": 4235,
@@ -1473,7 +1481,7 @@
   },
   {
     "COMMON.NAME": "Great Gray Shrike",
-    "category": "species",
+    "category": "issf",
     "taxonomic_order": 21210,
     "checklists": 32,
     "total_count": 163,
