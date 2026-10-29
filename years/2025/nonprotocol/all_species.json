@@ -240,6 +240,14 @@
     "pct_checklists": 1.1
   },
   {
+    "COMMON.NAME": "Little Swift",
+    "category": "species",
+    "taxonomic_order": 4173,
+    "checklists": 21,
+    "total_count": 435,
+    "pct_checklists": 7.6
+  },
+  {
     "COMMON.NAME": "Eurasian Moorhen",
     "category": "species",
     "taxonomic_order": 5500,
@@ -1225,7 +1233,7 @@
   },
   {
     "COMMON.NAME": "Great Gray Shrike",
-    "category": "species",
+    "category": "issf",
     "taxonomic_order": 21210,
     "checklists": 25,
     "total_count": 187,

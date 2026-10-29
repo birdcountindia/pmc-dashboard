@@ -65,7 +65,7 @@
   },
   {
     "COMMON.NAME": "Green-winged Teal",
-    "category": "species",
+    "category": "issf",
     "taxonomic_order": 625,
     "checklists": 5,
     "total_count": 25,
@@ -310,6 +310,14 @@
     "checklists": 8,
     "total_count": 42,
     "pct_checklists": 1.2
+  },
+  {
+    "COMMON.NAME": "Little Swift",
+    "category": "species",
+    "taxonomic_order": 4173,
+    "checklists": 59,
+    "total_count": 819,
+    "pct_checklists": 8.5
   },
   {
     "COMMON.NAME": "swift sp.",
