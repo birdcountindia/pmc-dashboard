@@ -714,6 +714,13 @@
     "focal_lists": 0
   },
   {
+    "GRID_CODE": "GJ-KU-MAN-019",
+    "n_lists": 1,
+    "n_birders": 5,
+    "n_species": 30,
+    "focal_lists": 1
+  },
+  {
     "GRID_CODE": "GJ-KU-MAN-021",
     "n_lists": 1,
     "n_birders": 4,
@@ -725,13 +732,6 @@
     "n_lists": 1,
     "n_birders": 5,
     "n_species": 31,
-    "focal_lists": 1
-  },
-  {
-    "GRID_CODE": "GJ-KU-MAN-029",
-    "n_lists": 1,
-    "n_birders": 5,
-    "n_species": 30,
     "focal_lists": 1
   },
   {
