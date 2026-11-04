@@ -931,9 +931,9 @@
     "COMMON.NAME": "Eurasian Spoonbill",
     "category": "species",
     "taxonomic_order": 7582,
-    "checklists": 36,
-    "total_count": 1057,
-    "pct_checklists": 5.2
+    "checklists": 37,
+    "total_count": 1060,
+    "pct_checklists": 5.3
   },
   {
     "COMMON.NAME": "Black-crowned Night Heron",
@@ -1300,16 +1300,16 @@
     "category": "species",
     "taxonomic_order": 10400,
     "checklists": 382,
-    "total_count": 5195,
+    "total_count": 5193,
     "pct_checklists": 55
   },
   {
     "COMMON.NAME": "Indian Roller",
     "category": "species",
     "taxonomic_order": 10411,
-    "checklists": 29,
-    "total_count": 140,
-    "pct_checklists": 4.2
+    "checklists": 30,
+    "total_count": 142,
+    "pct_checklists": 4.3
   },
   {
     "COMMON.NAME": "Eurasian Wryneck",
