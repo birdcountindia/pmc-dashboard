@@ -141,10 +141,10 @@
   },
   {
     "GRID_CODE": "GJ-KU-BHA-022",
-    "n_lists": 2,
+    "n_lists": 1,
     "n_birders": 4,
-    "n_species": 19,
-    "focal_lists": 2
+    "n_species": 11,
+    "focal_lists": 1
   },
   {
     "GRID_CODE": "GJ-KU-BHA-029",
@@ -719,6 +719,13 @@
     "n_birders": 4,
     "n_species": 24,
     "focal_lists": 0
+  },
+  {
+    "GRID_CODE": "GJ-KU-RAP-061",
+    "n_lists": 1,
+    "n_birders": 4,
+    "n_species": 9,
+    "focal_lists": 1
   },
   {
     "GRID_CODE": "GJ-KU-RAP-064",
