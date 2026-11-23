@@ -1303,17 +1303,10 @@
   },
   {
     "GRID_CODE": "GJ-KU-RAN-478",
-    "n_lists": 1,
+    "n_lists": 2,
     "n_birders": 4,
     "n_species": 7,
     "focal_lists": 1
-  },
-  {
-    "GRID_CODE": "GJ-KU-RAN-480",
-    "n_lists": 1,
-    "n_birders": 4,
-    "n_species": 1,
-    "focal_lists": 0
   },
   {
     "GRID_CODE": "GJ-KU-RAN-501",
