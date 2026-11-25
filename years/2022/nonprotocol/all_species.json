@@ -1377,7 +1377,7 @@
   },
   {
     "COMMON.NAME": "Great Gray Shrike",
-    "category": "issf",
+    "category": "species",
     "taxonomic_order": 21210,
     "checklists": 22,
     "total_count": 112,
@@ -1913,7 +1913,7 @@
   },
   {
     "COMMON.NAME": "Variable Wheatear",
-    "category": "form",
+    "category": "species",
     "taxonomic_order": 30071,
     "checklists": 59,
     "total_count": 293,
